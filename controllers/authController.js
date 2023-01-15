@@ -1,7 +1,7 @@
 const {user}=require('../models')
 const bcrypt = require('bcrypt');
 const dbFunct = require("../database.js");
-
+const jwt = require('jsonwebtoken');
 
 
 // controller actions
@@ -30,15 +30,15 @@ module.exports.signup = (req, res) => {
       console.log(err)
     }
 
-
-    /*req.session.user={
-      userID:userID,
-      userName:name,
-      userEmail:email,
-      status:true
-    }*/
-    res.send("Done "+userNew.dataValues.userID);
-    //res.redirect("/");
+    if(userNew)
+    {
+     const obj={"success": "true","userID": userNew.dataValues.userID}
+     res.json(obj)
+    }else{
+      const obj={"success": "false"}
+      res.json(obj);
+    }
+  
    
   }
   
@@ -50,23 +50,32 @@ module.exports.signup = (req, res) => {
     
     const pass=await user.findOne({where:{userID:userID}});
 
+    const obj={"success":"false",
+    "message":"Credential is not valid",
+    "data":{
+             "token":"",
+             "userID": "",
+             "name":"",
+             "university":""
+    }
+
+    }
+
     bcrypt.compare(passIn, pass.dataValues.pass, async(err, result)=> {
-      
+      const maxAge = 3 * 24 * 60 * 60;
       if(result){
-        //const user=await dbFunct.getUser(userID);
-        
-        /*req.session.user={
-          userID:userID,
-          userName:user.name,
-          userEmail:user.email,
-          status:true,
-        }*/
-        res.send("Logged In")
-        //res.redirect("/")
+        obj.data.token=jwt.sign({ userID }, 'Version23', {expiresIn: maxAge});
+        obj.data.userID=pass.dataValues.userID;
+        obj.data.name=pass.dataValues.name;
+        obj.data.university=pass.dataValues.university;
+        obj.success="true";
+        obj.message="Credential is valid"
+        res.json(obj);
       }
+
       else
-      res.send("Not Logged In")
-      //res.redirect("/login")
+      res.json(obj);
+      
   });
   
   }
