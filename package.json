@@ -1,0 +1,29 @@
+{
+  "name": "versionweb22",
+  "version": "1.0.0",
+  "description": "Central Website for version'23",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VersionNITT/CentralWeb22.git"
+  },
+  "author": "Riser",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VersionNITT/CentralWeb22/issues"
+  },
+  "homepage": "https://github.com/VersionNITT/CentralWeb22#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.28.0"
+  }
+}
