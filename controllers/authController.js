@@ -1,7 +1,7 @@
 const {user}=require('../models')
 const bcrypt = require('bcrypt');
 const dbFunct = require("../database.js");
-
+const emailFunct = require("./mail.js");
 
 
 // controller actions
@@ -24,13 +24,15 @@ module.exports.signup = (req, res) => {
     const pass=req.body.pass;
     var userNew;
     try{
-      userNew=await dbFunct.storeUser(name,email,contact,university,pass)
+      userNew=await dbFunct.storeUser(name,email,contact,university,pass);
+      const data ={name: name,reg: userNew.dataValues.userID}
+      emailFunct.mail(email,data);
     }
     catch(err){
       console.log(err)
     }
 
-
+    
     /*req.session.user={
       userID:userID,
       userName:name,
