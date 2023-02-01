@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="/styles/login.css">
+    <link rel="stylesheet" href="/styles/navigation.css">
+</head>
+<body>
+    <div class="nav-container">
+        <div class="menu" id="menu">
+            <div class="hamburger">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+            </div>
+        </div>
+        <div class="version-logo">
+            <img class="ver-logo" src="/images/version.png" alt="version-logo">
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <ul class="nav-list" id="nav-list">
+        <li><a class="nav-options" href="#">About Us</a></li>
+        <li><a class="nav-options" href="#">Theme</a></li>
+        <li><a class="nav-options" href="#">Events</a></li>
+        <li><a class="nav-options" href="#">Teams</a></li>
+        <li><a class="nav-options" href="#">Contact Us</a></li>
+        <li><a class="nav-options" href="#">Login/SignUp</a></li>
+    </ul>
+    <div class="login-container">
+        <form class="login" method="post" action="/register">
+            <div class="head">Sign Up</div>
+            <div class="details-container">
+                <input type="text" name="name" placeholder="Name">
+                <input type="text" name="roll" placeholder="College Roll Number">
+                <input type="email" name="email" placeholder="E-Mail">
+                <input type="text" name="university" placeholder="University Name">
+                <input type="number" name="contact" placeholder="Mobile Number">
+                <input type="text" name="pass" placeholder="Password">
+                <input type="password" name="passR" placeholder="Retype Password">
+            </div>
+            <div class="actions">
+                <button type="submit">Sign Up</button>
+                <button><a href="/login">Already Registered? Click Here!</a></button>
+            </div>
+        </form>
+    </div>
+    <script src="/res/navigation.js"></script>
+</body>
+</html>

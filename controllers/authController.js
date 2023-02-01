@@ -5,27 +5,33 @@ const emailFunct = require("./mail.js");
 
 
 // controller actions
-module.exports.signup = (req, res) => {
-    res.send('signup page');
+
+module.exports.home = (req, res) => {
+  res.render("home");
+}
+
+module.exports.signup_get = (req, res) => {
+  res.render("signup");
   }
   
   module.exports.login_get = (req, res) => {
-    res.send('login page');
+    res.render("login");
   }
   
-  module.exports.register = async (req, res) => {
+  module.exports.signup_post = async (req, res) => {
 
 
-//console.log(req.body);
+    console.log(req.body);
     const name=req.body.name;
+    const roll=req.body.roll;
     const email=req.body.email;
     const contact=req.body.contact;
     const university=req.body.university;
     const pass=req.body.pass;
     var userNew;
     try{
-      userNew=await dbFunct.storeUser(name,email,contact,university,pass);
-      const data ={name: name,reg: userNew.dataValues.userID}
+      userNew=await dbFunct.storeUser(name,roll,email,contact,university,pass);
+      const data ={name: name,reg: userNew.dataValues.userID};
       emailFunct.mail(email,data);
     }
     catch(err){
@@ -39,8 +45,8 @@ module.exports.signup = (req, res) => {
       userEmail:email,
       status:true
     }*/
-    res.send("Done "+userNew.dataValues.userID);
-    //res.redirect("/");
+   // res.send("Done "+userNew.dataValues.userID);
+    res.redirect("/");
    
   }
   
@@ -53,7 +59,7 @@ module.exports.signup = (req, res) => {
     const pass=await user.findOne({where:{userID:userID}});
 
     bcrypt.compare(passIn, pass.dataValues.pass, async(err, result)=> {
-      
+      console.log(err, result);
       if(result){
         //const user=await dbFunct.getUser(userID);
         
@@ -63,12 +69,12 @@ module.exports.signup = (req, res) => {
           userEmail:user.email,
           status:true,
         }*/
-        res.send("Logged In")
-        //res.redirect("/")
+        //res.send("Logged In")
+        res.redirect("/")
       }
       else
-      res.send("Not Logged In")
-      //res.redirect("/login")
+      //res.send("Not Logged In")
+      res.redirect("/login")
   });
   
   }

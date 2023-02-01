@@ -24,6 +24,15 @@ module.exports = {
         }
   
       },
+      roll: {
+        type:DataTypes.STRING,
+        allowNull:false,
+        validate:{
+          notNull:{msg:'User  must have a Roll number'},
+          notEmpty:{msg:'Roll number must not be empty'}
+        }
+  
+      },
       email: {
         type:DataTypes.STRING,
         allowNull:false,

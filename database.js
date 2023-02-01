@@ -1,7 +1,7 @@
 const {user,info}=require('./models')
 
 /*******************************************************************Create Operations******************************************** */
-exports.storeUser=async(name,email,contact,university,pass)=>{
+exports.storeUser=async(name,roll,email,contact,university,pass)=>{
    
     try {
         const infoI=await info.findOne({where:{infoID:101}})
@@ -9,7 +9,7 @@ exports.storeUser=async(name,email,contact,university,pass)=>{
         const userID = parseInt(infoI.dataValues.value)+1;
         await info.update({value: userID},{where:{infoID:101}});
 
-        const userN = await user.create({userID,name,email,contact,university,pass})
+        const userN = await user.create({userID,name,roll,email,contact,university,pass})
         return userN;
     } catch (err) {
         console.log(err);

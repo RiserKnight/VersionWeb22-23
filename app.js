@@ -1,16 +1,21 @@
 const express = require('express');
 const authRoutes = require('./routes/authRoutes');
 const {sequelize,info}=require('./models');
-//const  bodyParser = require('body-parser');
+const cors = require('cors');
+const  bodyParser = require('body-parser');
 
 require('dotenv').config();
 
 const app = express();
 
+app.use(express.static(__dirname+"/public"));
 app.set('view engine', 'ejs');
-app.set('port', 3000);
+app.set('port', process.env.PORT);
 
-//app.use(bodyParser.urlencoded({extended: true}));
+// cors policy
+app.use(cors());
+
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 app.use(express.json());
 app.use(authRoutes);

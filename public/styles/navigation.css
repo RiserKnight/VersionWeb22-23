@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* NAVIGATION */
+
+.nav-container {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: space-between;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 999;
+    /* background-color: rgba(0, 0, 0, 0.509); */
+  }
+  
+  .menu {
+    width: 50px;
+    height: 50px;
+    margin-left: 100px;
+    cursor: pointer;
+  }
+  
+  .menu div {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.5s;
+  }
+  
+  .menu span {
+    background: white;
+    width: 100%;
+    height: 3px;
+    border-radius: 5px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.5s, width 0.5s;
+  }
+  
+  .menu .line1 {
+    width: 50%;
+    transform: translate(-100%, -20px);
+    transform-origin: 0 0;
+  }
+  
+  .menu .line3 {
+    width: 50%;
+    left: auto;
+    right: 0;
+    transform: translate(0, 17px);
+    transform-origin: 100% 0;
+  }
+  
+  .openmenu .line1 {
+    transform: translate(0, 0) rotate(-45deg);
+  }
+  
+  .openmenu .line3 {
+    transform: translate(-100%, 0) rotate(-45deg);
+  }
+  
+  .openmenu .line2 {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  
+  .openmenu .hamburger {
+    transform: translateX(-50px) scale(0.5);
+    transition: transform 0.5s scale 0.5s;
+  }
+  
+  .version-logo {
+    margin-right: 100px;
+  }
+  
+  .ver-logo {
+    max-width: 100%;
+    height: 40px;
+  }
+  
+  /* .menu-options {
+    
+  } */
+  
+  .nav-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: 'Poppins', sans-serif;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+    width: 300px;
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: #000;
+    height: 100vh;
+    text-transform: uppercase;
+    transform: translateX(-300px);
+    transition: transform 0.5s;
+  }
+  
+  .nav-options {
+    color: #56ffae;
+    display: inline-block;
+    text-decoration: none;
+    transform: translateX(-500px);
+    transition: all .2s ease-in-out; 
+  }
+  
+  .opennav .nav-options:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    border-bottom: 3px solid #56ffae;
+  }
+  
+  .opennav {
+    transform: translate(0,0);
+    transition: transform 0.5s;
+  }
+  
+  .opennav .nav-options {
+    transform: translateX(0);
+    transition: transform 0.8s;
+  }
+  
+  .overlay {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .overlay.active {
+    z-index: 2;
+  }
