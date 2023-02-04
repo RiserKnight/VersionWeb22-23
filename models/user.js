@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty:{msg:'ID must not be empty'}
       }
     },
-    name: {
+    userName: {
       type:DataTypes.STRING,
       allowNull:false,
       validate:{
@@ -84,7 +84,7 @@ module.exports = (sequelize, DataTypes) => {
     hooks: {
       beforeCreate: async(user, options) => {
 
-        const salt = await bcrypt.genSalt();
+        const salt = await bcrypt.genSalt(10);
         user.pass  = await bcrypt.hash(user.pass, salt);
      
       }

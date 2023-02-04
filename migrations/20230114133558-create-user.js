@@ -15,7 +15,7 @@ module.exports = {
           notEmpty:{msg:'ID must not be empty'}
         }
       },
-      name: {
+      userName: {
         type:DataTypes.STRING,
         allowNull:false,
         validate:{

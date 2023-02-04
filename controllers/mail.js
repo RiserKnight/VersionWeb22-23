@@ -2,10 +2,11 @@ const nodemailer = require('nodemailer');
 // data is js object {"reg":"....","name":"...",}
 
 
-module.exports.mail = (email, data)=>{
+module.exports.mail = (req,res,email, data)=>{
+    
 
     const subject = "Version23 Team Welcomes you";
-    const text = "Hello "+ data.name +" your registration number is " + data.reg;
+    const text = "Hello "+ data.userName +" your registration number is " + data.reg;
 
     let transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -21,15 +22,17 @@ module.exports.mail = (email, data)=>{
         subject: subject, 
         text: text 
     };
+    try {
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (!error) {
+                console.log(`Email sent to ${email}`);
+                res.status(200).json({ message: `Email sent succesfully` });
+            } 
+        });
+    } catch (error) {
+        console.log(error);
+    }
 
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            console.log(`Error sending email to ${email}: ${error}`);
-            res.status(500).json({ message: `Error sending email to ${email}: ${error}` });
-        } else {
-            console.log(`Email sent to ${email}`);
-            res.status(200).json({ message: `Email sent succesfully` });
-        }
-    });
+   
 
 }

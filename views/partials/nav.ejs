@@ -1,0 +1,15 @@
+
+<ul class="nav-list" id="nav-list">
+    <li><a class="nav-options" href="#">About Us</a></li>
+    <li><a class="nav-options" href="#">Theme</a></li>
+    <li><a class="nav-options" href="#">Events</a></li>
+    <li><a class="nav-options" href="#">Teams</a></li>
+    <li><a class="nav-options" href="#">Contact Us</a></li>
+    <%if(user){%>
+        <li><a class="nav-options" href="/logout">Logout</a></li>
+        <%}else{%>
+            <li><a class="nav-options" href="/login">Login</a></li>
+            <li><a class="nav-options" href="/register">SignUp</a></li>
+        <%}%>
+ 
+</ul>

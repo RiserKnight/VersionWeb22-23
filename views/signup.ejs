@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,32 +23,94 @@
         </div>
     </div>
     <div class="overlay" id="overlay"></div>
-    <ul class="nav-list" id="nav-list">
-        <li><a class="nav-options" href="#">About Us</a></li>
-        <li><a class="nav-options" href="#">Theme</a></li>
-        <li><a class="nav-options" href="#">Events</a></li>
-        <li><a class="nav-options" href="#">Teams</a></li>
-        <li><a class="nav-options" href="#">Contact Us</a></li>
-        <li><a class="nav-options" href="#">Login/SignUp</a></li>
-    </ul>
+    <%- include('partials/nav') %>
     <div class="login-container">
         <form class="login" method="post" action="/register">
             <div class="head">Sign Up</div>
             <div class="details-container">
-                <input type="text" name="name" placeholder="Name">
-                <input type="text" name="roll" placeholder="College Roll Number">
-                <input type="email" name="email" placeholder="E-Mail">
-                <input type="text" name="university" placeholder="University Name">
-                <input type="number" name="contact" placeholder="Mobile Number">
-                <input type="text" name="pass" placeholder="Password">
-                <input type="password" name="passR" placeholder="Retype Password">
+                <input id="userNameInput" type="text" name="userName" placeholder="Name">
+                <p id="userName" style="display:none;" >Enter your name</p>
+
+                <input id="rollInput" type="text" name="roll" placeholder="College Roll Number">
+                <p id="roll" style="display:none;" >Enter your Roll Number</p>
+
+                <input id="emailInput" type="email" name="email" placeholder="E-Mail">
+                <p id="email" style="display:none;" >Enter your Email</p>
+
+                <input id="universityInput" type="text" name="university" placeholder="University Name">
+                <p id="university" style="display:none;" >Enter your University Name</p>
+
+                <input id="contactInput" type="number" name="contact" placeholder="Mobile Number">
+                <p id="contact" style="display:none;" >Enter your Mobile Number</p>
+
+                <input id="passInput" type="text" name="pass" placeholder="Password">
+                <p id="pass" style="display:none;" >Enter your Password</p>
+
+                <input id="passRInput" type="password" name="passR" placeholder="Retype Password">
+                <p id="passR" style="display:none;" >Password mismatch</p>
+                
             </div>
             <div class="actions">
-                <button type="submit">Sign Up</button>
-                <button><a href="/login">Already Registered? Click Here!</a></button>
+                <button type="submit" >Sign Up</button>
+               <button type="button"><a href="/login">Already Registered? Click Here!</a></button>
+                
             </div>
         </form>
     </div>
-    <script src="/res/navigation.js"></script>
+    
+  
+      <script src="/res/navigation.js"></script>
 </body>
 </html>
+
+
+
+<script>
+
+const loginForm = document.querySelector(".login");
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    var flag=0;
+    const userName = document.getElementById("userNameInput").value;
+    const roll = document.getElementById("rollInput").value;
+    const email = document.getElementById("emailInput").value;
+    const university = document.getElementById("universityInput").value;
+    const contact = document.getElementById("contactInput").value;
+    const pass = document.getElementById("passInput").value;
+    const passR = document.getElementById("passRInput").value;
+
+    if(!userName){document.getElementById("userName").style.display="block";flag=1;}
+    if(!roll){document.getElementById("roll").style.display="block";flag=1;}
+    if(!email){document.getElementById("email").style.display="block";flag=1;}
+    if(!university){document.getElementById("university").style.display="block";flag=1;}
+    if(!contact){document.getElementById("contact").style.display="block";flag=1;}
+    if(!pass){document.getElementById("pass").style.display="block";flag=1;}
+    if(!passR){document.getElementById("passR").style.display="block";flag=1;}
+    if(pass!=passR){document.getElementById("passR").style.display="block";flag=1;}
+
+    if(flag===0)
+    {
+     try {
+      const res = await fetch('/register', { 
+        method: 'POST', 
+        body: JSON.stringify({ userName,roll,email,university,contact, pass}),
+        headers: {'Content-Type': 'application/json'}
+      });
+      const data = await res.json();
+      if(data.msg){
+        document.getElementById("email").style.display="block";
+        document.getElementById("email").innerHTML=data.msg;
+      }
+
+    }
+     catch (err) {
+      console.log(err);
+    }
+
+    }
+
+    
+
+  });
+</script>

@@ -1,84 +1,75 @@
 const {user}=require('../models')
-const bcrypt = require('bcrypt');
 const dbFunct = require("../database.js");
 const emailFunct = require("./mail.js");
+
 
 
 // controller actions
 
 module.exports.home = (req, res) => {
+  //Just to remember how to store data
+  if(req.session.count)req.session.count=req.session.count+1;
+  else req.session.count=1;
+
+  res.locals.user =req.user;
   res.render("home");
 }
 
 module.exports.signup_get = (req, res) => {
+  res.locals.user =req.user;
   res.render("signup");
   }
   
   module.exports.login_get = (req, res) => {
+    res.locals.user =req.user;
+    if(!(req.session.failStatus))req.session.failStatus=false;
+    res.locals.failStatus=req.session.failStatus;
+    req.session.failStatus=false;
     res.render("login");
   }
   
   module.exports.signup_post = async (req, res) => {
-
-
-    console.log(req.body);
-    const name=req.body.name;
+    res.locals.user =req.user;
+    const userName=req.body.userName;
     const roll=req.body.roll;
     const email=req.body.email;
     const contact=req.body.contact;
     const university=req.body.university;
     const pass=req.body.pass;
     var userNew;
-    try{
-      userNew=await dbFunct.storeUser(name,roll,email,contact,university,pass);
-      const data ={name: name,reg: userNew.dataValues.userID};
-      emailFunct.mail(email,data);
-    }
-    catch(err){
-      console.log(err)
-    }
+    const emailN = await user.findOne({where:{email:email}});
+    if(!emailN){
+      try{
+        userNew=await dbFunct.storeUser(userName,roll,email,contact,university,pass);
+        const data ={name: userName,reg: userNew.userID};
+        emailFunct.mail(req,res,email,data);
+        console.log(userNew);
+      }
+      catch(err){
+        console.log(err);
+      }
+      res.redirect("/");
 
+    }
+    else{
+      res.json({"msg":"User Email already Exist"});
+    }
     
-    /*req.session.user={
-      userID:userID,
-      userName:name,
-      userEmail:email,
-      status:true
-    }*/
-   // res.send("Done "+userNew.dataValues.userID);
-    res.redirect("/");
+  
    
   }
   
-  module.exports.login_post = async (req, res) => {
-
-    console.log(req.body);
-    const userID=req.body.userID;
-    const passIn=req.body.pass;
-    
-    const pass=await user.findOne({where:{userID:userID}});
-
-    bcrypt.compare(passIn, pass.dataValues.pass, async(err, result)=> {
-      console.log(err, result);
-      if(result){
-        //const user=await dbFunct.getUser(userID);
-        
-        /*req.session.user={
-          userID:userID,
-          userName:user.name,
-          userEmail:user.email,
-          status:true,
-        }*/
-        //res.send("Logged In")
-        res.redirect("/")
-      }
-      else
-      //res.send("Not Logged In")
-      res.redirect("/login")
-  });
-  
+  module.exports.loginFail = async (req, res) => {
+    res.locals.user =req.user;
+    req.session.failStatus = true;
+    res.redirect("/login"); 
   }
+
   
-  module.exports.logout = (req, res) => {
-    res.send('logout');
+  module.exports.logout = (req, res,next) => {
+    req.logout(function(err) {
+      if (err) { return next(err); }
+      res.redirect('/');
+    });
+    
   }
