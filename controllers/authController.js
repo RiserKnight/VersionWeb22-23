@@ -19,7 +19,23 @@ module.exports.signup_get = (req, res) => {
   res.locals.user =req.user;
   res.render("signup");
   }
-  
+
+  module.exports.teams_get=(req,res)=>{
+  res.locals.user =req.user;
+  res.render("teams");
+  }
+
+  module.exports.about_get=(req,res)=>{
+  res.locals.user =req.user;
+  res.render("about");
+  }
+
+  module.exports.contact_get=(req,res)=>{
+  res.locals.user =req.user;
+  res.render("contact");
+  }
+
+  /*******************************************Login Get********************************************/
   module.exports.login_get = (req, res) => {
     res.locals.user =req.user;
     if(!(req.session.failStatus))req.session.failStatus=false;
@@ -28,6 +44,7 @@ module.exports.signup_get = (req, res) => {
     res.render("login");
   }
   
+  /*******************************************SignUp Post********************************************/
   module.exports.signup_post = async (req, res) => {
     res.locals.user =req.user;
     const userName=req.body.userName;

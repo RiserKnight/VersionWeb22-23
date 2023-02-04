@@ -1,0 +1,141 @@
+@font-face {
+  font-family: 'ethnocentricregular';
+  src: url('/res/ethnocentric_rg-webfont.woff2') format('woff2'),
+       url('/res/ethnocentric_rg-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+body {
+  /* background-image: url("./images/Background1.png"); */
+  background: url('./images/Background1.png');
+    font-family: 'Poppins', sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    /* width: 100%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    flex-direction:column;
+    color: #fefefe;
+}
+
+  #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+  }
+
+  .shadow-new {
+    border: 1px solid;
+    padding: 10px;
+  }
+
+  .card {
+    background: transparent;
+    border: 0px;
+  }
+
+  .card-footer {
+    border: 0px;
+    background: none;
+    justify-content: space-evenly;
+    scale: 0.75;
+    background: rgba(255, 255, 255, 0.28);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.7px);
+    -webkit-backdrop-filter: blur(4.7px);
+    text-shadow:2px 2px 5px black;
+    z-index:0;
+
+  }
+
+  .card-heading {
+    font-family: 'ethnocentricregular';
+  }
+
+  .card-subtitle {
+    text-shadow:3px 3px 5px #43D6F7,-3px -3px 5px #43D6F7;
+  }
+
+a {
+  text-decoration: none;
+  text-color: #fefefe;
+  font-size: 20px;
+}
+label:hover{
+  cursor: pointer;
+}
+.card-text{
+  font-size: 20px;
+  font-family: 'ethnocentricregular';
+  color: #fefefe;
+  text-shadow:2px 2px 5px black;
+}
+
+label {
+  color: #fefefe;
+}
+
+img {
+  filter: drop-shadow(2px 2px 5px #152238); 
+}
+
+/* Media Query */
+@media screen and (max-width:435px) {
+  /* .card-footer {
+    display: none;
+  } */
+
+  .card {
+    margin-bottom: 100px;
+    width: 95%;
+  }
+
+
+  .card-text {
+    font-size: 16px;
+  }
+
+  .menu{
+      width:40px;
+      height:40px;
+      margin-left:15px;
+  }
+
+  #menu {
+    margin-left: 15px;
+  }
+
+  .openmenu {
+    margin-left: 50px;
+  }
+  .version-logo{
+      margin-right:20px;
+  }
+  .nav-container{
+      background-color: rgba(0, 0, 0, 0.4);
+      height:60px;
+  }
+}
+
+
+@media screen and (max-width:976px) {
+  label {
+    display: none;
+  }
+  .card {
+    margin-bottom: 100px;
+    width: 95%;
+  }
+
+}

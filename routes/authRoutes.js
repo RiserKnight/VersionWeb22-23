@@ -14,6 +14,9 @@ router.post('/login',passport.authenticate('local', { failureRedirect: '/login-f
 router.get('/login-failure',authController.loginFail);
 router.get('/logout', authController.logout);
 
+router.get('/teams',authController.teams_get);
+router.get('/about-us',authController.about_get);
+router.get('/contact-us',authController.contact_get);
 
 module.exports = router;
 

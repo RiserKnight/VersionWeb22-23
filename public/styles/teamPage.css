@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Kaushan+Script&family=Quantico:wght@700&display=swap');
+@font-face {
+    font-family: "font1";
+    src: url("./fonts/Aquire-BW0ox.otf");
+    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+body {
+    /* SELECT WHATEVER YOU LIKE :) */
+
+    background: url('images/teambg.jpg');
+    background: url('images/teambg2.jpg');
+    background: url('images/teambg3.jpg');
+    background: url('images/teambg4.jpg');
+    background: url('images/teambg5.jpg');
+    background: url('images/teambg6.jpg');
+    background: url('images/teambg7.jpg');
+    background: url('images/teambg8.jpg');
+    background: url('images/teambg9.jpg');
+    background: url('images/teambg10.jpg');
+    background: url('images/teambg11.jpg');
+    background: url('images/teambg12.jpg');
+    background: url('images/teambg13.jpg');
+    background: url('images/teambg15.jpg');
+    background: url('images/teambg16.jpg');
+    background: url('images/teambg17.png');
+    background: url('images/teambg18.png');
+    background: url('images/bg1.png');
+
+
+
+
+
+    font-family: 'Poppins', sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    flex-direction:column;
+    color: #e1e1e5;
+    ;
+}
+
+.team{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
+    margin-top:70px;
+}
+.card-container{
+    position:relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin:10px 0;
+    
+}
+.card-container .card{
+    position:relative;
+    width:200px;
+    height:250px;
+    background: rgba(255,255,255,0.05);
+    margin:20px;
+    margin-top:4px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+    border-radius:15px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    backdrop-filter:blur(10px);
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.4px);
+    -webkit-backdrop-filter: blur(7.4px);
+
+}
+.card-container .card .content{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    /* opacity:0.5; */
+    transition:0.5s;
+}
+/* .card-container .card:hover .content{
+    opacity:1;
+    transform:translateY(-20px)
+} */
+.card-container .card .content .contentBx{
+    opacity:1;
+    transition:1s;
+    /* position: absolute; */
+    /* transform: translateY(-10px); */
+}
+.card-container .card:hover .content .contentBx{
+    opacity:0;
+    /* display: none; */
+    /* height: 0; */
+    transition:0.5s;
+    
+    transform: translateY(-20px);
+
+}
+
+.card-container .card .content .imgBx{
+    position:relative;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    overflow:hidden;
+    border:10px solid rdba(0,0,0,0.25);
+    transition:1s;
+
+}
+.card-container .card:hover .content .imgBx{
+    border-radius:15px;
+    height: 15.59rem;
+    width:12.5rem;
+    transform:translateY(2.20rem);
+    opacity: 0.8;
+}
+.card-container .card:hover .content .contentBx span{
+    transition: opacity 600ms, display 600ms;
+    display: none;
+    opacity: 0;
+
+}
+.card-container .card .content .imgBx img{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.card-container .card .content .contentBx h3{
+    /* color:#012d5e; */
+    text-transform: uppercase;
+    letter-spacing:2px;
+    font-weight:500;
+    font-size:18px;
+    text-align:center;
+    margin:20px 0 10px;
+    line-height:1.1em;
+    min-height: 40px;;
+}
+.card-container .card .sci{
+    position:absolute;
+    bottom:50px;
+    display:flex;
+}
+.card-container .card .sci li{
+    list-style:none;
+    margin:0 10px;
+    /* transform:translateY(40px); */
+    transition:0.5s;
+    opacity:0;
+    transition-delay: calc(0.1s*var(1));
+    margin:1rem;
+
+}
+.card-container .card:hover .sci li{
+    transform:translateY(-50%);
+    opacity:1;
+}
+.card-container .card .sci li a{
+    color:#fff;
+    font-size:24px;     
+}
+
+.icon{
+    color:#E6E6EB;
+    filter: drop-shadow(3px 5px 4px #152238);
+    transition:0.5s;
+}
+.icon:hover{
+    transform: scale(0.8);
+    transition:0.5s;
+}
+#teams-heading{
+    font-family: Kaushan Script,'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 4.5rem;
+    color:rgb(254, 255, 244);
+    filter: drop-shadow(3px 5px 4px #152238);
+    margin-bottom: 1.7rem;;
+}
+   
+.main{
+    height:1200px;
+    width:1000px;}
+    body::-webkit-scrollbar {
+    width: 5px;
+}
+body::-webkit-scrollbar-track {
+
+    background-color: rgb(43, 43, 43);
+    /* border-radius: 20px; */
+}
+body::-webkit-scrollbar-thumb {
+    background:rgb(132, 132, 132);
+
+    /* border-radius: 20px; */
+    }
+h1{
+    font-size:2.4rem;
+}
+
+.nav-container{
+    background-color: rgba(0, 0, 0, 0.4);
+    height:80px;
+}
+.committee-head{
+    margin:10px 10px;
+}
+.commm-head{
+    margin-top:20px;
+}
+
+
+
+
+/* Media Query */
+@media screen and (max-width:435px) {
+    .menu{
+        width:40px;
+        height:40px;
+        margin-left:50px;
+    }
+    .version-logo{
+        margin-right:20px;
+    }
+    #teams-heading{
+        font-size:3rem;
+    }
+    h1{
+        font-size:1.2rem;
+    }
+    .card-container .card{
+        width:128px;
+        height:160px;
+        margin:8px;
+        margin-top:4px;
+    }
+    .card-container .card .content .imgBx{
+        width:80px;
+        height:80px;
+    }
+    .card-container .card:hover .content .imgBx{
+        height: 160px;
+        width:128px;
+    }
+    .card-container .card .content .contentBx h3{
+        font-size:12px;
+        margin-top:15px;
+    }
+
+    .card-container .card:hover .sci li{
+        transform:translateY(-20%);
+        opacity:1;
+    }   
+    .card-container .card .sci li a{
+        color:#fff;
+        font-size:20px;     
+    } 
+    .icon{
+        transition:0.5s;
+    }
+    .icon:hover{
+        transform: scale(0.8);
+        transition:0.5s;
+    }
+    .nav-container{
+        background-color: rgba(0, 0, 0, 0.4);
+        height:60px;
+    }
+}
