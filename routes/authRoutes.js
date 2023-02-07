@@ -18,6 +18,9 @@ router.get('/teams',authController.teams_get);
 router.get('/about-us',authController.about_get);
 router.get('/contact-us',authController.contact_get);
 
+router.post('/app/login',authController.app_login);
+router.post('/app/register',authController.app_register);
+
 module.exports = router;
 
 

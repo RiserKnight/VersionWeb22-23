@@ -12,9 +12,8 @@ exports.storeUser=async(userName,roll,email,contact,university,pass)=>{
         const userN = await user.create({userID,userName,roll,email,contact,university,pass})
         return userN.dataValues;
     } catch (err) {
-       console.log(err);
+       return(err);
     }
-   return "User not stored";
 }
 
 exports.storeInfo=async(infoID,purpose,type,value)=>{

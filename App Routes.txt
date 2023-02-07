@@ -1,0 +1,53 @@
+************************************************host/app/login
+{
+    "userID":"2023001",
+    "pass":"123",
+    "app_key":"205121002"
+}
+json returns
+
+{
+    "success": "false",
+    "msg": "Unauthorized",
+    "code": "000"
+}
+{
+    "success": "false",
+    "code": "200",
+    "message": "Credential is not valid",
+    "data": {
+        "token": "",
+        "userID": "",
+        "name": "",
+        "university": ""
+    }
+}
+{
+    "success": "true",
+    "code": "100",
+    "message": "Credential is valid",
+    "data": {
+        "token": "eyJhbGciOiJIUzIIsInR5cCI6IkpXVCJ9.UQiOiIyMDIzMDAxIiwiaWF0IjoxNjc1ODA0OTk1LCJleHAiOjE5MzUwMDQ5OTV9.u5ZDdyuXMMFCkqcfgRBkIKjcck2W306PulLOrQ",
+        "userID": 2023001,
+        "name": "Aayush Gupta",
+        "university": "NITT"
+    }
+}
+
+************************************************host/app/register
+{
+    "userName":"Aayush Gupta",
+    "roll":"205121002",
+    "email":"riser.aayush@gmail.com",
+    "university":"NITT",
+    "pass":"123",
+    "contact":"9131432828",
+    "app_key":"205121002"
+}
+json returns
+
+{"success": "false","msg":"Unauthorized","code": "000"}
+{"success": "true","userID": "2023000","code": "100"}
+{"success": "false","msg":"User Email already Exist","code": "200"}
+{"success": "false","msg":"Validation Error","code": "300"}
+{"success": "false","msg":"Unxepected error","code": "400"}
