@@ -33,7 +33,6 @@ module.exports = (sequelize, DataTypes) => {
         notNull:{msg:'User  must have a Name'},
         notEmpty:{msg:'Name must not be empty'}
       }
-
     },
     roll: {
       type:DataTypes.STRING,
@@ -51,7 +50,6 @@ module.exports = (sequelize, DataTypes) => {
         notNull:{msg:'User  must have a Email'},
         notEmpty:{msg:'Email must not be empty'}
       }
-
     },
     contact: {
       type:DataTypes.STRING,

@@ -142,3 +142,7 @@
   .overlay.active {
     z-index: 2;
   }
+
+  li {
+    list-style: none;
+  }

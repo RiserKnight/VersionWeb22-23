@@ -3,7 +3,7 @@ const {user,info}=require('./models')
 /*******************************************************************Create Operations******************************************** */
 exports.storeUser=async(userName,roll,email,contact,university,pass)=>{
    
-   // try {
+    try {
         const infoI=await info.findOne({where:{infoID:101}});
 
         const userID = parseInt(infoI.dataValues.value)+1;
@@ -11,10 +11,10 @@ exports.storeUser=async(userName,roll,email,contact,university,pass)=>{
 
         const userN = await user.create({userID,userName,roll,email,contact,university,pass})
         return userN.dataValues;
-   // } catch (err) {
-   //     console.log(err);
-  //  }
-   // return "User not stored";
+    } catch (err) {
+       console.log(err);
+    }
+   return "User not stored";
 }
 
 exports.storeInfo=async(infoID,purpose,type,value)=>{

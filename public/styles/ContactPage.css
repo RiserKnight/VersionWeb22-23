@@ -40,9 +40,12 @@ body {
   }
 
   .pic img {
-    width: 100%;
-    height: auto;
+    max-width: 100%;
+    /* min-height: 323px; */
+    /* height: 323px; */
+    height: 250px;;
     border-radius: 5%;
+    object-fit: cover;
   }
   .our-team .title {
     display: block;

@@ -45,60 +45,9 @@
             </div>
         </form>
     </div>
-    
-  
-      <script src="/res/navigation.js"></script>
+    <script src="/res/signup.js"></script>
+    <script src="/res/navigation.js"></script>
 </body>
 </html>
 
 
-
-<script>
-
-const loginForm = document.querySelector(".login");
-  loginForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    var flag=0;
-    const userName = document.getElementById("userNameInput").value;
-    const roll = document.getElementById("rollInput").value;
-    const email = document.getElementById("emailInput").value;
-    const university = document.getElementById("universityInput").value;
-    const contact = document.getElementById("contactInput").value;
-    const pass = document.getElementById("passInput").value;
-    const passR = document.getElementById("passRInput").value;
-
-    if(!userName){document.getElementById("userName").style.display="block";flag=1;}
-    if(!roll){document.getElementById("roll").style.display="block";flag=1;}
-    if(!email){document.getElementById("email").style.display="block";flag=1;}
-    if(!university){document.getElementById("university").style.display="block";flag=1;}
-    if(!contact){document.getElementById("contact").style.display="block";flag=1;}
-    if(!pass){document.getElementById("pass").style.display="block";flag=1;}
-    if(!passR){document.getElementById("passR").style.display="block";flag=1;}
-    if(pass!=passR){document.getElementById("passR").style.display="block";flag=1;}
-
-    if(flag===0)
-    {
-     try {
-      const res = await fetch('/register', { 
-        method: 'POST', 
-        body: JSON.stringify({ userName,roll,email,university,contact, pass}),
-        headers: {'Content-Type': 'application/json'}
-      });
-      const data = await res.json();
-      if(data.msg){
-        document.getElementById("email").style.display="block";
-        document.getElementById("email").innerHTML=data.msg;
-      }
-
-    }
-     catch (err) {
-      console.log(err);
-    }
-
-    }
-
-    
-
-  });
-</script>
