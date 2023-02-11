@@ -1,5 +1,5 @@
 const express = require('express');
-const authRoutes = require('./routes/authRoutes');
+const routes = require('./routes/routes');
 const {sequelize,info}=require('./models');
 const cors = require('cors');
 const  bodyParser = require('body-parser');
@@ -40,7 +40,7 @@ app.use(passport.session());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 app.use(express.json());
-app.use(authRoutes);
+app.use(routes);
 
   app.use(function (req, res, next) {
     res.status(404).send("Sorry can't find that!!")

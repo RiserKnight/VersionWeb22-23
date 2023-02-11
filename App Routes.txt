@@ -1,4 +1,4 @@
-************************************************host/app/login
+******************************************************************************host/app/login
 {
     "userID":"2023001",
     "pass":"123",
@@ -34,7 +34,7 @@ json returns
     }
 }
 
-************************************************host/app/register
+******************************************************************************host/app/register
 {
     "userName":"Aayush Gupta",
     "roll":"205121002",
@@ -51,3 +51,29 @@ json returns
 {"success": "false","msg":"User Email already Exist","code": "200"}
 {"success": "false","msg":"Validation Error","code": "300"}
 {"success": "false","msg":"Unxepected error","code": "400"}
+
+******************************************************************************host/app/forgot_regno
+{
+    "roll":"205121002",
+    "email":"riser.aayush@gmail.com",
+    "contact":"9131432828",
+    "app_key":"205121002"
+}
+
+json returns
+
+{
+    "success": "true",
+    "userID": 2023001,
+    "code": "100"
+}
+{
+    "success": "false",
+    "msg": "Invalid Information",
+    "code": "200"
+}
+{
+    "success": "false",
+    "msg": "Unexpected Error",
+    "code": "400"
+}
