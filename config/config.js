@@ -1,12 +1,15 @@
 require('dotenv').config();
-module.exports ={
+module.exports = {
   "development": {
     "username": process.env.PDB_USER,
     "host": process.env.PDB_HOST,
     "database": process.env.PDB_NAME,
     "password": process.env.PDB_PASS,
     "port": process.env.PDB_PORT,
-    "ssl": { rejectUnauthorized: false },
+    "ssl": {
+      require: true,
+      rejectUnauthorized: false
+    },
     "dialect": "postgres"
   },
   "test": {
@@ -15,7 +18,10 @@ module.exports ={
     "database": process.env.PDB_NAME,
     "password": process.env.PDB_PASS,
     "port": process.env.PDB_PORT,
-    "ssl": { rejectUnauthorized: false },
+    "ssl": {
+      require: true,
+      rejectUnauthorized: false
+    },
     "dialect": "postgres"
   },
   "production": {
@@ -24,7 +30,10 @@ module.exports ={
     "database": process.env.PDB_NAME,
     "password": process.env.PDB_PASS,
     "port": process.env.PDB_PORT,
-    "ssl": { rejectUnauthorized: false },
+    "ssl": {
+      require: true,
+      rejectUnauthorized: false
+    },
     "dialect": "postgres"
   }
 }
