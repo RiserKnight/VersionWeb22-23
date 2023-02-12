@@ -15,12 +15,18 @@ module.exports ={
     "dialect": "postgres"
   },
   "production": {
-    "username": process.env.PDB_USER,
-    "password": process.env.PDB_PASS,
-    "database": process.env.PDB_NAME,
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    },
+    "protocol": "postgres",
     "host": process.env.PDB_HOST,
     "port": process.env.PDB_PORT,
-    "sslmode": process.env.sslmode,
-    "dialect": "postgres"
+    "database": process.env.PDB_NAME,
+    "username": process.env.PDB_USER,
+    "password": process.env.PDB_PASS
   }
 }
