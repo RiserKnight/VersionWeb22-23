@@ -1,5 +1,7 @@
 require('dotenv').config();
-module.exports = {
+const fs = require('fs');
+
+module.exports ={
   "development": {
     "username": process.env.PDB_USER,
     "host": process.env.PDB_HOST,
@@ -7,8 +9,8 @@ module.exports = {
     "password": process.env.PDB_PASS,
     "port": process.env.PDB_PORT,
     "ssl": {
-      require: true,
-      rejectUnauthorized: false
+      "ca": fs.readFileSync(__dirname + '/ssl/ca-certificate.crt'),
+      "rejectUnauthorized": true
     },
     "dialect": "postgres"
   },
@@ -19,8 +21,8 @@ module.exports = {
     "password": process.env.PDB_PASS,
     "port": process.env.PDB_PORT,
     "ssl": {
-      require: true,
-      rejectUnauthorized: false
+      "ca": fs.readFileSync(__dirname + '/ssl/ca-certificate.crt'),
+      "rejectUnauthorized": true
     },
     "dialect": "postgres"
   },
@@ -31,8 +33,8 @@ module.exports = {
     "password": process.env.PDB_PASS,
     "port": process.env.PDB_PORT,
     "ssl": {
-      require: true,
-      rejectUnauthorized: false
+      "ca": fs.readFileSync(__dirname + '/ssl/ca-certificate.crt'),
+      "rejectUnauthorized": true
     },
     "dialect": "postgres"
   }
