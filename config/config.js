@@ -8,10 +8,7 @@ module.exports ={
     "database": process.env.PDB_NAME,
     "password": process.env.PDB_PASS,
     "port": process.env.PDB_PORT,
-    "ssl": {
-      "ca": fs.readFileSync(__dirname + '/ssl/ca-certificate.crt'),
-      "rejectUnauthorized": true
-    },
+    "ssl": true,
     "dialect": "postgres"
   },
   "test": {
@@ -20,10 +17,7 @@ module.exports ={
     "database": process.env.PDB_NAME,
     "password": process.env.PDB_PASS,
     "port": process.env.PDB_PORT,
-    "ssl": {
-      "ca": fs.readFileSync(__dirname + '/ssl/ca-certificate.crt'),
-      "rejectUnauthorized": true
-    },
+    "ssl": true,
     "dialect": "postgres"
   },
   "production": {
@@ -32,10 +26,7 @@ module.exports ={
     "database": process.env.PDB_NAME,
     "password": process.env.PDB_PASS,
     "port": process.env.PDB_PORT,
-    "ssl": {
-      "ca": fs.readFileSync(__dirname + '/ssl/ca-certificate.crt'),
-      "rejectUnauthorized": true
-    },
+    "ssl": true,
     "dialect": "postgres"
   }
 }
