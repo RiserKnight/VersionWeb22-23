@@ -20,7 +20,7 @@ module.exports ={
     "database": process.env.PDB_NAME,
     "host": process.env.PDB_HOST,
     "port": process.env.PDB_PORT,
-    "sslmode": process.env.Psslmode,
+    "sslmode": process.env.sslmode,
     "dialect": "postgres"
   }
 }
