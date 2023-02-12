@@ -23,7 +23,7 @@ module.exports ={
       }
     },
     "protocol": "postgres",
-    "host": process.env.PDB_HOST,
+    "host": process.env.PDB_HOST || "localhost",
     "port": process.env.PDB_PORT,
     "database": process.env.PDB_NAME,
     "username": process.env.PDB_USER,
