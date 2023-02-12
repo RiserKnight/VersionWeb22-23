@@ -8,8 +8,11 @@ module.exports ={
     "database": process.env.PDB_NAME,
     "password": process.env.PDB_PASS,
     "port": process.env.PDB_PORT,
-    "ssl": true,
-    "dialect": "postgres"
+    "dialect": "postgres",
+    ssl: {
+      sslmode: 'require',
+      rejectUnauthorized: false,
+    }
   },
   "test": {
     "username": process.env.PDB_USER,
@@ -17,8 +20,11 @@ module.exports ={
     "database": process.env.PDB_NAME,
     "password": process.env.PDB_PASS,
     "port": process.env.PDB_PORT,
-    "ssl": true,
-    "dialect": "postgres"
+    "dialect": "postgres",
+    ssl: {
+      sslmode: 'require',
+      rejectUnauthorized: false,
+    }
   },
   "production": {
     "username": process.env.PDB_USER,
@@ -26,7 +32,10 @@ module.exports ={
     "database": process.env.PDB_NAME,
     "password": process.env.PDB_PASS,
     "port": process.env.PDB_PORT,
-    "ssl": true,
-    "dialect": "postgres"
+    "dialect": "postgres",
+     ssl: {
+      sslmode: 'require',
+      rejectUnauthorized: false,
+    }
   }
 }
