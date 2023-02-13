@@ -6,7 +6,6 @@ module.exports ={
     "host": process.env.PDB_HOST,
     "database": process.env.PDB_NAME,
     "password": process.env.PDB_PASS,
-    "port": process.env.PDB_PORT,
     "dialect": "postgres",
   },
   "test": {
@@ -14,7 +13,6 @@ module.exports ={
     "host": process.env.PDB_HOST,
     "database": process.env.PDB_NAME,
     "password": process.env.PDB_PASS,
-    "port": process.env.PDB_PORT,
     "dialect": "postgres",
   },
   "production": {
@@ -22,7 +20,6 @@ module.exports ={
     "host": process.env.PDB_HOST,
     "database": process.env.PDB_NAME,
     "password": process.env.PDB_PASS,
-    "port": process.env.PDB_PORT,
     "dialect": "postgres",
   }
 }
