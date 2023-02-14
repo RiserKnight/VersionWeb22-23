@@ -1,5 +1,5 @@
 const {user}=require('../models')
-const dbFunct = require("../database.js");
+const dbFunct = require("./functions/database.js");
 const emailFunct = require("./functions/welcomeMail.js");
 const otpFunct = require("./functions/genOTP.js");
 

@@ -1,4 +1,4 @@
-const {user,info}=require('./models')
+const {user,info}=require('../../models')
 
 /*******************************************************************Create Operations******************************************** */
 exports.storeUser=async(userName,roll,email,contact,university,pass)=>{
