@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   session.init({
 
-sid: {
+    sid: {
       type: DataTypes.STRING,
       primaryKey: true,
     },

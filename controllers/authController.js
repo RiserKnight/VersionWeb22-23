@@ -1,6 +1,7 @@
 const {user}=require('../models')
 const dbFunct = require("../database.js");
-const emailFunct = require("./mail.js");
+const emailFunct = require("./functions/welcomeMail.js");
+const otpFunct = require("./functions/genOTP.js");
 
 require('dotenv').config();
 
@@ -56,7 +57,7 @@ try {
   if(!emailN){
     try{
       userNew=await dbFunct.storeUser(userName,roll,email,contact,university,pass);
-      const data ={name: userName,reg: userNew.userID};
+      const data ={name: userNew.userName,reg: userNew.userID};
       emailFunct.mail(req,res,email,data);
       console.log(userNew);
     }
@@ -101,7 +102,12 @@ try {
     
   }
 
-
+  
+  module.exports.randi = (req, res,next) => {
+    const OTP = otpFunct.genOTP();
+    res.send(OTP);
+    
+  }
 // const eventD = new Date(2023,2,18,9,10,11);
 // eventD.setMilliseconds(12);
 // console.log(eventD.getTime())

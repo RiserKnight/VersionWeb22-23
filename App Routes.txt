@@ -4,8 +4,8 @@
     "pass":"123",
     "app_key":"205121002"
 }
-json returns
 
+json returns
 {
     "success": "false",
     "msg": "Unauthorized",
@@ -44,8 +44,8 @@ json returns
     "contact":"9131432828",
     "app_key":"205121002"
 }
-json returns
 
+json returns
 {"success": "false","msg":"Unauthorized","code": "000"}
 {"success": "true","userID": "2023000","code": "100"}
 {"success": "false","msg":"User Email already Exist","code": "200"}
@@ -61,7 +61,7 @@ json returns
 }
 
 json returns
-
+{"success": "false","msg":"Unauthorized","code": "000"}
 {
     "success": "true",
     "userID": 2023001,
@@ -77,3 +77,45 @@ json returns
     "msg": "Unexpected Error",
     "code": "400"
 }
+
+******************************************************************************host/app/forgot_pass
+{
+    "userID":"2023001",
+    "app_key":"205121002"
+}
+
+json returns
+{"success": "false","msg":"Unauthorized","code": "000"}
+{
+    "verifyOTP": "true",
+    "userID": 2023001,
+    "code": "100"
+}
+{
+    "verifyOTP": "false",
+    "msg": "User doesn't exist",
+    "code": "200"
+}
+{
+    "verifyOTP": "false",
+    "msg": "Unexpected Error",
+    "code": "400"
+}
+
+
+******************************************************************************host/app/verifyOTP
+Must have forgot_pass called earlier 
+{
+    "userID":"2023001",
+    "OTP":"A12B",
+    "pass":"1234",
+    "app_key":"205121002"
+}
+
+json returns
+{"success": "false","msg":"Unauthorized","code": "000"}
+{"success": "true","msg": "Password Changed Succesfully","code": "100"}
+{"success": "false","msg":"Invalid Request","code": "200"}
+{"success": "false","msg": "Wrong OTP","code": "300"}
+{"success": "false","msg":"OTP Timeout","code": "250"}
+{"success": "false","msg": "Unexpected Error","code": "400"}
