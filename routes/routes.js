@@ -1,14 +1,16 @@
 const { Router } = require('express');
+const passport = require('passport');
+
 const authController = require('../controllers/authController');
+const adminPanel = require('../controllers/adminPanel');
 const appBackEnd = require('../controllers/appBackEnd');
 const pageRenders = require('../controllers/pageRenders');
-const passport = require('passport');
-//const isAuth = require('../controllers/authMiddleware').isAuth;
+const authMiddleware = require('../controllers/authMiddleware');
+
 
 const router = Router();
 
 router.get('/',authController.home);
-router.get('/randi',authController.randi);
 router.post('/register', authController.signup_post);
 router.get('/login', authController.login_get);
 
@@ -27,6 +29,8 @@ router.post('/app/register',appBackEnd.app_register);
 router.post('/app/forgot_regno',appBackEnd.app_forget_userID);
 router.post('/app/forgot_pass',appBackEnd.app_forget_password);
 router.post('/app/verifyOTP',appBackEnd.app_verify_otp);
+
+router.get('/admin',authMiddleware.isAdmin,adminPanel.adminHome);
 
 module.exports = router;
 

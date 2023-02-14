@@ -65,6 +65,10 @@ const loginForm = document.querySelector(".login");
         document.getElementById("email").style.display="block";
         document.getElementById("email").innerHTML=data.msg;
       }
+      else{
+        window.alert("There was some problem in signup. Please try again");
+        location.assign('/register');
+      }
 
     }
      catch (err) {

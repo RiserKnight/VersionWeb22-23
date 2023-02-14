@@ -64,7 +64,7 @@ try {
     catch(err){
       console.log(err);
     }
-    res.json({"code":"100","msg":"User Registered Successfully"});
+    res.json({"code":"100","msg":"User Registered Successfully\n\n!! Use Registration number sent to your email for login!! "});
 
   }
   else{

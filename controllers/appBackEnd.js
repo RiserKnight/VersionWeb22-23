@@ -262,7 +262,8 @@ module.exports.app_register = async (req, res) => {
 
       if(code!="250" && code!="200")
       {
-        const result = await checkOTP(OTP,userNew.dataValues.otpHash)
+        const result = await checkOTP(OTP,userNew.dataValues.otpHash);
+
         if(result){
             const salt = await bcrypt.genSalt(10);
             const passH = await bcrypt.hash(pass, salt);
