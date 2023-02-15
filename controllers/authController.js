@@ -57,7 +57,7 @@ try {
   if(!emailN){
     try{
       userNew=await dbFunct.storeUser(userName,roll,email,contact,university,pass);
-      const data ={name: userNew.userName,reg: userNew.userID};
+      const data ={userName: userNew.userName,reg: userNew.userID};
       emailFunct.mail(req,res,email,data);
       console.log(userNew);
     }

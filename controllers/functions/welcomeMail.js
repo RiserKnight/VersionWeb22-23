@@ -6,7 +6,7 @@ const nodemailer = require('nodemailer');
 
 module.exports.mail = (req,res,email, data)=>{
     
-
+console.log("Ha bhai");
     const subject = "Version23 Team Welcomes you";
     const text = "Hello "+ data.userName +" your registration number is " + data.reg;
 
