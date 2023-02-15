@@ -42,8 +42,13 @@ const loginForm = document.querySelector(".login");
     if(!email){emailErr.style.display="block";flag=1;}
     if(!university){universityErr.style.display="block";flag=1;}
     if(!contact){contactErr.style.display="block";flag=1;}
+
+    if(pass.length<8){passErr.style.display="block";flag=1;passErr.innerHTML="Weak Password"}
     if(!pass){passErr.style.display="block";flag=1;}
+    
+
     if(!passR){passRErr.style.display="block";flag=1;}
+    
     if(pass!=passR){document.getElementById("passR").style.display="block";flag=1;}
 
     if(flag===0)

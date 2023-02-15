@@ -86,7 +86,7 @@
   } */
   
   .nav-list {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     font-family: 'Poppins', sans-serif;
@@ -141,8 +141,16 @@
   
   .overlay.active {
     z-index: 2;
+    position: fixed;
   }
 
   li {
     list-style: none;
   }
+  @media screen and (max-width:976px) {
+    #nav-list{
+     width: 50%;
+     font-size: medium;
+    }
+   
+   }

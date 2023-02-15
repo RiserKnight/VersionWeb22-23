@@ -16,26 +16,26 @@
         <form class="login" method="post" action="/register">
             <div class="head">Sign Up</div>
             <div class="details-container">
-                <input id="userNameInput" type="text" name="userName" placeholder="Name">
-                <p id="userName" style="display:none;" >Enter your name</p>
+                <input id="userNameInput" class="signupInput" type="text" name="userName" placeholder="Name">
+                <p id="userName" class="signupError" style="display:none;" >Enter your name</p>
 
-                <input id="rollInput" type="text" name="roll" placeholder="College Roll Number">
-                <p id="roll" style="display:none;" >Enter your Roll Number</p>
+                <input id="rollInput" class="signupInput" type="text" name="roll" placeholder="College Roll Number">
+                <p id="roll" class="signupError" style="display:none;" >Enter your Roll Number</p>
 
-                <input id="emailInput" type="email" name="email" placeholder="E-Mail">
-                <p id="email" style="display:none;" >Enter your Email</p>
+                <input id="emailInput" class="signupInput" type="email" name="email" placeholder="E-Mail">
+                <p id="email" class="signupError" style="display:none;" >Enter your Email</p>
 
-                <input id="universityInput" type="text" name="university" placeholder="University Name">
-                <p id="university" style="display:none;" >Enter your University Name</p>
+                <input id="universityInput" class="signupInput" type="text" name="university" placeholder="University Name">
+                <p id="university" class="signupError" style="display:none;" >Enter your University Name</p>
 
-                <input id="contactInput" type="number" name="contact" placeholder="Mobile Number">
-                <p id="contact" style="display:none;" >Enter your Mobile Number</p>
+                <input id="contactInput" class="signupInput" type="tel" pattern="[0-9]{10}" name="contact" placeholder="Mobile Number">
+                <p id="contact" class="signupError" style="display:none;" >Enter your Mobile Number</p>
 
-                <input id="passInput" type="text" name="pass" placeholder="Password">
-                <p id="pass" style="display:none;" >Enter your Password</p>
+                <input id="passInput" class="signupInput" type="password" name="pass" placeholder="Password  (Min 8 Characters)">
+                <p id="pass" class="signupError" style="display:none;" >Enter your Password</p>
 
-                <input id="passRInput" type="password" name="passR" placeholder="Retype Password">
-                <p id="passR" style="display:none;" >Password mismatch</p>
+                <input id="passRInput" class="signupInput" type="password" name="passR" placeholder="Retype Password">
+                <p id="passR" class="signupError" style="display:none;" >Password mismatch</p>
                 
             </div>
             <div class="actions">
