@@ -136,11 +136,13 @@
     top: 0;
     left: 0;
     z-index: -1;
+    opacity: 0;
     background-color: rgba(0, 0, 0, 0.4);
   }
   
   .overlay.active {
     z-index: 2;
+    opacity: 1;
     position: fixed;
   }
 
@@ -154,3 +156,17 @@
     }
    
    }
+   @media screen and (max-width:435px) {
+    .menu{
+        width:40px;
+        height:40px;
+        margin-left:50px;
+    }
+    .version-logo{
+        margin-right:20px;
+    }
+    .nav-container{
+        background-color: rgba(0, 0, 0, 0.4);
+        height:60px;
+    }
+}

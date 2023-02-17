@@ -11,6 +11,21 @@ const loginForm = document.querySelector(".login");
     const passErr = document.getElementById("pass");
     const passRErr = document.getElementById("passR");
 
+    // modal Elements
+    const modal = document.getElementById("myModal");
+    // <span> element that closes the modal
+    const span = document.getElementsByClassName("close")[0];
+    const messageLine = document.getElementById("msg");
+    span.onclick = function() {
+      modal.style.display = "none";
+      location.assign('/');
+    }
+    const modalTrigger =async(alertMessage)=>{
+      modal.style.display="block";
+      messageLine.innerText=alertMessage;
+      // location.assign('/');
+    }
+
 
     if(userNameErr.style.display=="block")
     {userNameErr.style.display="none";}
@@ -62,8 +77,10 @@ const loginForm = document.querySelector(".login");
       const data = await res.json();
       if(data.code ==="100")
       {
-        window.alert(data.msg);
-        location.assign('/');
+        //triggering modal
+        await modalTrigger(data.msg);
+        // window.alert(data.msg);
+        // location.assign('/');
       }
       
       else if(data.code==="200"){

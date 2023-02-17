@@ -69,7 +69,6 @@ body {
 
 a {
   text-decoration: none;
-  text-color: #fefefe;
   font-size: 20px;
 }
 label:hover{
@@ -103,7 +102,9 @@ img {
 
 
   .card-text {
-    font-size: 16px;
+    font-size: 11px;
+    line-height: 1.1rem;
+    letter-spacing: 0.1rem;
   }
 
   .menu{
