@@ -170,12 +170,14 @@ body {
     /* transform:translateY(40px); */
     transition:0.5s;
     opacity:0;
+    z-index: -1;
     transition-delay: calc(0.1s*var(1));
     margin:1rem;
 
 }
 .card-container .card:hover .sci li{
     transform:translateY(-50%);
+    z-index: 0;
     opacity:1;
 }
 .card-container .card .sci li a{
@@ -265,9 +267,19 @@ h1{
         height: 160px;
         width:128px;
     }
+
+    .card-container .card:hover .content{
+        margin-bottom: 18px;
+    }
     .card-container .card .content .contentBx h3{
         font-size:12px;
-        margin-top:15px;
+        margin-top:12px;
+        margin-bottom: 0px;
+    }
+
+    .card-container .card .content .contentBx span {
+        font-size:10px;
+        /* margin-top:15px; */
     }
 
     .card-container .card:hover .sci li{
@@ -277,7 +289,12 @@ h1{
     .card-container .card .sci li a{
         color:#fff;
         font-size:20px;     
-    } 
+    }
+    
+    .commm-head{
+        font-size: 0.8rem;
+    }
+
     .icon{
         transition:0.5s;
     }
