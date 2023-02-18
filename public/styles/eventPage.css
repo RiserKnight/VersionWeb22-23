@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@font-face {
+    font-family: Tech;
+    src: url('/res/ethnocentric\ rg.otf');
+    font-weight: 800;
+}
+body {
+    
+    background: url('../images/events_bg.jpg');
+    font-family: 'Poppins', sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    flex-direction:column;
+    color: #e1e1e5;
+    ;
+}
+.eve-container{
+    margin-top: 5rem;
+    width: 100%;
+    /* border: 2px solid rgb(255, 255, 255) */
+}
+h1{
+    font-family: Tech;
+    /* position: absolute;
+    top: 14%; */
+    color: #ff8600;
+    text-shadow: -0.5px 0.5px 0 #ffffff,
+                0.5px 0.5px 0 #ffffff,
+                0.5px -0.5px 0 #ffffff,
+                -0.5px -0.5px 0 #ffffff;
+}
+h1 span{
+    color: #fefefe;
+    text-shadow: none;
+}
+.card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+.card-cover{
+    background-color: rgba(44, 124, 252, 0.3);
+    border-radius: 1rem;
+    padding: 0.5rem;
+    margin: 1rem;
+}
+.card{
+    border: none;
+    width: 25rem;
+    height: 15rem;
+    border-top-left-radius: 6rem;
+    border-bottom-right-radius: 4rem;
+    transition: 0.5s;
+    cursor: pointer;
+    overflow: hidden;
+}
+.card img{
+    border-radius: inherit;
+    height: inherit;
+    width: inherit;
+}
+.card:hover{
+    /* scale: 1.05; */
+    scale: 0.97;
+    border-radius: inherit;
+    box-shadow: 1px 1px 5px white,-1px -1px 5px white;
+}
+.hide{
+    display: none;
+}
+
+/* modal css */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    /* left: 0;
+    top: 0; */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+.modal-content {
+    /* background-color: rgb(19, 25, 55,0.8); */
+    background-color: rgba(43, 40, 40, 0.8);
+    position: relative;
+    top: 20%;
+    /*left: 43%; */
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #fefefe;
+    border-radius: 1rem;
+    text-align: center;
+    width: 50%;
+  }
+  .modal-content h4{
+    color: orange;
+  }
+  .modal-content p{
+    color: #56ffae;
+  }
+  #btn-reg{
+    background-color: rgb(247, 71, 159);
+    color: white;
+    transition: all 0.5s;
+  }
+  #btn-reg:hover{
+    background-color:rgb(205, 37, 121) ;
+    color: black;
+  }
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    /* float: right; */
+    /* font-size: 28px;
+    font-weight: bold; */
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+/* modal css end */
+   
+.main{
+    height:1200px;
+    width:1000px;}
+    body::-webkit-scrollbar {
+    width: 5px;
+}
+body::-webkit-scrollbar-track {
+
+    background-color: rgb(43, 43, 43);
+    /* border-radius: 20px; */
+}
+body::-webkit-scrollbar-thumb {
+    background:rgb(132, 132, 132);
+
+    /* border-radius: 20px; */
+    }
+
+@media screen and (max-width:976px) {
+   .modal-content{
+    top: 0;
+    scale: 0.9;  
+    width: 90%;
+   }
+   .card-container{
+    scale: 0.8;
+   }
+   /* .card-cover{
+    width: 20rem;
+   } */
+   .card{
+    border-radius: inherit;
+   }
+}

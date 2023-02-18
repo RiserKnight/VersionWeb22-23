@@ -20,3 +20,8 @@
     res.locals.user =req.user;
     res.render("contact");
     }
+
+    module.exports.events_get=(req,res)=>{
+    res.locals.user =req.user;
+    res.render("events");
+    }
