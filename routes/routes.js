@@ -22,6 +22,7 @@ router.get('/register', pageRenders.signup_get);
 router.get('/teams',pageRenders.teams_get);
 router.get('/about-us',pageRenders.about_get);
 router.get('/contact-us',pageRenders.contact_get);
+router.get('/events',pageRenders.events_get);
 
 
 router.post('/app/login',appBackEnd.app_login);
