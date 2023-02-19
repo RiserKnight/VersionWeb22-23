@@ -14,20 +14,27 @@
         <form class="login" method="post" action="/login">
             <div class="head">Forgot Password</div>
             <div class="details-container">
-                <input type="text" name="userID" placeholder="User Id">
-                <input type="password" name="passIN" placeholder="New Password">
-                <%if(failStatus){%>
-                    <p>Incorrect Registration Number or Password</p>
-                <%}%>
-                <input type="number" name="otp" placeholder="Enter Otp">
+                <input id="userIDInput" class="signupInput" type="text" name="userID" placeholder="User Registration Number">
+                <p id="userID" class="signupError" style="display:none;" >Enter your Registration Number</p>
                 <!-- <p class="forgot"><a href="#">Forgot Password?</a></p> -->
             </div>
             <div class="actions">
-                <button type="submit">submit</button>
+                <button type="submit">Submit</button>
                 <!-- <button type="button"><a href="/register">Haven't Registered? Click Here!</a></button> -->
             </div>
         </form>
     </div>
+    <!-- modal for displaying alerts -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <p id="msg">Some text in the Modal..</p>
+            <span class="close">&times;</span>
+        </div>
+      
+    </div>
     <script src="/res/navigation.js"></script>
+    <script src="/res/forgotPass.js"></script>
 </body>
 </html>

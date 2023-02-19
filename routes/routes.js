@@ -14,7 +14,8 @@ router.get('/',authController.home);
 router.post('/register', authController.signup_post);
 router.get('/login', authController.login_get);
 router.post('/forgot_regno',authController.forgotUserID_post);
-
+router.post('/forgot_pass',authController.forget_password);
+router.post('/verifyOTP',authController.verify_otp);
 
 router.post('/login',passport.authenticate('local', { failureRedirect: '/login-failure', successRedirect: '/' }));
 router.get('/login-failure',authController.loginFail);
@@ -26,7 +27,8 @@ router.get('/about-us',pageRenders.about_get);
 router.get('/contact-us',pageRenders.contact_get);
 router.get('/events',pageRenders.events_get);
 router.get('/forgot-reg',pageRenders.forgotUserID_get);
-
+router.get('/forgot-pass',pageRenders.forgotPass_get);
+router.get('/verifyOTP',pageRenders.verifyOTP_get);
 
 router.post('/app/login',appBackEnd.app_login);
 router.post('/app/register',appBackEnd.app_register);

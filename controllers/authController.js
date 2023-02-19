@@ -1,7 +1,9 @@
-const {user}=require('../models')
+const {user,userOTP}=require('../models')
 const dbFunct = require("./functions/database.js");
 const emailFunct = require("./functions/welcomeMail.js");
 const otpFunct = require("./functions/genOTP.js");
+const bcrypt = require('bcrypt');
+const emailFunct1 = require("./functions/otpMail.js");
 
 require('dotenv').config();
 
@@ -11,8 +13,14 @@ module.exports.home = (req, res) => {
 
   try {
      //Just to remember how to store data
-  if(req.session.count)req.session.count=req.session.count+1;
-  else req.session.count=1;
+  if(req.session.tempUser)
+  {
+    const date = new Date();
+    const validTime =parseInt(req.session.tempUser.userValid);
+    const currTime = parseInt(date.getTime()+330*60*1000);
+    if(currTime>validTime) req.session.tempUser=null;
+
+  }
 
   res.locals.user =req.user;
   res.render("home");
@@ -117,7 +125,7 @@ try {
 
  module.exports.forgotUserID_post=async(req,res)=>{
   res.locals.user =req.user;
-  var userNew;
+  var userNew,code="000";
 
   try {
 
@@ -146,3 +154,147 @@ try {
   }
   
   }
+
+   /*******************************************ForgotPass Post********************************************/
+
+   module.exports.forget_password = async (req, res) => {
+
+    var userNew,code="000",validTime,currTime;
+
+    try {
+
+      const userID = req.body.userID;
+      userNew = await user.findOne({where:{userID:userID}});
+
+      if(userNew)
+      {
+        userNew = await userOTP.findOne({where:{userID:userID}});
+        if(userNew)
+        {
+          userNew = userNew.dataValues;
+          const date = new Date();
+           validTime =parseInt(userNew.validTill);
+           currTime = parseInt(date.getTime()+330*60*1000);
+        }
+       
+
+        if(userNew!=null && currTime<validTime ) code="100";
+        
+        else if(userNew)
+        {
+          userNew = await userOTP.findOne({where:{userID:userID}});
+          await userNew.destroy();
+        }
+
+        if(code!="100")
+        {
+          userNew = await user.findOne({where:{userID:userID}});
+          userNew = userNew.dataValues;
+
+          const OTP = otpFunct.genOTP();
+
+          const salt = await bcrypt.genSalt(10);
+          const otpHash  = await bcrypt.hash(OTP, salt);
+
+          const date = new Date();
+          const validTill = date.getTime() + 335*60*1000;
+
+          validTime=validTill;
+
+          await userOTP.create({userID,otpHash,validTill});
+
+          const data ={userName: userNew.userName,OTP: OTP};
+          emailFunct1.mail(req,res,userNew.email,data);
+          code="100";
+        }
+
+      }
+      else code="200"
+
+
+
+    } catch (error) {
+      code="400";
+      console.log(error);
+    }
+
+    finally{
+      if(code=="100")
+      {
+        req.session.tempUser={
+          "userID":userNew.userID,
+          "userValid":validTime
+        }
+        res.json({"verifyOTP": "true","userID": userNew.userID,"code": code});
+      }
+      
+      
+      else if(code=="200")res.json({"verifyOTP": "false","msg": "User doesn't exist","code": code});
+      else res.json({"verifyOTP": "false","msg": "Unexpected Error","code": code});
+    }
+  
+  }
+
+     /*******************************************VerifyOTP Post********************************************/
+
+     async function checkOTP(OTP, hash) {
+  
+      const match = await bcrypt.compare(OTP,hash);
+      return match;
+  }
+
+    module.exports.verify_otp = async (req, res) => {
+      var userNew,code = "000",validTime,currTime;
+      const date = new Date();
+      currTime = parseInt(date.getTime()+330*60*1000);
+
+    try {
+
+      const userID=req.session.tempUser.userID;
+      const OTP=req.body.OTP;
+      const pass=req.body.pass;
+      userNew = await userOTP.findOne({where:{userID:userID}});
+
+      if(userNew)
+      {
+        validTime =parseInt(userNew.dataValues.validTill);
+        if(currTime>validTime) 
+        {
+          code="250";
+          req.session.tempUser=null;
+        }
+        
+      }
+      else code="200";
+
+      if(code!="250" && code!="200")
+      {
+        const result = await checkOTP(OTP,userNew.dataValues.otpHash);
+
+        if(result){
+            const salt = await bcrypt.genSalt(10);
+            const passH = await bcrypt.hash(pass, salt);
+            await user.update({pass: passH},{where:{userID:userID}});
+            code="100";
+            userNew = await userOTP.findOne({where:{userID:userID}});
+            await userNew.destroy();
+        }
+        else code="300";
+
+      }
+
+    } catch (error) {
+      code="400";
+      console.log(error);
+    }
+    finally{
+
+      if(code=="100")res.json({"success": "true","msg": "Password Changed Succesfully","code": code});
+      else if(code=="200")res.json({"success": "false","msg": "Invalid Request","code": code});
+      else if(code=="250")res.json({"success": "false","msg": "OTP Timeout","code": code});
+      else if(code=="300")res.json({"success": "false","msg": "Wrong OTP","code": code});
+      else res.json({"success": "false","msg": "Unexpected Error","code": code});
+    }
+
+
+    }

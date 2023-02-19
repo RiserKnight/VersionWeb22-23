@@ -17,6 +17,10 @@ body {
     /* background: #fff; */
     margin-top: 5rem;
   }
+  .row{
+    justify-content: center;
+  }
+
   
   .our-team {
     background: rgba(255, 255, 255, 0.14);
