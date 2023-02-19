@@ -119,3 +119,18 @@ json returns
 {"success": "false","msg": "Wrong OTP","code": "300"}
 {"success": "false","msg":"OTP Timeout","code": "250"}
 {"success": "false","msg": "Unexpected Error","code": "400"}
+
+
+
+******************************************************************************host/app/feedback
+{
+"userID":"2023001",
+"head" : "App UI is outdated",
+"body" : "App graphics can be improved LOL.",
+"app_key":"205121002"
+}
+
+json returns
+{"success": "false","msg":"Unauthorized","code": "000"}
+{"success": "true","msg": "Feedback Submitted Succesfully","code": "100"}
+{"success": "false","msg": "Unexpected Error","code": "400"}

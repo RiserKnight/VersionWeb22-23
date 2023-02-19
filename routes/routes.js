@@ -35,6 +35,7 @@ router.post('/app/register',appBackEnd.app_register);
 router.post('/app/forgot_regno',appBackEnd.app_forget_userID);
 router.post('/app/forgot_pass',appBackEnd.app_forget_password);
 router.post('/app/verifyOTP',appBackEnd.app_verify_otp);
+router.post('/app/feedback',appBackEnd.app_feedback);
 
 router.get('/admin',authMiddleware.isAdmin,adminPanel.adminHome);
 
