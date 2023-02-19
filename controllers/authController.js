@@ -112,3 +112,37 @@ try {
 // eventD.setMilliseconds(12);
 // console.log(eventD.getTime())
 //
+
+ /*******************************************ForgotID Post********************************************/
+
+ module.exports.forgotUserID_post=async(req,res)=>{
+  res.locals.user =req.user;
+  var userNew;
+
+  try {
+
+    const email = req.body.email;
+    const contact = req.body.contact;
+    const roll = req.body.roll;
+  
+    userNew = await user.findOne({where:{email:email}});
+  
+    if(userNew){
+      userNew = userNew.dataValues;
+      if(userNew.contact===contact&&userNew.roll===roll) code="100";
+      else code="200";
+      }
+    else code="200"; 
+    
+  } catch (error) {
+    code="400";
+    console.log(error);
+  }
+  
+  finally{
+    if(code=="100")res.json({"success": "true","userID": userNew.userID,"code": code});
+    else if(code=="200")res.json({"success": "false","msg": "Invalid Information","code": code});
+    else res.json({"success": "false","msg": "Unexpected Error","code": code});
+  }
+  
+  }

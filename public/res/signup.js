@@ -16,14 +16,10 @@ const loginForm = document.querySelector(".login");
     // <span> element that closes the modal
     const span = document.getElementsByClassName("close")[0];
     const messageLine = document.getElementById("msg");
-    span.onclick = function() {
-      modal.style.display = "none";
-      location.assign('/');
-    }
+    
     const modalTrigger =async(alertMessage)=>{
       modal.style.display="block";
       messageLine.innerText=alertMessage;
-      // location.assign('/');
     }
 
 
@@ -79,8 +75,11 @@ const loginForm = document.querySelector(".login");
       {
         //triggering modal
         await modalTrigger(data.msg);
-        // window.alert(data.msg);
-        // location.assign('/');
+        span.onclick = function() {
+          modal.style.display = "none";
+          location.assign('/');
+        }
+         
       }
       
       else if(data.code==="200"){
@@ -88,8 +87,11 @@ const loginForm = document.querySelector(".login");
         document.getElementById("email").innerHTML=data.msg;
       }
       else{
-        window.alert("There was some problem in signup. Please try again");
-        location.assign('/register');
+        await modalTrigger("There was some problem in signup. Please try again");
+        span.onclick = function() {
+          modal.style.display = "none";
+          location.assign('/register');
+        }
       }
 
     }

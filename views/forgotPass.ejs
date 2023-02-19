@@ -12,18 +12,19 @@
     <%- include('partials/nav') %>
     <div class="login-container">
         <form class="login" method="post" action="/login">
-            <div class="head">Sign in</div>
+            <div class="head">Forgot Password</div>
             <div class="details-container">
-                <input type="text" class="signupInput" name="userID" placeholder="User Id">
-                <input type="password" class="signupInput" name="passIN" placeholder="Password">
+                <input type="text" name="userID" placeholder="User Id">
+                <input type="password" name="passIN" placeholder="New Password">
                 <%if(failStatus){%>
-                    <p class="signupError">Incorrect Registration Number or Password</p>
+                    <p>Incorrect Registration Number or Password</p>
                 <%}%>
-                <p class="forgot"><a href="/forgot-reg">Forgot Registration?</a></p>
+                <input type="number" name="otp" placeholder="Enter Otp">
+                <!-- <p class="forgot"><a href="#">Forgot Password?</a></p> -->
             </div>
             <div class="actions">
-                <button type="submit">Sign in</button>
-                <button type="button"><a href="/register">Haven't Registered? Click Here!</a></button>
+                <button type="submit">submit</button>
+                <!-- <button type="button"><a href="/register">Haven't Registered? Click Here!</a></button> -->
             </div>
         </form>
     </div>

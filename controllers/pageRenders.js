@@ -25,3 +25,8 @@
     res.locals.user =req.user;
     res.render("events");
     }
+
+    module.exports.forgotUserID_get=(req,res)=>{
+    res.locals.user =req.user;
+    res.render("forgotUserID");
+    }
