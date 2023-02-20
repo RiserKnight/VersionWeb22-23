@@ -5,7 +5,7 @@
     font-weight: 800;
 }
 body {
-    
+    overflow-x: hidden;
     background: url('../images/events_bg.jpg');
     font-family: 'Poppins', sans-serif;
     background-repeat: no-repeat;
@@ -156,12 +156,12 @@ body::-webkit-scrollbar-thumb {
 
 @media screen and (max-width:976px) {
    .modal-content{
-    top: 0;
     scale: 0.9;  
     width: 90%;
    }
    .card-container{
     scale: 0.8;
+    margin-top: -10rem;
    }
    /* .card-cover{
     width: 20rem;
