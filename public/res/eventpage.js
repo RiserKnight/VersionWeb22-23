@@ -44,12 +44,14 @@ function createCard(teamMember,container,ids){
         detdet.innerText=teamMember.eventDetails;
         detdiv.appendChild(detname);
         detdiv.appendChild(detdet);
-        card.setAttribute("id",`"${ids}"`);
+        console.log(teamMember.eventId)
+        card.setAttribute("id",`"${teamMember.eventID}"`);
         card.appendChild(detdiv);
         card.appendChild(image);
         cardCover.appendChild(card);
         container.appendChild(cardCover);
-        let action = document.getElementById(`"${ids}"`);
+        let action = document.getElementById(`"${teamMember.eventID}"`);
+        console.log(action)
         action.addEventListener('click',function(e){
             modalTrigger(teamMember.eventName,teamMember.eventDetails);
         });

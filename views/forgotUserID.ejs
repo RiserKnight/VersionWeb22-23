@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/styles/login.css">
+    <link rel="stylesheet" href="/styles/navigation.css">
+</head>
+<body>
+    <%- include('partials/nav') %>
+    <div class="login-container">
+        <form class="login" method="post" action="/login">
+            <div class="head">Forgot Registration Number</div>
+            <div class="details-container">
+                <input id="rollInput" class="signupInput" type="text" name="roll" placeholder="College Roll Number">
+                <p id="roll" class="signupError" style="display:none;" >Enter your Roll Number</p>
+
+                <input id="emailInput" class="signupInput" type="email" name="email" placeholder="E-Mail">
+                <p id="email" class="signupError" style="display:none;" >Enter your Email</p>
+
+                <input id="contactInput" class="signupInput" type="tel" pattern="[0-9]{10}" name="contact" placeholder="Mobile Number">
+                <p id="contact" class="signupError" style="display:none;" >Enter your Mobile Number</p>
+                <p class="forgot"><a href="/forgot-pass">Forgot Password?</a></p>
+            </div>
+            <div class="actions">
+                <button type="submit">Submit</button>
+             
+            </div>
+        </form>
+    </div>
+    <!-- modal for displaying alerts -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <p id="msg">Some text in the Modal..</p>
+            <span class="close">&times;</span>
+        </div>
+      
+    </div>
+    <script src="/res/navigation.js"></script>
+    <script src="/res/forgotID.js"></script>
+</body>
+</html>

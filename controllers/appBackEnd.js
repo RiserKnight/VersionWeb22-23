@@ -1,4 +1,4 @@
-const {user,userOTP}=require('../models')
+const {user,userOTP,feedback}=require('../models')
 const dbFunct = require("./functions/database.js");
 const emailFunct = require("./functions/welcomeMail.js");
 const emailFunct1 = require("./functions/otpMail.js");
@@ -289,5 +289,35 @@ module.exports.app_register = async (req, res) => {
       else res.json({"success": "false","msg": "Unexpected Error","code": code});
     }
 
+    }
 
+    /*********************************************App Verify OTP**********************************************/
+
+    module.exports.app_feedback= async (req, res) => {
+      var code = "000";
+    
+    try {
+  
+      const app_key=req.body.app_key;
+      if(process.env.APP_KEY!=app_key) {
+        res.json({"success": "false","msg":"Unauthorized","code":code});
+        return 0;
+      }
+    
+      const userID = req.body.userID;
+      const head = req.body.head;
+      const body = req.body.body;
+
+      await feedback.create({userID,head,body});
+      code="100"
+    } catch (error) {
+      code="400";
+      console.log(error);
+    }
+    
+    finally{
+      if(code=="100")res.json({"success": "true","msg": "Feedback Submitted Succesfully","code": code});
+      else res.json({"success": "false","msg": "Unexpected Error","code": code});
+    }
+    
     }

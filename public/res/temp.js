@@ -97,7 +97,7 @@ export var data = {
     ,
       "https://drive.google.com/uc?id=1HPjcTh4FbN3mm3LCPT3Zb36HNQu_76lF" : "images/members/WhatsApp Image 2023-01-10 at 18.56.10 - Shubham Joshi.jpg"
     ,
-      "https://drive.google.com/uc?id=1MeayBpKfxT4moLMtwps3oVIzYkFurzX8" : "images/members/PasswordSizephoto_150kb - Vikash Pawar.JPG"
+      "https://drive.google.com/uc?id=1MeayBpKfxT4moLMtwps3oVIzYkFurzX8" : "images/members/PasswordSizephoto_150kb - Vikash Pawar.jpg"
     ,
       "https://drive.google.com/uc?id=1bTI-FcP7TmFYB37xXyIvGumdr1hiMMRa" : "images/members/IMG-20220819-WA0003 - Abhishek Jaiswal.jpg"
     ,
@@ -153,7 +153,7 @@ export var data = {
     ,
       "https://drive.google.com/uc?id=1E3ZD-DVKNnpaVIREWUBvKhbgFJutRV70" : "images/members/205120105_Sudhanshu - Sudhanshu Shrivastava.jpg"
     ,
-      "https://drive.google.com/uc?id=1RXPLQSB3m9i_I6TBmY_t39epuOl4M3ia" : "images/members/DSC_0131 - sagar patidar.JPG"
+      "https://drive.google.com/uc?id=1RXPLQSB3m9i_I6TBmY_t39epuOl4M3ia" : "images/members/DSC_0131 - sagar patidar.jpg"
     ,
       "https://drive.google.com/uc?id=1FM56miCEKizlgAvBSS6IipE1h08MN2E2" : "images/members/Screenshot 2022-12-28 at 10.11.41 PM - Harshit Sharma.png"
     ,
@@ -189,7 +189,7 @@ export var data = {
     ,
       "https://drive.google.com/uc?id=1kRFmN4kIUHENei0QmHcBnsJvdU6TS-xN" : "images/members/IMG_20221129_225253_955 - Ankur Bohra.jpg"
     ,
-      "https://drive.google.com/uc?id=1x28p1d8SaW5gH45nINkqajWgZ0z-ovTw" : "images/members/DSC_1493 - Swati Jinwal.JPG"
+      "https://drive.google.com/uc?id=1x28p1d8SaW5gH45nINkqajWgZ0z-ovTw" : "images/members/DSC_1493 - Swati Jinwal.jpg"
     ,
       "https://drive.google.com/uc?id=15VjtXE4I-lK3LQrAskIjKEz7YLTGB6Xh" : "images/members/205121030_photo - Ashutosh Wardhan.png"
     ,

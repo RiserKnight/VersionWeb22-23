@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/styles/login.css">
+    <link rel="stylesheet" href="/styles/navigation.css">
+</head>
+<body>
+    <%- include('partials/nav') %>
+    <div class="login-container">
+        <form class="login" method="post" action="/login">
+            <div class="head">Forgot Password</div>
+            <div class="details-container">
+
+                <input id="passInput" class="signupInput" type="password" name="passIN" placeholder="New Password">
+                <p id="pass" class="signupError" style="display:none;" >Enter your Password</p>
+                
+                <input id="passRInput" class="signupInput" type="password" name="passIN" placeholder="Retype Password">
+                <p id="passR" class="signupError" style="display:none;" >Password mismatch</p>
+
+                <input id="otpInput" class="signupInput"  type="text" name="otp" placeholder="Enter OTP">
+                <p id="otp" class="signupError" style="display:none;" >Enter OTP</p>
+                <!-- <p class="forgot"><a href="#">Forgot Password?</a></p> -->
+            </div>
+            <div class="actions">
+                <button type="submit">Submit</button>
+                <!-- <button type="button"><a href="/register">Haven't Registered? Click Here!</a></button> -->
+            </div>
+        </form>
+    </div>
+    <!-- modal for displaying alerts -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <p id="msg">Some text in the Modal..</p>
+            <span class="close">&times;</span>
+        </div>
+      
+    </div>
+    <script src="/res/navigation.js"></script>
+    <script src="/res/verifyOTP.js"></script>
+</body>
+</html>
