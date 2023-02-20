@@ -50,7 +50,6 @@ function createCard(teamMember,container,ids){
         cardCover.appendChild(card);
         container.appendChild(cardCover);
         let action = document.getElementById(`"${ids}"`);
-        console.log(action)
         action.addEventListener('click',function(e){
             modalTrigger(teamMember.eventName,teamMember.eventDetails);
         });
