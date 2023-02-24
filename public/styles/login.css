@@ -24,7 +24,7 @@ body {
     padding: 2rem;
     color: rgb(220, 220, 220);
     border-radius: 25px;
-    background-color: rgba(12, 13, 46, 0.724);
+    background-color: rgba(12, 13, 46,0.85);
 }
 
 .login {
@@ -99,6 +99,9 @@ body {
     color: rgb(145, 173, 255);
     border-radius: 5px;
     background-color: rgb(47, 47, 94);
+}
+.signupInput::placeholder{
+    color: #BAD7E9;
 }
 .signupError{
     color: red;
