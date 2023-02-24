@@ -116,10 +116,10 @@ h1 span{
     color: white;
     transition: all 0.5s;
   }
-  #btn-reg:hover{
+  /*#btn-reg:hover{
     background-color:rgb(205, 37, 121) ;
     color: black;
-  }
+  }*/
   /* The Close Button */
   .close {
     color: #aaaaaa;

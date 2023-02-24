@@ -8,7 +8,7 @@ const messageLine = document.getElementById("msg");
 span.onclick = function() {
   modal.style.display = "none";
 }
-export let modalTrigger=(eventName,eventDetails)=>{
+export let modalTrigger=(eventName,eventDetails,eventID)=>{
   const modal = document.getElementById("myModal");
         // <span> element that closes the modal
         const span = document.getElementsByClassName("close")[0];
@@ -25,6 +25,8 @@ export let modalTrigger=(eventName,eventDetails)=>{
         evename.innerText=eventName;
         evedet.innerText=eventDetails;
         modal.style.display="block";
+        const eventIDInput = document.getElementById('eventID');
+        eventIDInput.value = eventID;
 }
 
 function createCard(teamMember,container,ids){
@@ -44,16 +46,16 @@ function createCard(teamMember,container,ids){
         detdet.innerText=teamMember.eventDetails;
         detdiv.appendChild(detname);
         detdiv.appendChild(detdet);
-        console.log(teamMember.eventId)
+        //console.log(teamMember.eventId)
         card.setAttribute("id",`"${teamMember.eventID}"`);
         card.appendChild(detdiv);
         card.appendChild(image);
         cardCover.appendChild(card);
         container.appendChild(cardCover);
         let action = document.getElementById(`"${teamMember.eventID}"`);
-        console.log(action)
+    
         action.addEventListener('click',function(e){
-            modalTrigger(teamMember.eventName,teamMember.eventDetails);
+            modalTrigger(teamMember.eventName,teamMember.eventDetails,teamMember.eventID);
         });
         image.loading = "lazy";
 }
@@ -65,3 +67,46 @@ function createTeamData(eventsdata,eventsContainer){
     });
 }
 createTeamData(eventsdata,eventsContainer);
+
+const registerBtn = document.getElementById('btn-reg');
+
+registerBtn.addEventListener('click', async function(event) {
+    event.preventDefault();
+
+    
+    const eventIDReg = document.getElementById('eventID').value;
+    try {
+        const res = await fetch('/register/event/'+`${eventIDReg}`, { 
+          method: 'POST', 
+          body: JSON.stringify({}),
+          headers: {'Content-Type': 'application/json'}
+        });
+        
+        const data = await res.json();
+        if(data.msg=="Login") location.assign('/login');
+        if(data.code ==="100")
+        {
+          //triggering modal
+        //   await modalTrigger(data.msg);
+        //   span.onclick = function() {
+        //     modal.style.display = "none";
+        //     location.assign('/events');
+        //   }
+        location.assign('/events');
+        }
+        
+        else{
+        //   await modalTrigger("There was some problem in signup. Please try again");
+        //   span.onclick = function() {
+        //     modal.style.display = "none";
+        //     location.assign('/events');
+        //   }
+
+          location.assign('/events');
+        }
+  
+      }
+       catch (err) {
+        console.log(err);
+      }
+  });

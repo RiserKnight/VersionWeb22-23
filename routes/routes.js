@@ -16,6 +16,7 @@ router.get('/login', authController.login_get);
 router.post('/forgot_regno',authController.forgotUserID_post);
 router.post('/forgot_pass',authController.forget_password);
 router.post('/verifyOTP',authController.verify_otp);
+router.post('/register/event/:eventID',authMiddleware.isAuth,authController.registerEvent);
 
 router.post('/login',passport.authenticate('local', { failureRedirect: '/login-failure', successRedirect: '/' }));
 router.get('/login-failure',authController.loginFail);
