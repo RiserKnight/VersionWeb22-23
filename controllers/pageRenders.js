@@ -1,6 +1,5 @@
+const {eventRegistartion}=require('../models')
 
-
-  
   module.exports.signup_get = (req, res) => {
     res.locals.user =req.user;
     res.render("signup");
@@ -21,8 +20,14 @@
     res.render("contact");
     }
 
-    module.exports.events_get=(req,res)=>{
+    module.exports.events_get=async(req,res)=>{
     res.locals.user =req.user;
+    if(req.user){
+      const userID = req.user.userID;
+      const registerData = await eventRegistartion.findOne({where:{userID}});
+      res.locals.registerData =registerData.dataValues;
+    }
+    
     res.render("events");
     }
 
