@@ -1,4 +1,4 @@
-const {user,userOTP}=require('../models')
+const {user,userOTP,eventRegistartion}=require('../models')
 const dbFunct = require("./functions/database.js");
 const emailFunct = require("./functions/welcomeMail.js");
 const otpFunct = require("./functions/genOTP.js");
@@ -293,6 +293,38 @@ try {
       else if(code=="200")res.json({"success": "false","msg": "Invalid Request","code": code});
       else if(code=="250")res.json({"success": "false","msg": "OTP Timeout","code": code});
       else if(code=="300")res.json({"success": "false","msg": "Wrong OTP","code": code});
+      else res.json({"success": "false","msg": "Unexpected Error","code": code});
+    }
+
+
+    }
+     /*******************************************Event Register********************************************/
+
+     module.exports.registerEvent = async (req, res) => {
+     var code = "000";
+    try {
+
+      const userID=req.user.userID;
+      const eventID="E"+req.params.eventID;
+      console.log(eventID);
+
+      let updateValues = {};
+      updateValues[eventID] = true;
+      
+      userNew = await eventRegistartion.findOne({where:{userID:userID}});
+
+      if(!userNew) await eventRegistartion.create({userID});
+      
+      await eventRegistartion.update(updateValues,{where:{userID}});
+      code="100";
+
+    } catch (error) {
+      code="400";
+      console.log(error);
+    }
+    finally{
+
+      if(code=="100")res.json({"success": "true","msg": "Registered Succesfully","code": code});
       else res.json({"success": "false","msg": "Unexpected Error","code": code});
     }
 
