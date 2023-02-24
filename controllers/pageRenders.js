@@ -25,7 +25,9 @@ const {eventRegistartion}=require('../models')
     if(req.user){
       const userID = req.user.userID;
       const registerData = await eventRegistartion.findOne({where:{userID}});
-      res.locals.registerData =registerData.dataValues;
+
+      if(registerData!=null)res.locals.registerData =registerData.dataValues;
+      else res.locals.registerData =null;
     }
     
     res.render("events");

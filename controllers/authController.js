@@ -305,7 +305,7 @@ try {
     try {
 
       const userID=req.user.userID;
-      const eventID="E"+req.params.eventID;
+      const eventID=req.params.eventID;
       console.log(eventID);
 
       let updateValues = {};
