@@ -260,6 +260,15 @@ export var eventTeam = [
       "Linkedin": "https://www.linkedin.com/in/sunny-parmar-b3ab01221"
     },
     {
+
+      "Username": "dangig976@gmail.com",
+      "Name": "Govind Dangi",
+      "POR":"",
+      "Photo": "https://drive.google.com/uc?id=1H4Yu-jGU4nmmNWZiC1SfPXACTD30X2Pw",
+      "Github": "https://github.com",
+      "Linkedin": "https://www.linkedin.com/in/govind-dangi-0281a5222"
+    },
+    {
       "Username": "kmishra5403@gmail.com",
       "Name": "Khushbu Shandilya",
       "POR":"",
@@ -274,16 +283,6 @@ export var eventTeam = [
       "Photo": "https://drive.google.com/uc?id=1GrvaTCatm9bkATrgvH0E07f1wZDXm3fR",
       "Github": "https://github.com/umangkumarumk",
       "Linkedin": "https://www.linkedin.com/in/umangkumarumk/"
-    },
-    
-    {
-
-      "Username": "dangig976@gmail.com",
-      "Name": "Govind Dangi",
-      "POR":"",
-      "Photo": "https://drive.google.com/uc?id=1H4Yu-jGU4nmmNWZiC1SfPXACTD30X2Pw",
-      "Github": "https://github.com",
-      "Linkedin": "https://www.linkedin.com/in/govind-dangi-0281a5222"
     },
     {
       "Username": "arvindmali5768@gmail.com",

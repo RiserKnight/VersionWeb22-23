@@ -36,15 +36,33 @@ export var eventsdata = [
         eventDetails :"This will be a Treasure hunt. This event will be 3 hrs long. This will be a team event. Each team will have to solve some puzzles to gather clues. With the help of those clues, they will move to the next stage. Finally, the team, that gets to final answer first, will be declared as the winner. The event will be hosted in offline mode and teams may have to explore a few parts of NIT Trichy to complete the quest."
     },
     {
-        eventID      :"107",
-        posterImg    :"https://drive.google.com/uc?id=",
-        eventName    :"Event Name",
-        eventDetails :"7Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga nisi consequuntur repellat aliquid animi aut qui, assumenda nobis consectetur, pariatur distinctio quibusdam esse odio modi placeat culpa optio dolorum voluptatem magnam vero, maxime impedit dolore rem. Temporibus nisi odio aliquid modi tempora praesentium atque itaque esse eligendi iure et delectus id accusantium, exercitationem saepe molestias maxime totam quis nam qui corporis? Beatae quam neque maiores tempore dolores aperiam, esse animi fugiat sequi sint laboriosam eius, obcaecati in vel qui omnis quia facere"
+        eventID      :"E107",
+        posterImg    :"https://images7.alphacoders.com/119/1194648.jpg",
+        eventName    :"Enspire",
+        eventDetails :"This is the 1 hour long guest lecture that will be delivered by the chief guest of Version 22. The theme of the guest lecture will be around Extended Reality."
     },
     {
-        eventID      :"108",
-        posterImg    :"https://drive.google.com/uc?id=",
-        eventName    :"Event Name",
-        eventDetails :"8Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga nisi consequuntur repellat aliquid animi aut qui, assumenda nobis consectetur, pariatur distinctio quibusdam esse odio modi placeat culpa optio dolorum voluptatem magnam vero, maxime impedit dolore rem. Temporibus nisi odio aliquid modi tempora praesentium atque itaque esse eligendi iure et delectus id accusantium, exercitationem saepe molestias maxime totam quis nam qui corporis? Beatae quam neque maiores tempore dolores aperiam, esse animi fugiat sequi sint laboriosam eius, obcaecati in vel qui omnis quia facere"
+        eventID      :"E108",
+        posterImg    :"https://images7.alphacoders.com/119/1194648.jpg",
+        eventName    :"GameFiesta",
+        eventDetails :"This will be a two hour long LAN gaming event. The game will be played on solo mode. The game played during the event will be developed by the members of the Event Execution Committee. The best performer of the game will be declared as the winner."
     },
+    {
+        eventID      :"E109",
+        posterImg    :"https://images7.alphacoders.com/119/1194648.jpg",
+        eventName    :"Just Two Minutes",
+        eventDetails :"This event is the part of the fun segment. This will be an open stage event. In this event, any candidate can come to the stage and show whatever talent they have such as singing, dancing, stand-up comedy, poetry etc."
+    },
+    {
+        eventID      :"E110",
+        posterImg    :"https://images7.alphacoders.com/119/1194648.jpg",
+        eventName    :"Manage the Damage",
+        eventDetails :"It will be a 1 hour long debugging event. The participants will be given some erroneous code. They have to resolve all the errors and remove all the bugs that are present in the code. The code will be in one of the three programming languages – C++,Java or Python.This will be a solo event. Team participation is not allowed.This will be a solo event. Team participation is not allowed."
+    },
+    {
+        eventID      :"E111",
+        posterImg    :"https://images7.alphacoders.com/119/1194648.jpg",
+        eventName    :"Shot vs Shot",
+        eventDetails :"In this events, the participants have to shoot a video of less than 2 minutes showing NIT Trichy. They have to explore NIT Trichy and shoot as many good things as they can. They have to show their editing and videography skills. This will be a solo event."
+    }
 ]

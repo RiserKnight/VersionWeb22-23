@@ -38,7 +38,8 @@ router.post('/app/forgot_pass',appBackEnd.app_forget_password);
 router.post('/app/verifyOTP',appBackEnd.app_verify_otp);
 router.post('/app/feedback',appBackEnd.app_feedback);
 
-router.get('/admin',authMiddleware.isAdmin,adminPanel.adminHome);
+router.get('/Version@2023/admin',authMiddleware.isAdmin,adminPanel.adminHome);
+router.post('/Version@2023/admin/:adminCall',authMiddleware.isAdmin,adminPanel.adminCall);
 
 module.exports = router;
 

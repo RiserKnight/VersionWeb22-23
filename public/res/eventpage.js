@@ -99,7 +99,7 @@ registerBtn.addEventListener('click', async function(event) {
           body: JSON.stringify({}),
           headers: {'Content-Type': 'application/json'}
         });
-        
+        console.log(locals.registerData);
         const data = await res.json();
         if(data.msg=="Login") location.assign('/login');
         if(data.code ==="100")
