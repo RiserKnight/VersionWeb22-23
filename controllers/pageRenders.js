@@ -13,6 +13,10 @@ const {eventRegistartion}=require('../models')
     res.locals.user =req.user;
     res.render("about");
     }
+    module.exports.theme_get=(req,res)=>{
+    res.locals.user =req.user;
+    res.render("theme");
+    }
   
     module.exports.contact_get=(req,res)=>{
     res.locals.user =req.user;
