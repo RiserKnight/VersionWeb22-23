@@ -1,5 +1,4 @@
 const {eventRegistartion}=require('../models')
-
   module.exports.signup_get = (req, res) => {
     res.locals.user =req.user;
     res.render("signup");
@@ -31,9 +30,9 @@ const {eventRegistartion}=require('../models')
     }
     
     res.render("events");
-    }
-
-    module.exports.forgotUserID_get=(req,res)=>{
+  }
+  
+  module.exports.forgotUserID_get=(req,res)=>{
     res.locals.user =req.user;
     res.render("forgotUserID");
     }

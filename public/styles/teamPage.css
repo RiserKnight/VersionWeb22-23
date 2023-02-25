@@ -41,6 +41,7 @@ body {
     background-attachment: fixed;
     background-position: center;
     width: 100%;
+    overflow-x: hidden;
     display: flex;
     align-items: center;
     justify-content: center;

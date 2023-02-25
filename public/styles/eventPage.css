@@ -5,19 +5,19 @@
     font-weight: 800;
 }
 body {
-    
-    background: url('../images/events_bg.jpg');
+    overflow-x: hidden;
+    background: url('../images/events_bg4.png');
     font-family: 'Poppins', sans-serif;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     width: 100%;
-    display: flex;
+    /* display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
     min-height: 100vh;
-    flex-direction:column;
+    /* flex-direction:column; */
     color: #e1e1e5;
     ;
 }
@@ -28,6 +28,7 @@ body {
 }
 h1{
     font-family: Tech;
+    margin-top: 5rem;
     /* position: absolute;
     top: 14%; */
     color: #ff8600;
@@ -48,15 +49,17 @@ h1 span{
     
 }
 .card-cover{
-    background-color: rgba(44, 124, 252, 0.3);
+    /* background-color: rgba(44, 124, 252, 0.3); */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     border-radius: 1rem;
     padding: 0.5rem;
     margin: 1rem;
 }
 .card{
-    border: none;
-    width: 25rem;
-    height: 15rem;
+    width: 18rem;
+    height: 17rem;
     border-top-left-radius: 6rem;
     border-bottom-right-radius: 4rem;
     transition: 0.5s;
@@ -116,10 +119,10 @@ h1 span{
     color: white;
     transition: all 0.5s;
   }
-  /*#btn-reg:hover{
+  #btn-reg:hover{
     background-color:rgb(205, 37, 121) ;
     color: black;
-  }*/
+  }
   /* The Close Button */
   .close {
     color: #aaaaaa;
@@ -154,13 +157,16 @@ body::-webkit-scrollbar-thumb {
     }
 
 @media screen and (max-width:976px) {
+    body{
+      background-position-x: 49%;
+    }
    .modal-content{
-    top: 0;
     scale: 0.9;  
     width: 90%;
    }
    .card-container{
     scale: 0.8;
+    margin-top: -17rem;
    }
    /* .card-cover{
     width: 20rem;

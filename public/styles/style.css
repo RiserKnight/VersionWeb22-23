@@ -68,6 +68,14 @@ body {
   color: white;
   font-family: LoveloL;
 }
+.user-name{
+  position: absolute;
+  font-size: 1.2rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: rgb(86,255,174);
+  text-shadow: 0.5px 0.5px 1px rgb(18, 151, 87);
+  top: 58%;
+}
 @media screen and (min-width:436px){
   .reactor-container {
     position: absolute;
@@ -239,6 +247,28 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.typewriter {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 0.8s steps(20, end),
+    blink-caret 0.65s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 7% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
 
 @media screen and (max-width:435px) {
  body{
@@ -266,8 +296,24 @@ body {
   position: fixed;
   margin-top: 4.5rem;
  }
+ /* .user-name{
+  font-size: 1.3rem;
+  position: fixed;
+  margin-top: 4.5rem;
+ } */
  #anim{
   display: none;
  }
+ .typewriter{
+  animation: 
+    typing 1.5s steps(25, end),
+    blink-caret 0.65s step-end infinite;
+ }
+ /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 85% }
+  }
 }
+
 
