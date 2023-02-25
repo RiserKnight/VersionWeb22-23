@@ -63,9 +63,9 @@ body {
   }
 .modal-content {
     /* background-color: rgb(19, 25, 55,0.8); */
-    background-color: rgb(53,14,48,0.7);
+    background-color: rgba(43, 40, 40, 0.8);
     position: relative;
-    top: 30%;
+    top: 20%;
     /*left: 43%; */
     margin: auto;
     padding: 20px;
@@ -74,15 +74,24 @@ body {
     text-align: center;
     width: 20%;
   }
+  .modal-content h2{
+    color: orange;
+  }
   .modal-content p{
     color: #56ffae;
   }
   /* The Close Button */
   .close {
     color: #aaaaaa;
+    width: fit-content;
+    margin-top: 2rem;
+    line-height: 12px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 999em;
     /* float: right; */
-    font-size: 28px;
-    font-weight: bold;
+    /* font-size: 28px;
+    font-weight: bold; */
   }
   
   .close:hover,
@@ -184,7 +193,7 @@ button:hover {
      scale: 0.8;
     }
    .modal-content{
-    top: 30%;
+    scale: 0.9;  
     width: 70%;
-   }
+    }
    }

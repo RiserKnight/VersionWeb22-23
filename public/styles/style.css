@@ -304,6 +304,9 @@ body {
  #anim{
   display: none;
  }
+ .fabs{
+  scale: 0.75;
+ }
  .typewriter{
   animation: 
     typing 1.5s steps(25, end),

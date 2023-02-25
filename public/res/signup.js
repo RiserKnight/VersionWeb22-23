@@ -15,11 +15,11 @@ const loginForm = document.querySelector(".login");
     const modal = document.getElementById("myModal");
     // <span> element that closes the modal
     const span = document.getElementsByClassName("close")[0];
-    const messageLine = document.getElementById("msg");
-    
+    const messageLine = document.getElementById("evedet");
+    console.log(messageLine)
     const modalTrigger =async(alertMessage)=>{
-      modal.style.display="block";
       messageLine.innerText=alertMessage;
+      modal.style.display="block";
     }
 
 

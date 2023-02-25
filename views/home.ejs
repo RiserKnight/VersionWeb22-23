@@ -17,7 +17,7 @@
     <%if(user){%>
         <h4 id ="welcome" class="typewriter user-name">Welcome <%=user.userName%></h4>
         <%}%>
-    
+    <div id="overlay2" style="width: 100vw;height: 100vh ;opacity: 0; z-index: 0; position: absolute;"></div>
     <div class="reactor-container">
         <div class="reactor">
             <div class="triangle"></div>
@@ -51,6 +51,28 @@
             </a>
         </div>
     </div>
+    <script>
+        const overlay2 = document.getElementById('overlay2');
+        window.onclick = function(event){
+            if(event.target==overlay2){
+                const socialBtns = document.querySelector('.social-btns');
+                const add = document.getElementById('add');
+                const remove = document.getElementById('remove');
+                const socialLinks = document.querySelector('.social-btns').querySelectorAll('a');
+                    console.log(document.querySelector('.social-btns').classList.contains('open'))
+                    if(document.querySelector('.social-btns').classList.contains('open')){
+                        add.style.display = 'block';
+                        remove.style.display = 'none';
+                        socialLinks.forEach((e) => {
+                        e.style.bottom = "0px";
+                        })
+                        socialBtns.classList.toggle('open');
+                    }
+
+            }
+
+        }
+    </script>
     <script src="/res/lottie.js"></script>
     <script src="/res/script.js"></script>
     <script src="/res/navigation.js"></script>
