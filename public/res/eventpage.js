@@ -1,5 +1,9 @@
 import {eventsdata} from './eventsData.js'
 
+// fetching registerData
+const registerData = document.getElementById("registerData").value;
+const registerData1= JSON.parse(registerData) 
+console.log(registerData1)
 // modal Elements
 const modal = document.getElementById("myModal");
 // <span> element that closes the modal
@@ -14,16 +18,30 @@ export let modalTrigger=(eventName,eventDetails,eventID)=>{
         const span = document.getElementsByClassName("close")[0];
         const evedet = document.getElementById("evedet");
         const evename = document.getElementById("evename");
+        const regBtn=document.getElementById('btn-reg');
         span.onclick = function() {
+            if(eventName=="Attention") location.assign('/events');
             modal.style.display = "none";
         }
         window.onclick = function(event) {
             if (event.target == modal) {
+              if(eventName=="Attention") location.assign('/events');
               modal.style.display = "none";
             }
         }
         evename.innerText=eventName;
         evedet.innerText=eventDetails;
+        console.log(registerData1['E'+eventID])
+        if(registerData1['E'+eventID]){
+          regBtn.innerText='Registered'
+          regBtn.setAttribute('disabled',true)
+        }
+        else{
+          regBtn.innerText='Register'
+          regBtn.removeAttribute('disabled')
+        }
+        if(eventName=='Attention')
+          regBtn.style.display = "none";
         modal.style.display="block";
         const eventIDInput = document.getElementById('eventID');
         eventIDInput.value = eventID;
@@ -87,22 +105,14 @@ registerBtn.addEventListener('click', async function(event) {
         if(data.code ==="100")
         {
           //triggering modal
-        //   await modalTrigger(data.msg);
-        //   span.onclick = function() {
-        //     modal.style.display = "none";
-        //     location.assign('/events');
-        //   }
-        location.assign('/events');
+          const eventIDInput = document.getElementById('eventID');
+          await modalTrigger('Attention',data.msg,eventIDInput.value);
+          // location.assign('/events');
         }
         
         else{
-        //   await modalTrigger("There was some problem in signup. Please try again");
-        //   span.onclick = function() {
-        //     modal.style.display = "none";
-        //     location.assign('/events');
-        //   }
-
-          location.assign('/events');
+          const eventIDInput = document.getElementById('eventID');
+          await modalTrigger('Attention','There was some problem in signup. Please try again',eventIDInput.value);
         }
   
       }
