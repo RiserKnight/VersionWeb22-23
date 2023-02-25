@@ -20,14 +20,16 @@ const {eventRegistartion}=require('../models')
     }
 
     module.exports.events_get=async(req,res)=>{
+    const obj={"userID":2023999,"E101":false,"E102":false,"E103":false,"E104":false,"E105":false,"E106":false,"E107":false,"E108":false,"E109":false,"E110":false,"E111":false,"createdAt":"2023-02-24T20:49:56.310Z","updatedAt":"2023-02-24T21:44:16.286Z"}
     res.locals.user =req.user;
     if(req.user){
       const userID = req.user.userID;
       const registerData = await eventRegistartion.findOne({where:{userID}});
 
       if(registerData!=null)res.locals.registerData =registerData.dataValues;
-      else res.locals.registerData =null;
+      else res.locals.registerData =obj;
     }
+    else res.locals.registerData =obj;
     
     res.render("events");
   }

@@ -92,7 +92,8 @@ registerBtn.addEventListener('click', async function(event) {
     event.preventDefault();
 
     
-    const eventIDReg = document.getElementById('eventID').value;
+    const eventIDReg = "E"+document.getElementById('eventID').value;
+    
     try {
         const res = await fetch('/register/event/'+`${eventIDReg}`, { 
           method: 'POST', 
