@@ -2,8 +2,8 @@ import {eventsdata} from './eventsData.js'
 
 // fetching registerData
 const registerData = document.getElementById("registerData").value;
-const registerData1= JSON.parse(registerData) 
-console.log(registerData1)
+const registerData1= JSON.parse(registerData)
+// console.log(registerData1)
 // modal Elements
 const modal = document.getElementById("myModal");
 // <span> element that closes the modal
@@ -31,7 +31,7 @@ export let modalTrigger=(eventName,eventDetails,eventID)=>{
         }
         evename.innerText=eventName;
         evedet.innerText=eventDetails;
-        console.log(registerData1['E'+eventID])
+        // console.log(registerData1['E'+eventID])
         if(registerData1['E'+eventID]){
           regBtn.innerText='Registered'
           regBtn.setAttribute('disabled',true)
@@ -99,7 +99,7 @@ registerBtn.addEventListener('click', async function(event) {
           body: JSON.stringify({}),
           headers: {'Content-Type': 'application/json'}
         });
-        console.log(locals.registerData);
+        // console.log(locals.registerData);
         const data = await res.json();
         if(data.msg=="Login") location.assign('/login');
         if(data.code ==="100")
