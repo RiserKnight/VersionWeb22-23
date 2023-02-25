@@ -1,4 +1,5 @@
-const {user,info}=require('../../models')
+const {user,info,userOTP,session,eventRegistartion,feedback}=require('../../models')
+
 
 /*******************************************************************Create Operations******************************************** */
 exports.storeUser=async(userName,roll,email,contact,university,pass)=>{
@@ -48,4 +49,156 @@ exports.getUser=async(userID)=>{
         console.log(err);
     }
     return "User Not Found";
+}
+
+/*******************************************************************Admin Operations******************************************** */
+
+exports.getAllUsers=async()=>{
+    let users=[];
+    try{
+     const demo=await user.findAll();
+     demo.forEach(user => {
+         users.push(user.dataValues);
+     });
+     return users
+    }
+    catch(err){
+        console.log(err);
+            }
+}
+
+exports.getAllUsersOTP=async()=>{
+    let users=[];
+    try{
+     const demo=await userOTP.findAll();
+     demo.forEach(user => {
+         users.push(user.dataValues);
+     });
+     return users
+    }
+    catch(err){
+        console.log(err);
+            }
+}
+
+exports.getAllUsersSession=async()=>{
+    let users=[];
+    try{
+     const demo=await session.findAll();
+     demo.forEach(user => {
+         users.push(user.dataValues);
+     });
+     return users
+    }
+    catch(err){
+        console.log(err);
+            }
+}
+
+exports.getAllUsersRegistration=async()=>{
+    let users=[];
+    try{
+     const demo=await eventRegistartion.findAll();
+     demo.forEach(user => {
+         users.push(user.dataValues);
+     });
+     return users
+    }
+    catch(err){
+        console.log(err);
+            }
+}
+
+exports.getAllUsersInfo=async()=>{
+    let users=[];
+    try{
+     const demo=await info.findAll();
+     demo.forEach(user => {
+         users.push(user.dataValues);
+     });
+     return users
+    }
+    catch(err){
+        console.log(err);
+            }
+}
+
+exports.getAllUsersFeedback=async()=>{
+    let users=[];
+    try{
+     const demo=await feedback.findAll();
+     demo.forEach(user => {
+         users.push(user.dataValues);
+     });
+     return users
+    }
+    catch(err){
+        console.log(err);
+            }
+}
+
+exports.getUser=async(userID)=>{
+    let users=[];
+    try{
+     const demo=await user.findAll({where:{userID}});
+     demo.forEach(user => {
+         users.push(user.dataValues);
+     });
+     return users
+    }
+    catch(err){
+        console.log(err);
+            }
+}
+exports.getUserOTP=async(userID)=>{
+    let users=[];
+    try{
+     const demo=await userOTP.findAll({where:{userID}});
+     demo.forEach(user => {
+         users.push(user.dataValues);
+     });
+     return users
+    }
+    catch(err){
+        console.log(err);
+            }
+}
+exports.getUserEventRegistration=async(userID)=>{
+    let users=[];
+    try{
+     const demo=await eventRegistartion.findAll({where:{userID}});
+     demo.forEach(user => {
+         users.push(user.dataValues);
+     });
+     return users
+    }
+    catch(err){
+        console.log(err);
+            }
+}
+exports.getInfo=async(infoID)=>{
+    let users=[];
+    try{
+     const demo=await info.findAll({where:{infoID}});
+     demo.forEach(user => {
+         users.push(user.dataValues);
+     });
+     return users
+    }
+    catch(err){
+        console.log(err);
+            }
+}
+exports.getUserFeedback=async(userID)=>{
+    let users=[];
+    try{
+     const demo=await feedback.findAll({where:{userID}});
+     demo.forEach(user => {
+         users.push(user.dataValues);
+     });
+     return users
+    }
+    catch(err){
+        console.log(err);
+            }
 }
