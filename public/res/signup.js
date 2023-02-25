@@ -1,3 +1,15 @@
+    // modal Elements
+    const modal = document.getElementById("myModal");
+    // <span> element that closes the modal
+    const span = document.getElementsByClassName("close")[0];
+    const messageLine = document.getElementById("bodyA");
+    const msgHead = document.getElementById("headA");
+    console.log(messageLine)
+    const modalTrigger =async(headMsg,alertMessage)=>{
+      messageLine.innerText=alertMessage;
+      msgHead.innerText=headMsg;
+      modal.style.display="block";
+    }
 
 const loginForm = document.querySelector(".login");
   loginForm.addEventListener('submit', async (e) => {
@@ -10,17 +22,6 @@ const loginForm = document.querySelector(".login");
     const contactErr = document.getElementById("contact");
     const passErr = document.getElementById("pass");
     const passRErr = document.getElementById("passR");
-
-    // modal Elements
-    const modal = document.getElementById("myModal");
-    // <span> element that closes the modal
-    const span = document.getElementsByClassName("close")[0];
-    const messageLine = document.getElementById("evedet");
-    console.log(messageLine)
-    const modalTrigger =async(alertMessage)=>{
-      messageLine.innerText=alertMessage;
-      modal.style.display="block";
-    }
 
 
     if(userNameErr.style.display=="block")
@@ -74,7 +75,7 @@ const loginForm = document.querySelector(".login");
       if(data.code ==="100")
       {
         //triggering modal
-        await modalTrigger(data.msg);
+        await modalTrigger("Signup Successful",data.msg);
         span.onclick = function() {
           modal.style.display = "none";
           location.assign('/');
@@ -87,7 +88,7 @@ const loginForm = document.querySelector(".login");
         document.getElementById("email").innerHTML=data.msg;
       }
       else{
-        await modalTrigger("There was some problem in signup. Please try again");
+        await modalTrigger("Signup Unsuccessful","There was some problem in signup. Please try again");
         span.onclick = function() {
           modal.style.display = "none";
           location.assign('/register');
@@ -100,7 +101,11 @@ const loginForm = document.querySelector(".login");
     }
 
     }
-
-    
-
   });
+
+  window.onload = async function() {
+    await modalTrigger("Alert","Please enter your email carefully all the future communication will be done via email.");
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+  };

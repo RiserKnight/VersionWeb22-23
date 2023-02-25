@@ -6,16 +6,18 @@ const loginForm = document.querySelector(".login");
     const passErr = document.getElementById("pass");
     const passRErr = document.getElementById("passR");
 
-       // modal Elements
-       const modal = document.getElementById("myModal");
-       // <span> element that closes the modal
-       const span = document.getElementsByClassName("close")[0];
-       const messageLine = document.getElementById("msg");
-       
-       const modalTrigger =async(alertMessage)=>{
-         modal.style.display="block";
-         messageLine.innerText=alertMessage;
-       }
+           // modal Elements
+    const modal = document.getElementById("myModal");
+    // <span> element that closes the modal
+    const span = document.getElementsByClassName("close")[0];
+    const messageLine = document.getElementById("bodyA");
+    const msgHead = document.getElementById("headA");
+    console.log(messageLine)
+    const modalTrigger =async(headMsg,alertMessage)=>{
+      messageLine.innerText=alertMessage;
+      msgHead.innerText=headMsg;
+      modal.style.display="block";
+    }
 
        if(otpErr.style.display=="block")
        {otpErr.style.display="none";}
@@ -49,7 +51,7 @@ const loginForm = document.querySelector(".login");
          if(data.code ==="100")
          {
            //triggering modal
-           await modalTrigger(data.msg);
+           await modalTrigger("Verification Successful",data.msg);
            span.onclick = function() {
              modal.style.display = "none";
              location.assign('/');
@@ -58,7 +60,7 @@ const loginForm = document.querySelector(".login");
          }
          
          else if(data.code==="250"){
-            await modalTrigger(data.msg);
+            await modalTrigger("Verification Unsuccessful",data.msg);
             span.onclick = function() {
               modal.style.display = "none";
               location.assign('/login');
@@ -66,7 +68,7 @@ const loginForm = document.querySelector(".login");
          }
          else if(data.code==="300")
          {
-            await modalTrigger(data.msg);
+            await modalTrigger("Verification Unsuccessful",data.msg);
             span.onclick = function() {
               modal.style.display = "none";
               location.assign('/verifyOTP');
@@ -74,7 +76,7 @@ const loginForm = document.querySelector(".login");
          }
 
          else{
-           await modalTrigger("There was some problem in signup. Please try again");
+           await modalTrigger("Verification Unsuccessful","There was some problem in signup. Please try again");
            span.onclick = function() {
              modal.style.display = "none";
              location.assign('/register');
