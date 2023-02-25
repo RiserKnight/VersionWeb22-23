@@ -162,7 +162,7 @@ body {
 }
 .card-container .card .sci{
     position:absolute;
-    bottom:50px;
+    bottom:10%;
     display:flex;
 }
 .card-container .card .sci li{

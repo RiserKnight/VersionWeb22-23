@@ -72,9 +72,9 @@ body {
   position: absolute;
   font-size: 1.2rem;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: rgb(86,255,174);
-  text-shadow: 0.5px 0.5px 1px rgb(18, 151, 87);
-  top: 58%;
+  color: yellow;
+  /* text-shadow: 0.5px 0.5px 1px rgb(18, 151, 87); */
+  top: 59%;
 }
 @media screen and (min-width:436px){
   .reactor-container {
@@ -254,14 +254,14 @@ body {
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: .15em; /* Adjust as needed */
   animation: 
-    typing 0.8s steps(20, end),
+    typing 3.5s steps(20, end),
     blink-caret 0.65s step-end infinite;
 }
 
 /* The typing effect */
 @keyframes typing {
   from { width: 0 }
-  to { width: 7% }
+  to { width: 20% }
 }
 
 /* The typewriter cursor effect */
