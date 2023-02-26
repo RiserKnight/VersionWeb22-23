@@ -5,16 +5,18 @@ const loginForm = document.querySelector(".login");
     const userIDErr = document.getElementById("userID");
 
     
-    // modal Elements
-    const modal = document.getElementById("myModal");
-    // <span> element that closes the modal
-    const span = document.getElementsByClassName("close")[0];
-    const messageLine = document.getElementById("msg");
-    
-    const modalTrigger =async(alertMessage)=>{
-      modal.style.display="block";
-      messageLine.innerText=alertMessage;
-    }
+        // modal Elements
+        const modal = document.getElementById("myModal");
+        // <span> element that closes the modal
+        const span = document.getElementsByClassName("close")[0];
+        const messageLine = document.getElementById("bodyA");
+        const msgHead = document.getElementById("headA");
+        console.log(messageLine)
+        const modalTrigger =async(headMsg,alertMessage)=>{
+          messageLine.innerText=alertMessage;
+          msgHead.innerText=headMsg;
+          modal.style.display="block";
+        }
 
     if(userIDErr.style.display=="block")
     {userIDErr.style.display="none";}
@@ -39,14 +41,14 @@ const loginForm = document.querySelector(".login");
       }
       
       else if(data.code==="200"){
-        await modalTrigger(data.msg);
+        await modalTrigger("Unsuccessful",data.msg);
         span.onclick = function() {
           modal.style.display = "none";
           location.assign('/login');
         }
       }
       else{
-        await modalTrigger("There was some problem in reset. Please try again");
+        await modalTrigger("Unsuccessful","There was some problem in reset. Please try again");
         span.onclick = function() {
           modal.style.display = "none";
           location.assign('/login');

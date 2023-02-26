@@ -77,7 +77,7 @@ body {
   font-size: 1.2rem;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: yellow;
-  /* text-shadow: 0.5px 0.5px 1px rgb(18, 151, 87); */
+  text-shadow: 0.5px 0.5px 1px #F9F54B; 
   top: 59%;
 }
 @media screen and (min-width:436px){

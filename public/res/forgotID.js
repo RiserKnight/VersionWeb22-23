@@ -11,13 +11,13 @@ const loginForm = document.querySelector(".login");
       const modal = document.getElementById("myModal");
       // <span> element that closes the modal
       const span = document.getElementsByClassName("close")[0];
-
-      const messageLine = document.getElementById("msg");
-      
-      const modalTrigger =async(alertMessage)=>{
-        modal.style.display="block";
+      const messageLine = document.getElementById("bodyA");
+      const msgHead = document.getElementById("headA");
+      console.log(messageLine)
+      const modalTrigger =async(headMsg,alertMessage)=>{
         messageLine.innerText=alertMessage;
-        // location.assign('/');
+        msgHead.innerText=headMsg;
+        modal.style.display="block";
       }
 
     if(rollErr.style.display=="block")
@@ -49,7 +49,7 @@ const loginForm = document.querySelector(".login");
       if(data.code ==="100")
       {
         //triggering modal
-        await modalTrigger(`Your Registration number is ${data.userID}`);
+        await modalTrigger("Successful",`Your Registration number is ${data.userID}`);
 
         span.onclick = function() {
             modal.style.display = "none";
@@ -60,7 +60,7 @@ const loginForm = document.querySelector(".login");
       
       else if(data.code==="200"){
 
-        await modalTrigger(data.msg);
+        await modalTrigger("Unsuccessful",data.msg);
         span.onclick = function() {
             modal.style.display = "none";
             location.assign('/forgot-reg');
@@ -68,7 +68,7 @@ const loginForm = document.querySelector(".login");
   
       }
       else{
-        await modalTrigger("There was some problem in signup. Please try again");
+        await modalTrigger("Unsuccessful","There was some problem in signup. Please try again");
         span.onclick = function() {
             modal.style.display = "none";
             location.assign('/forgot-reg');
