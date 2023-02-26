@@ -1,5 +1,5 @@
 body {
-    background: url('/images/bg1.svg');
+    background: url('/images/contact_bg.jpeg');
     font-family: 'Poppins', sans-serif;
     background-repeat: no-repeat;
     background-size: cover;
@@ -13,7 +13,10 @@ body {
     flex-wrap: wrap;
     min-height: 100vh;
 }
-
+.nav-container{
+  background-color: rgba(0, 0, 0, 0.4);
+  height:80px;
+}
 .container {
     /* background: #fff; */
     margin-top: 5rem;
