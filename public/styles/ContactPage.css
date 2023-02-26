@@ -100,4 +100,12 @@ body {
     border: none;
     text-decoration: none;
   }
+  @media screen and (min-width:576px){
+    .our-team{
+      min-height: 521px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+  }
   
