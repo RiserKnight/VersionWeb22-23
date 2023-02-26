@@ -56,20 +56,33 @@ body {
   position: relative;
   overflow: hidden;
 }
-
+.wrapper{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: -13rem;
+}
 #anim {
   max-width: 100%;
+  position: absolute;
+  width: inherit;
+  z-index: -100;
 }
 #anim svg{
   box-shadow: 2px 2px 10px black,-2px -2px 10px black;
 }
 .head{
   color: white;
+  position: relative;
+  text-align: center;
   font-family: "Tech";
+  margin-top: 1rem;
   letter-spacing: .5rem;
 }
 .tag{
   color: white;
+  text-align: center;
+  position: relative;
   font-family: LoveloL;
 }
 .user-name{
@@ -80,27 +93,17 @@ body {
   text-shadow: 0.5px 0.5px 1px #F9F54B; 
   top: 59%;
 }
-@media screen and (min-width:436px){
-  .reactor-container {
-    position: absolute;
-    top: 15%;
-  }
+@media screen and (min-width:520px){
   .head {
-      position: absolute;
-      color: white;
-      top: 40%;
-      left: 30%;
+    color: white;
       font-size: 6rem;
       font-family: "Tech";
       letter-spacing: .5rem;
   }
   .tag {
-      position: absolute;
-      color: white;
-      top: 52%;
-      left: 32%;
-      font-size: 2.5rem;
-      font-family: LoveloL;
+    color: white;
+    font-size: 2.5rem;
+    font-family: LoveloL;
   }
 }
 
@@ -276,7 +279,7 @@ h4{
   50% { border-color: orange; }
 }
 
-@media screen and (max-width:976px) {
+@media screen and (max-width:1060px) {
  body{
   background: url('../images/img_3.jpg');
   backdrop-filter: none;
@@ -286,29 +289,10 @@ h4{
   background-position-x: 72%;
   width: 100%;
  }
- .reactor-container{
-  position: absolute;
-  top: 20%;
-  scale: 0.8;
+ .wrapper{
+  scale: 0.9;
  }
- .head{
-  /* position: absolute; */
-  font-size: 3rem;
-  margin: auto;
-  /* top: 45%;
-  left: 10%; */
- }
- .tag{
-  font-size: 1.3rem;
-  position: fixed;
-  margin-top: 4.5rem;
- }
- /* .user-name{
-  font-size: 1.3rem;
-  position: fixed;
-  margin-top: 4.5rem;
- } */
- #anim{
+ #anim svg{
   display: none;
  }
  .fabs{
