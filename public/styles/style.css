@@ -86,12 +86,12 @@ body {
   font-family: LoveloL;
 }
 .user-name{
-  position: absolute;
+  position: relative;;
   font-size: 1.2rem;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: yellow;
   text-shadow: 0.5px 0.5px 1px #F9F54B; 
-  top: 59%;
+  /* top: 62%;  */
 }
 @media screen and (min-width:520px){
   .head {
@@ -270,7 +270,7 @@ h4{
 /* The typing effect */
 @keyframes typing {
   from { width: 0 }
-  to { width: 20% }
+  to { width: 50% }
 }
 
 /* The typewriter cursor effect */

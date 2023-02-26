@@ -40,6 +40,6 @@ if (stylesheet) {
     let fromRule = keyframes.findRule('from');
     let toRule = keyframes.findRule('to');
   
-    toRule.style.width=parseInt(welcome.length)+'%';
+    toRule.style.width=parseInt(welcome.length)*2.5+'%';
   }
 }

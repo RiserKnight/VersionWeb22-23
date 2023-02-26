@@ -37,30 +37,24 @@ export var eventsdata = [
     },
     {
         eventID      :"107",
-        posterImg    :"https://images7.alphacoders.com/119/1194648.jpg",
-        eventName    :"Enspire",
-        eventDetails :"This is the 1 hour long guest lecture that will be delivered by the chief guest of Version 22. The theme of the guest lecture will be around Extended Reality."
-    },
-    {
-        eventID      :"108",
         posterImg    :"images/eventPosters/gamefista.jpeg",
         eventName    :"GameFiesta",
         eventDetails :"This will be a two hour long LAN gaming event. The game will be played on solo mode. The game played during the event will be developed by the members of the Event Execution Committee. The best performer of the game will be declared as the winner."
     },
     {
-        eventID      :"109",
+        eventID      :"108",
         posterImg    :"images/eventPosters/justtwomin.jpeg",
         eventName    :"Just Two Minutes",
         eventDetails :"This event is the part of the fun segment. This will be an open stage event. In this event, any candidate can come to the stage and show whatever talent they have such as singing, dancing, stand-up comedy, poetry etc."
     },
     {
-        eventID      :"110",
+        eventID      :"109",
         posterImg    :"images/eventPosters/managethedamage.jpeg",
         eventName    :"Manage the Damage",
         eventDetails :"It will be a 1 hour long debugging event. The participants will be given some erroneous code. They have to resolve all the errors and remove all the bugs that are present in the code. The code will be in one of the three programming languages – C++,Java or Python.This will be a solo event. Team participation is not allowed.This will be a solo event. Team participation is not allowed."
     },
     {
-        eventID      :"111",
+        eventID      :"110",
         posterImg    :"images/eventPosters/shotvsshot.jpeg",
         eventName    :"Shot vs Shot",
         eventDetails :"In this events, the participants have to shoot a video of less than 2 minutes showing NIT Trichy. They have to explore NIT Trichy and shoot as many good things as they can. They have to show their editing and videography skills. This will be a solo event."
