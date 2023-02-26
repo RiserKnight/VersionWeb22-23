@@ -1,3 +1,4 @@
+const emailTemplate  = require('./emailTemplate');
 
 require('dotenv').config();
 const nodemailer = require('nodemailer');
@@ -7,21 +8,22 @@ const nodemailer = require('nodemailer');
 module.exports.mail = (req,res,email, data)=>{
 
     const subject = "Version23 Team Welcomes you";
-    const text = "Hello "+ data.userName +" your registration number is " + data.reg;
 
     let transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: 'smtpout.secureserver.net',
+        port: 465,
+        secure: true,
         auth: {
-            user: process.env.MAIL_USER,
-            pass: process.env.MAIL_PASS 
+            user: process.env.MAIL_USER, // replace with your email address
+            pass: process.env.MAIL_PASS // replace with your email password
         }
     });
 
     let mailOptions = {
-        from: '"Version23 Team" <version22.nitt@gmail.com>', // sender address
+        from: '"Version23 NITT " <version23team@version23.in>', // sender address
         to: email, 
         subject: subject, 
-        text: text 
+        html: emailTemplate(data.reg, data.userName)
     };
     try {
         transporter.sendMail(mailOptions, (error, info) => {
