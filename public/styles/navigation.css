@@ -149,13 +149,6 @@
   li {
     list-style: none;
   }
-  @media screen and (max-width:976px) {
-    #nav-list{
-     width: 50%;
-     font-size: medium;
-    }
-   
-   }
    @media screen and (max-width:435px) {
     .menu{
         width:40px;
@@ -169,4 +162,8 @@
         background-color: rgba(0, 0, 0, 0.4);
         height:60px;
     }
+    #nav-list{
+      width: 50%;
+      font-size: medium;
+     }
 }
