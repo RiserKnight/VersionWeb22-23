@@ -116,6 +116,8 @@
   .opennav .nav-options:hover {
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
+    color: #56ffae;
+
     border-bottom: 3px solid #56ffae;
   }
   
