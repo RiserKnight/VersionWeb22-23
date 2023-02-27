@@ -112,15 +112,6 @@ module.exports = (sequelize, DataTypes) => {
         notNull:{msg:'Registered User must have ID'},
         notEmpty:{msg:'Registered User  ID must not be empty'}
       }
-    },
-    E111: {
-      type: DataTypes.BOOLEAN,
-      allowNull:false,
-      defaultValue: false,
-      validate:{
-        notNull:{msg:'Registered User must have ID'},
-        notEmpty:{msg:'Registered User  ID must not be empty'}
-      }
     }
 
   }, {

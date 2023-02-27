@@ -134,3 +134,12 @@ json returns
 {"success": "false","msg":"Unauthorized","code": "000"}
 {"success": "true","msg": "Feedback Submitted Succesfully","code": "100"}
 {"success": "false","msg": "Unexpected Error","code": "400"}
+
+******************************************************************************host/checkRegID
+{
+"userID":"2023001"
+}
+json returns
+{"success": "true","msg": "User Exists","code": "100"}
+{"success": "false","msg": "Invalid User","code": "200"}
+{"success": "false","msg": "Unexpected Error","code": "400"}

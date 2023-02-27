@@ -17,6 +17,7 @@ router.post('/forgot_regno',authController.forgotUserID_post);
 router.post('/forgot_pass',authController.forget_password);
 router.post('/verifyOTP',authController.verify_otp);
 router.post('/register/event/:eventID',authMiddleware.isAuth,authController.registerEvent);
+router.get('/verifyAccount',authController.verifyAccount);
 
 router.post('/login',passport.authenticate('local', { failureRedirect: '/login-failure', successRedirect: '/' }));
 router.get('/login-failure',authController.loginFail);
@@ -38,6 +39,7 @@ router.post('/app/forgot_regno',appBackEnd.app_forget_userID);
 router.post('/app/forgot_pass',appBackEnd.app_forget_password);
 router.post('/app/verifyOTP',appBackEnd.app_verify_otp);
 router.post('/app/feedback',appBackEnd.app_feedback);
+router.post('/checkRegID',appBackEnd.checkRegistration);
 
 router.get('/Version@2023/admin',authMiddleware.isAdmin,adminPanel.adminHome);
 router.post('/Version@2023/admin/:adminCall',authMiddleware.isAdmin,adminPanel.adminCall);

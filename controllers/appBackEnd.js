@@ -26,17 +26,28 @@ module.exports.app_register = async (req, res) => {
       res.json({"success": "false","msg":"Unauthorized","code":code});
       return 0;
     }
-  
-      
-      const emailN = await user.findOne({where:{email:email}});
-      if(!emailN){
-          userNew=await dbFunct.storeUser(userName,roll,email,contact,university,pass);
-         
-          if (userNew.message)code="300";
-          else code="100";
 
+
+    const emailN = await user.findOne({where:{email:email}});
+    if(!emailN){
+      const emailTN = await tempUser.findOne({where:{email:email}});
+      if(!emailTN)
+      {
+        const date = new Date();
+        const validTill = parseInt(date.getTime()+1770*60*1000);
+        const validOTP = otpFunct.validOTP();
+        const tempID=validOTP+validTill;
+        console.log(tempID);
+        const link=process.env.HOST+"/verifyAccount?temp="+tempID;
+        userNew= await tempUser.create({tempID,userName,roll,email,contact,university,pass,validTill});
+        if (userNew.message)code="300";
+        const data ={userName: userNew.userName,link:link};
+        verifyMailFunct.mail(req,res,email,data);
+        code="100";
       }
-      else code="200";  
+      else code="200";
+    }
+    else code="200"  
     } 
     
     catch (error) 
@@ -320,4 +331,22 @@ module.exports.app_register = async (req, res) => {
       else res.json({"success": "false","msg": "Unexpected Error","code": code});
     }
     
+    }
+
+    module.exports.checkRegistration = async(req,res)=>{
+      const userID = req.body.userID;
+      var code="000",userNew;
+      try {
+        userNew = await user.findOne({where:{userID:userID}});
+        if(userNew) code="100";
+        else code="200";
+      } catch (error) {
+        code="400"
+        console.log(error);
+      }
+      finally{
+        if(code=="100")res.json({"success": "true","msg": "User Exists","code": code});
+      else if(code=="200")res.json({"success": "false","msg": "Invalid User","code": code});
+      else res.json({"success": "false","msg": "Unexpected Error","code": code});
+      }
     }

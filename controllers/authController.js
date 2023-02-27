@@ -1,9 +1,10 @@
-const {user,userOTP,eventRegistartion}=require('../models')
+const {user,userOTP,eventRegistartion,tempUser}=require('../models')
 const dbFunct = require("./functions/database.js");
 const emailFunct = require("./functions/welcomeMail.js");
 const otpFunct = require("./functions/genOTP.js");
 const bcrypt = require('bcrypt');
 const emailFunct1 = require("./functions/otpMail.js");
+const verifyMailFunct = require("./functions/verifyMail.js");
 
 require('dotenv').config();
 
@@ -50,42 +51,78 @@ module.exports.home = (req, res) => {
   /*******************************************SignUp Post********************************************/
   module.exports.signup_post = async (req, res) => {
 
-try {
-
-
-  res.locals.user =req.user;
-  const userName=req.body.userName;
-  const roll=req.body.roll;
-  const email=req.body.email;
-  const contact=req.body.contact;
-  const university=req.body.university;
-  const pass=req.body.pass;
-  var userNew;
-  const emailN = await user.findOne({where:{email:email}});
-  if(!emailN){
-    try{
-      userNew=await dbFunct.storeUser(userName,roll,email,contact,university,pass);
-      const data ={userName: userNew.userName,reg: userNew.userID};
-      emailFunct.mail(req,res,email,data);
-      console.log(userNew);
+   res.locals.user =req.user;
+   const userName=req.body.userName;
+   const roll=req.body.roll;
+   const email=req.body.email;
+   const contact=req.body.contact;
+   const university=req.body.university;
+   const pass=req.body.pass;
+   var userNew,code="000";
+   try {
+    const emailN = await user.findOne({where:{email:email}});
+    if(!emailN){
+      const emailTN = await tempUser.findOne({where:{email:email}});
+      if(!emailTN)
+      {
+        const date = new Date();
+        const validTill = parseInt(date.getTime()+1770*60*1000);
+        const validOTP = otpFunct.validOTP();
+        const tempID=validOTP+validTill;
+        console.log(tempID);
+        const link=process.env.HOST+"/verifyAccount?temp="+tempID;
+        userNew= await tempUser.create({tempID,userName,roll,email,contact,university,pass,validTill});
+        const data ={userName: userNew.userName,link:link};
+        verifyMailFunct.mail(req,res,email,data);
+        code="100";
+      }
+      else code="300";
     }
-    catch(err){
-      console.log(err);
-    }
-    res.json({"code":"100","msg":"!! Use Registration number sent to your email for login !!"});
+    else code="200"
 
-  }
-  else{
-    res.json({"code":"200","msg":"User Email already Exist"});
-  }
+    
+   } catch (error) {
+    code="400";
+    console.log(error);
+   }
+   finally{
 
+    if(code=="100")res.json({"code":"100","msg":"Please check your email and verify your account."});
+    else if(code=="200")res.json({"code":"200","msg":"User email already Exist"});
+    else if(code=="300")res.json({"code":"300","msg":"User already exist. Please check your email and verify your account."});
+    else res.json({"success": "false","msg": "Unexpected Error","code": code});
 
-  
-} catch (error) {
-  console.log(error);
+   }
+
 }
-   
+
+module.exports.verifyAccount = async(req,res)=>{
+  res.locals.user =req.user;
+  const { temp } = req.query;
+  var userNew,userTemp,code="000";
+  try {
+    console.log(temp);
+    userTemp = await tempUser.findOne({where:{tempID:temp}});
+   // console.log(userNew.dataValues);
+    const userName = userTemp.dataValues.userName;
+    const roll = userTemp.dataValues.roll;
+    const email = userTemp.dataValues.email;
+    const contact = userTemp.dataValues.contact;
+    const university = userTemp.dataValues.university;
+    const pass = userTemp.dataValues.pass;
+    userNew=await dbFunct.storeUser(userName,roll,email,contact,university,pass);
+    const data ={userName: userNew.userName,reg: userNew.userID};
+    emailFunct.mail(req,res,email,data);
+    code="100";
+    await userTemp.destroy();
+  } catch (error) {
+    console.log(error);
   }
+  finally{
+      res.render("accountVerify",{code:code});
+  }
+  
+}
   
   module.exports.loginFail = async (req, res) => {
     res.locals.user =req.user;
@@ -110,12 +147,6 @@ try {
     
   }
 
-  
-  module.exports.randi = (req, res,next) => {
-    const OTP = otpFunct.genOTP();
-    res.send(OTP);
-    
-  }
 // const eventD = new Date(2023,2,18,9,10,11);
 // eventD.setMilliseconds(12);
 // console.log(eventD.getTime())
