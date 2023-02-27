@@ -1,9 +1,10 @@
 'use strict';
+const bcrypt = require('bcrypt');
 const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class user extends Model {
+  class tempUser extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,13 +14,11 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  	
-
-  user.init({
-    userID: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
+  tempUser.init({
+    tempID: {
+      type: DataTypes.STRING,
       allowNull:false,
+      primaryKey: true,
       validate:{
         notNull:{msg:'User  must have a ID'},
         notEmpty:{msg:'ID must not be empty'}
@@ -76,11 +75,26 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty:{msg:'password must not be empty'}
       }
 
+    },
+    validTill: {
+      type: DataTypes.BIGINT,
+      allowNull:false,
+      validate:{
+        notNull:{msg:'OTP must have a valid time'},
+        notEmpty:{msg:'Valid Time must not be empty'}
+      }
     }
   }, {
-    sequelize,
-    modelName: 'user',
-  });
-  return user;
-};
+    hooks: {
+      beforeCreate: async(tempUser, options) => {
 
+        const salt = await bcrypt.genSalt(10);
+        tempUser.pass  = await bcrypt.hash(tempUser.pass, salt);
+     
+      }
+    },
+    sequelize,
+    modelName: 'tempUser',
+  });
+  return tempUser;
+};

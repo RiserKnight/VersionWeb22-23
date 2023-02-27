@@ -1,3 +1,4 @@
+const emailTemplate1  = require('./emailTemplate1');
 
 require('dotenv').config();
 const nodemailer = require('nodemailer');
@@ -5,10 +6,8 @@ const nodemailer = require('nodemailer');
 
 
 module.exports.mail = (req,res,email, data)=>{
-    
 
-    const subject = "Version23 Account Password Reset";
-    const text = "Hello "+ data.userName +" your OTP is " + data.OTP;
+    const subject = "Version23 Account Verification";
 
     let transporter = nodemailer.createTransport({
         host: 'smtpout.secureserver.net',
@@ -24,7 +23,7 @@ module.exports.mail = (req,res,email, data)=>{
         from: '"Version23 Team" <version23team@version23.in>', // sender address
         to: email, 
         subject: subject, 
-        text: text 
+        html: emailTemplate1(data.userName,data.link)
     };
     try {
         transporter.sendMail(mailOptions, (error, info) => {

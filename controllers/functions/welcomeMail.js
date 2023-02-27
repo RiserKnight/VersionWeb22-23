@@ -20,7 +20,7 @@ module.exports.mail = (req,res,email, data)=>{
     });
 
     let mailOptions = {
-        from: '"Version23 NITT " <version23team@version23.in>', // sender address
+        from: '"Version23 Team" <version23team@version23.in>', // sender address
         to: email, 
         subject: subject, 
         html: emailTemplate(data.reg, data.userName)

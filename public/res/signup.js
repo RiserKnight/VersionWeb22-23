@@ -87,6 +87,14 @@ const loginForm = document.querySelector(".login");
         document.getElementById("email").style.display="block";
         document.getElementById("email").innerHTML=data.msg;
       }
+      else if(data.code==="300"){
+        //triggering modal
+        await modalTrigger("Signup Unsuccessful",data.msg);
+        span.onclick = function() {
+          modal.style.display = "none";
+          location.assign('/');
+        }
+      }
       else{
         await modalTrigger("Signup Unsuccessful","There was some problem in signup. Please try again");
         span.onclick = function() {
