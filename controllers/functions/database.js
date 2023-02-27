@@ -1,4 +1,4 @@
-const {user,info,userOTP,session,eventRegistartion,feedback}=require('../../models')
+const {user,tempUser,info,userOTP,session,eventRegistartion,feedback}=require('../../models')
 
 
 /*******************************************************************Create Operations******************************************** */
@@ -57,6 +57,19 @@ exports.getAllUsers=async()=>{
     let users=[];
     try{
      const demo=await user.findAll();
+     demo.forEach(user => {
+         users.push(user.dataValues);
+     });
+     return users
+    }
+    catch(err){
+        console.log(err);
+            }
+}
+exports.getAllTempUsers=async()=>{
+    let users=[];
+    try{
+     const demo=await tempUser.findAll();
      demo.forEach(user => {
          users.push(user.dataValues);
      });

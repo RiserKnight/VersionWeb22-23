@@ -42,6 +42,11 @@ if(adminCall==6)
   const users= await dbFunct.getAllUsersFeedback();
   res.render("admin/tables",{users:users});
 }
+if(adminCall==7) 
+{
+  const users= await dbFunct.getAllTempUsers();
+  res.render("admin/tables",{users:users});
+}
 
 /******************************* ID specific table *******************************/
 
