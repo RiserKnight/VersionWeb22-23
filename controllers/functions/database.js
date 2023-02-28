@@ -51,7 +51,7 @@ exports.getUser=async(userID)=>{
     return "User Not Found";
 }
 
-/*******************************************************************Admin Operations******************************************** */
+/*************************************************Admin Operations(Get All)******************************************** */
 
 exports.getAllUsers=async()=>{
     let users=[];
@@ -149,7 +149,7 @@ exports.getAllUsersFeedback=async()=>{
         console.log(err);
             }
 }
-
+/*****************************************************Admin Operations(Specific)******************************************** */
 exports.getUser=async(userID)=>{
     let users=[];
     try{
@@ -206,6 +206,47 @@ exports.getUserFeedback=async(userID)=>{
     let users=[];
     try{
      const demo=await feedback.findAll({where:{userID}});
+     demo.forEach(user => {
+         users.push(user.dataValues);
+     });
+     return users
+    }
+    catch(err){
+        console.log(err);
+            }
+}
+/*****************************************************Admin Operations(Search)******************************************** */
+exports.getUsers=async(search)=>{
+    let users=[];
+    try{
+     const demo=await user.findAll({where:search});
+     demo.forEach(user => {
+         users.push(user.dataValues);
+     });
+     return users
+    }
+    catch(err){
+        console.log(err);
+            }
+}
+exports.getTempUsers=async(search)=>{
+    let users=[];
+    try{
+     const demo=await tempUser.findAll({where:search});
+     demo.forEach(user => {
+         users.push(user.dataValues);
+     });
+     return users
+    }
+    catch(err){
+        console.log(err);
+            }
+}
+
+exports.getUserOTPs=async(search)=>{
+    let users=[];
+    try{
+     const demo=await userOTP.findAll({where:search});
      demo.forEach(user => {
          users.push(user.dataValues);
      });
