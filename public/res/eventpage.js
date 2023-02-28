@@ -52,6 +52,24 @@ function createCard(teamMember,container,ids){
         let photo = posterLink;
         let cardCover = document.createElement("div");
         cardCover.classList.add("card-cover");
+        
+        let datetime = document.createElement("div");
+        let dateIcon = document.createElement('i');
+        dateIcon.classList.add("bi","bi-calendar2-heart-fill","mx-3");
+        let date = document.createElement("span");
+        date.appendChild(dateIcon);
+        date.innerHTML+=teamMember.date;
+        datetime.appendChild(date);
+        datetime.appendChild(document.createElement("br"));
+
+        let timeIcon = document.createElement('i');
+        timeIcon.classList.add("bi","bi-clock-fill","mx-3");
+        let time = document.createElement("span");
+        time.appendChild(timeIcon);
+        time.innerHTML+=teamMember.time;
+        datetime.appendChild(time);
+        datetime.classList.add("datetime");
+        
         let card = document.createElement("div");
         card.classList.add("card");
         let image = document.createElement("img");
@@ -69,6 +87,8 @@ function createCard(teamMember,container,ids){
         card.appendChild(detdiv);
         card.appendChild(image);
         cardCover.appendChild(card);
+        cardCover.appendChild(document.createElement("hr"));
+        cardCover.appendChild(datetime);
         container.appendChild(cardCover);
         let action = document.getElementById(`"${teamMember.eventID}"`);
     

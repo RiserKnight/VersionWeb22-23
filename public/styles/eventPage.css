@@ -58,11 +58,17 @@ h1 span{
     margin: 1rem;
 }
 .card{
+    border: 0.25em solid transparent;
+    background-image: linear-gradient(#000, #000),
+      linear-gradient(120deg, #f09 0%, #0ff 50%, #9f0 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    background-size: 200% 100%;
+    transition: all 0.5s ease-out;
     width: 18rem;
     height: 17rem;
     border-top-left-radius: 6rem;
     border-bottom-right-radius: 4rem;
-    transition: 0.5s;
     cursor: pointer;
     overflow: hidden;
 }
@@ -75,7 +81,16 @@ h1 span{
     /* scale: 1.05; */
     scale: 0.97;
     border-radius: inherit;
-    box-shadow: 1px 1px 5px white,-1px -1px 5px white;
+    background-position: 100% 0;
+    /* box-shadow: 1px 1px 5px white,-1px -1px 5px white; */
+}
+.datetime{
+  font-family: 'Courier New', Courier, monospace;
+  color:#56ffae;
+  font-weight: bold;
+  -webkit-animation: blink-1 0.6s 5s both;
+	animation: blink-1 0.6s 5s both;
+  text-shadow: 0.5px 0.5px 5px rgb(56, 54, 54),-0.5px -0.5px 5px rgb(56, 54, 54);
 }
 .hide{
     display: none;
@@ -169,7 +184,7 @@ body::-webkit-scrollbar-thumb {
    }
    .card-container{
     scale: 0.8;
-    margin-top: -17rem;
+    margin-top: -22rem;
    }
    /* .card-cover{
     width: 20rem;
@@ -177,4 +192,27 @@ body::-webkit-scrollbar-thumb {
    .card{
     border-radius: inherit;
    }
+}
+/* animation */
+@-webkit-keyframes blink-1 {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+@keyframes blink-1 {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
 }
