@@ -143,3 +143,39 @@ json returns
 {"success": "true","msg": "User Exists","code": "100"}
 {"success": "false","msg": "Invalid User","code": "200"}
 {"success": "false","msg": "Unexpected Error","code": "400"}
+
+
+******************************************************************************host/app/getFeedback
+{
+"app_key":"205121002"
+}
+json returns
+[
+    {
+        "id": 1,
+        "userID": 2023001,
+        "head": "App UI is outdated",
+        "body": "App graphics can be improved LOL.",
+        "createdAt": "2023-02-27T18:54:23.627Z",
+        "updatedAt": "2023-02-27T18:54:23.627Z"
+    }
+]
+
+******************************************************************************host/app/getEventData
+{
+"app_key":"205121002"
+}
+
+json returns
+[
+    {
+        "eventID": "101",
+        "posterImg": "images/eventPosters/coding.jpeg",
+        "day": "1",
+        "time": "9:00 AM - 11:00 AM",
+        "eventName": "Coding Cauldron",
+        "eventDetails": "Coding cauldron is a 2 hour long coding challenge in which participants have to solve 3-4 problems based on data structure and algorithms using the programming language of their choice. The participants have to take part individually. Team participation is not allowed. The platform for the event will be HackerEarth(liable to change). "
+    },
+....
+]
+

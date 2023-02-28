@@ -1,10 +1,12 @@
-const {user,userOTP,feedback}=require('../models')
+const {user,userOTP,feedback,tempUser}=require('../models');
 const dbFunct = require("./functions/database.js");
 const emailFunct = require("./functions/welcomeMail.js");
 const emailFunct1 = require("./functions/otpMail.js");
+const verifyMailFunct = require("./functions/verifyMail.js");
 const otpFunct = require("./functions/genOTP.js");
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const eventsdata= require('./functions/eventsData.js');
 
 /*********************************************App Register**********************************************/
 
@@ -57,12 +59,7 @@ module.exports.app_register = async (req, res) => {
   
     finally
     {
-      if(code==="100")
-      {
-        const data ={userName: userNew.userName,reg: userNew.userID};
-        emailFunct.mail(req,res,userNew.email,data);
-        res.json({"success": "true","userID": userNew.userID,"code":code});
-      }
+      if(code==="100")res.json({"success": "true","userID": userNew.userID,"code":code});
       else if(code==="200") res.json({"success": "false","msg":"User Email already Exist","code":code});
       else if(code==="300") res.json({"success": "false","msg":"Validation Error","code":code});
       else res.json({"success": "false","msg":"Unxepected error","code":"400"});
@@ -302,7 +299,7 @@ module.exports.app_register = async (req, res) => {
 
     }
 
-    /*********************************************App Verify OTP**********************************************/
+    /*********************************************App Feedbcak**********************************************/
 
     module.exports.app_feedback= async (req, res) => {
       var code = "000";
@@ -333,6 +330,17 @@ module.exports.app_register = async (req, res) => {
     
     }
 
+    module.exports.app_getFeedbacks = async (req,res)=>{
+      const app_key=req.body.app_key;
+      if(process.env.APP_KEY!=app_key) {
+        res.json({"success": "false","msg":"Unauthorized","code":code});
+        return 0;
+      }
+      const users= await dbFunct.getAllUsersFeedback();
+      res.send(users);
+    }
+    /*********************************************Check Registration**********************************************/
+
     module.exports.checkRegistration = async(req,res)=>{
       const userID = req.body.userID;
       var code="000",userNew;
@@ -349,4 +357,17 @@ module.exports.app_register = async (req, res) => {
       else if(code=="200")res.json({"success": "false","msg": "Invalid User","code": code});
       else res.json({"success": "false","msg": "Unexpected Error","code": code});
       }
+    }
+    /*********************************************Get Events**********************************************/
+
+    module.exports.app_getEventData = async (req,res)=>{
+
+      const app_key=req.body.app_key;
+      if(process.env.APP_KEY!=app_key) {
+        res.json({"success": "false","msg":"Unauthorized","code":code});
+        return 0;
+      }
+      
+      const eventData=eventsdata.eventsdata();
+      res.send(eventData);
     }

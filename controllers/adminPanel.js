@@ -1,4 +1,4 @@
-const {user,eventRegistartion,info}=require('../models');
+const {user,eventRegistartion,info,tempUser,userOTP,session}=require('../models');
 const dbFunct = require("./functions/database.js");
 const bcrypt = require('bcrypt');
 
@@ -40,6 +40,11 @@ if(adminCall==5)
 if(adminCall==6) 
 {
   const users= await dbFunct.getAllUsersFeedback();
+  res.render("admin/tables",{users:users});
+}
+if(adminCall==7) 
+{
+  const users= await dbFunct.getAllTempUsers();
   res.render("admin/tables",{users:users});
 }
 
@@ -157,13 +162,96 @@ if (adminCall==23) {
   res.render("admin/tables",{users:users});
 
 }
+/******************************* Search Record *******************************/
+if(adminCall==31)
+{
+  search={};
+   const userID1=req.body.userID1;
+   const userID2=req.body.userID2;
+   const userID3=req.body.userID3;
+   const inputOpt1 =req.body.inputOpt1;
+   const inputOpt2 =req.body.inputOpt2;
+   const inputOpt3 =req.body.inputOpt3;
+   if(userID1)search[inputOpt1] = userID1;
+   if(userID2)search[inputOpt2] = userID2;
+   if(userID3)search[inputOpt3] = userID3;
 
+  const users= await dbFunct.getUsers(search);
+  res.render("admin/tables",{users:users});
+}
+if(adminCall==32)
+{
+  search={};
+   const userID1=req.body.userID1;
+   const userID2=req.body.userID2;
+   const userID3=req.body.userID3;
+   const inputOpt1 =req.body.inputOpt1;
+   const inputOpt2 =req.body.inputOpt2;
+   const inputOpt3 =req.body.inputOpt3;
+   if(userID1)search[inputOpt1] = userID1;
+   if(userID2)search[inputOpt2] = userID2;
+   if(userID3)search[inputOpt3] = userID3;
 
+  const users= await dbFunct.getTempUsers(search);
+  res.render("admin/tables",{users:users});
+}
+if(adminCall==33)
+{
+   search={};
+   const userID1=req.body.userID1;
+   const userID2=req.body.userID2;
+   const userID3=req.body.userID3;
+   const inputOpt1 =req.body.inputOpt1;
+   const inputOpt2 =req.body.inputOpt2;
+   const inputOpt3 =req.body.inputOpt3;
+   if(userID1)search[inputOpt1] = userID1;
+   if(userID2)search[inputOpt2] = userID2;
+   if(userID3)search[inputOpt3] = userID3;
 
-
-
-
-
+  const users= await dbFunct.getUserOTPs(search);
+  res.render("admin/tables",{users:users});
+}
+/******************************* Delete Record *******************************/
+if(adminCall==51) 
+{
+  const userID=req.body.userID;
+  const user = await user.findOne({where:{userID:userID}});
+  user.destroy();
+  const users= await dbFunct.getAllUsers();
+  res.render("admin/tables",{users:users});
+}
+if(adminCall==52) 
+{
+  const userID=req.body.userID;
+  const user = await tempUser.findOne({where:{tempID:userID}});
+  user.destroy();
+  const users= await dbFunct.getAllTempUsers();
+  res.render("admin/tables",{users:users});
+}
+if(adminCall==53) 
+{
+  const userID=req.body.userID;
+  const user = await userOTP.findOne({where:{tempID:userID}});
+  user.destroy();
+  const users= await dbFunct.getAllUsersOTP();
+  res.render("admin/tables",{users:users});
+}
+if(adminCall==54) 
+{
+  const userID=req.body.userID;
+  const user = await session.findOne({where:{sid:userID}});
+  user.destroy();
+  const users= await dbFunct.getAllUsersSession();
+  res.render("admin/tables",{users:users});
+}
+if(adminCall==55) 
+{
+  const userID=req.body.userID;
+  const user = await eventRegistartion.findOne({where:{userID:userID}});
+  user.destroy();
+  const users= await dbFunct.getAllUsersOTP();
+  res.render("admin/tables",{users:users});
+}
 } catch (error) {
   console.log(error);
 }
