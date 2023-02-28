@@ -59,12 +59,7 @@ module.exports.app_register = async (req, res) => {
   
     finally
     {
-      if(code==="100")
-      {
-        const data ={userName: userNew.userName,reg: userNew.userID};
-        emailFunct.mail(req,res,userNew.email,data);
-        res.json({"success": "true","userID": userNew.userID,"code":code});
-      }
+      if(code==="100")res.json({"success": "true","userID": userNew.userID,"code":code});
       else if(code==="200") res.json({"success": "false","msg":"User Email already Exist","code":code});
       else if(code==="300") res.json({"success": "false","msg":"Validation Error","code":code});
       else res.json({"success": "false","msg":"Unxepected error","code":"400"});

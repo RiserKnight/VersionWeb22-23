@@ -11,7 +11,7 @@ const emailTemplate = (userName,link) => {
                 border-radius: 5px;
                 font-size: .9rem;
                 padding: 10px;
-                height: 37px;
+                height: auto;
                 width: 150px;
             }
             a{
@@ -27,7 +27,7 @@ const emailTemplate = (userName,link) => {
         <img src="http://version23.in/images/version.png" alt="Logo">
         
         <p><strong>Hello ${userName}. </strong>To verify your account click the button below before 24 hours.</p>
-        <button type="button" class="linkBtn"><a id="linkText" href="${link}">Account Verification</a></button>
+        <button type="button" class="linkBtn"><a id="linkText" href="${link}">Click Here</a></button>
        
     </body>
     </html>`
