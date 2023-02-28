@@ -6,7 +6,7 @@ const  bodyParser = require('body-parser');
 const passport = require('passport')
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
+const checkUserID = require('./controllers/functions/checkUserID.js');
 
 require('./config/passport');
 require('./models/session');
@@ -60,5 +60,15 @@ app.use(routes);
       const value="2023000";
       await info.create({infoID,purpose,dataT,value})
     }
-    
+    // console.log(checkUserID.check("205121002"));
+    // console.log(checkUserID.check("a@b.com"));
+    // console.log(checkUserID.check("2051 21002"));
+    // console.log(checkUserID.check("455ad"));
+    // console.log(checkUserID.check("aaa@mmm"));
+    // console.log(checkUserID.check("abb.com"));
+    // var s = ' !"#$%&\'()*+,-./:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~';
+    // var a='0123456789'
+    // console.log(checkUserID.check(s));
+    // console.log(checkUserID.check(a));
+
   });

@@ -31,6 +31,9 @@
         <form action="/Version@2023/admin/6" method="post">
             <input type="submit" value="Feedback">
         </form>
+        <form action="/Version@2023/admin/7" method="post">
+            <input type="submit" value="tempUser">
+        </form>
  
         <form action="/Version@2023/admin/11" method="post">
             <label for="input1">userID</label>
@@ -138,12 +141,121 @@
         </form>
         
     </div>
-    <h4>Reset</h4>
+    <h4>Search</h4>
     <div>
-        <form action="/admin/9" method="post">
-            <label for="input1">Roll_No</label>
-            <input type="numeric" name="roll" placeholder="Enter here">
-            <input type="submit" value="Submit">
+        <h5>User Table</h5>
+        <form action="/Version@2023/admin/31" method="post">
+            <select name="inputOpt1">
+                <option value="email">email</option>
+                <option value="contact">contact</option>
+                <option value="roll">roll</option>
+                <option value="userName">userName</option>
+                <option value="university">university</option>
+            </select>
+            <input type="numeric" name="userID1" placeholder="Enter here">
+            <select name="inputOpt2">
+                <option value="email">email</option>
+                <option value="contact">contact</option>
+                <option value="roll">roll</option>
+                <option value="userName">userName</option>
+                <option value="university">university</option>
+            </select>
+            <input type="numeric" name="userID2" placeholder="Enter here">
+            <select name="inputOpt3">
+                <option value="email">email</option>
+                <option value="contact">contact</option>
+                <option value="roll">roll</option>
+                <option value="userName">userName</option>
+                <option value="university">university</option>
+            </select>
+            <input type="numeric" name="userID3" placeholder="Enter here">
+            <input type="submit" value="Search">
+        </form>
+        <h5>User Temp Table</h5>
+        <form action="/Version@2023/admin/32" method="post">
+            <select name="inputOpt1">
+                <option value="email">email</option>
+                <option value="contact">contact</option>
+                <option value="roll">roll</option>
+                <option value="userName">userName</option>
+                <option value="university">university</option>
+            </select>
+            <input type="numeric" name="userID1" placeholder="Enter here">
+            <select name="inputOpt2">
+                <option value="email">email</option>
+                <option value="contact">contact</option>
+                <option value="roll">roll</option>
+                <option value="userName">userName</option>
+                <option value="university">university</option>
+            </select>
+            <input type="numeric" name="userID2" placeholder="Enter here">
+            <select name="inputOpt3">
+                <option value="email">email</option>
+                <option value="contact">contact</option>
+                <option value="roll">roll</option>
+                <option value="userName">userName</option>
+                <option value="university">university</option>
+            </select>
+            <input type="numeric" name="userID3" placeholder="Enter here">
+            <input type="submit" value="Search">
+        </form>
+        <h5>User OTP Table</h5>
+        <form action="/Version@2023/admin/33" method="post">
+            <select name="inputOpt1">
+                <option value="email">email</option>
+                <option value="contact">contact</option>
+                <option value="roll">roll</option>
+                <option value="userName">userName</option>
+                <option value="university">university</option>
+            </select>
+            <input type="numeric" name="userID1" placeholder="Enter here">
+            <select name="inputOpt2">
+                <option value="email">email</option>
+                <option value="contact">contact</option>
+                <option value="roll">roll</option>
+                <option value="userName">userName</option>
+                <option value="university">university</option>
+            </select>
+            <input type="numeric" name="userID2" placeholder="Enter here">
+            <select name="inputOpt3">
+                <option value="email">email</option>
+                <option value="contact">contact</option>
+                <option value="roll">roll</option>
+                <option value="userName">userName</option>
+                <option value="university">university</option>
+            </select>
+            <input type="numeric" name="userID3" placeholder="Enter here">
+            <input type="submit" value="Search">
+        </form>
+        
+
+    </div>
+    <h4>Delete</h4>
+    <div>
+        <form action="/Version@2023/admin/51" method="post">
+            <label for="input1">userID</label>
+            <input type="numeric" name="userID" placeholder="Enter here">
+            <input type="submit" value="Delete">
+        </form>
+        <form action="/Version@2023/admin/52" method="post">
+            <label for="input1">tempID</label>
+            <input type="numeric" name="userID" placeholder="Enter here">
+            <input type="submit" value="Delete">
+        </form>
+        <form action="/Version@2023/admin/53" method="post">
+            <label for="input1">userID-userOTP</label>
+            <input type="numeric" name="userID" placeholder="Enter here">
+            <input type="submit" value="Delete">
+        </form>
+        <form action="/Version@2023/admin/54" method="post">
+            <label for="input1">sessionID</label>
+            <input type="numeric" name="userID" placeholder="Enter here">
+            <input type="submit" value="Delete">
+        </form>
+        <form action="/Version@2023/admin/55" method="post">
+            <label for="input1">userID-EventRegistration</label>
+            <input type="numeric" name="userID" placeholder="Enter here">
+            <input type="submit" value="Delete">
         </form>
     </div>
     

@@ -1,4 +1,6 @@
-export var eventsdata = [
+
+exports.eventsdata=()=>{
+ const eventsdata = [
     {
         eventID      :"101",
         posterImg    :"images/eventPosters/coding.jpeg",
@@ -75,3 +77,6 @@ export var eventsdata = [
         eventDetails :"In this events, the participants have to shoot a video of less than 2 minutes showing NIT Trichy. They have to explore NIT Trichy and shoot as many good things as they can. They have to show their editing and videography skills. This will be a solo event."
     }
 ]
+
+return eventsdata;
+}

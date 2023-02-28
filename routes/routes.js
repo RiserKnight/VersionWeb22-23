@@ -39,6 +39,8 @@ router.post('/app/forgot_regno',appBackEnd.app_forget_userID);
 router.post('/app/forgot_pass',appBackEnd.app_forget_password);
 router.post('/app/verifyOTP',appBackEnd.app_verify_otp);
 router.post('/app/feedback',appBackEnd.app_feedback);
+router.post('/app/getFeedback',appBackEnd.app_getFeedbacks);
+router.post('/app/getEventData',appBackEnd.app_getEventData);
 router.post('/checkRegID',appBackEnd.checkRegistration);
 
 router.get('/Version@2023/admin',authMiddleware.isAdmin,adminPanel.adminHome);

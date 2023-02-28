@@ -87,7 +87,7 @@ module.exports.home = (req, res) => {
    }
    finally{
 
-    if(code=="100")res.json({"code":"100","msg":"Please check your email and verify your account."});
+    if(code=="100")res.json({"code":"100","msg":"Please check your email and verify your account. Also  check spam folder."});
     else if(code=="200")res.json({"code":"200","msg":"User email already Exist"});
     else if(code=="300")res.json({"code":"300","msg":"User already exist. Please check your email and verify your account."});
     else res.json({"success": "false","msg": "Unexpected Error","code": code});
