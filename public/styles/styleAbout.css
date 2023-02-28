@@ -73,6 +73,7 @@ body {
 
   .card-subtitle {
     text-shadow:2px 2px 5px #43D6F7,-2px -2px 5px #43D6F7;
+    font-size: 30px;
   }
 
 a {
@@ -154,6 +155,9 @@ img {
   }
   .card-text2{
     font-size: 19px;
+  }
+  .card-subtitle{
+    font-size: 20px;
   }
 }
 /* for animations */
