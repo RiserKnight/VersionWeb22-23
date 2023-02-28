@@ -16,7 +16,7 @@
         if(code=="100")
     {
         //triggering modal
-     await modalTrigger("Verification Successful","Account Verified Successfully.");
+     await modalTrigger("Verification Successful","Account Verified Successfully. Please check your email for registration ID.");
      span.onclick = function() {
        modal.style.display = "none";
        location.assign('/login');

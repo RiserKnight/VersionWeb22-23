@@ -45,7 +45,11 @@ passport.serializeUser((user, done) => {
 //just after that userID is retrieved from req.session.passport.user and user is set to req.user
 
 passport.deserializeUser((userID, done) => {
-    user.findOne({where:{userID:userID}})
+    var column;
+    if (userID.length != 7) column = 'email';
+    else column = 'userID';
+
+    user.findOne({where:{[column]:userID}})
         .then((user) => {
             const {userID,userName} = user;
 

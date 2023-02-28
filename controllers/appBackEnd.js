@@ -1,7 +1,8 @@
-const {user,userOTP,feedback}=require('../models');
+const {user,userOTP,feedback,tempUser}=require('../models');
 const dbFunct = require("./functions/database.js");
 const emailFunct = require("./functions/welcomeMail.js");
 const emailFunct1 = require("./functions/otpMail.js");
+const verifyMailFunct = require("./functions/verifyMail.js");
 const otpFunct = require("./functions/genOTP.js");
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
