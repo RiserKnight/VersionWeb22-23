@@ -129,7 +129,7 @@ export var eventTeam = [
       "Username": "prashant.simplythebest@gmail.com",
       "Name": "Prashant Tirkey",
       "POR":"",
-      "Photo": "images/default.png",
+      "Photo": "images/members/205121072 prashant tirkey EEC.jpg",
       "Github": "https://github.com",
       "Linkedin": "https://www.linkedin.com/in/prashant-tirkey/"
     },
@@ -299,7 +299,7 @@ export var eventTeam = [
       "Photo": "https://drive.google.com/uc?id=1WNPdEBbsOqWzvwOm34G5RpLwkXVaE5po",
       "Github": "https://leetcode.com/071_Prashant/",
       "Linkedin": "https://www.linkedin.com/in/prashant-gupta-840720222/"
-    }
+    },
   ]
 export var alumniTeam = [
     {
@@ -382,16 +382,14 @@ export var alumniTeam = [
     },
    
     {
-
       "Username": "dc08721@gmail.com",
       "Name": "Deepak Choudhary",
       "POR":"",
-      "Photo": "https://drive.google.com/uc?id=17wr7aCCy7MKTnGGc1sQtITE5YHvkE32i",
+      "Photo": "images/members/205121037 Deepak Chaudhary ARC.jpg",
       "Github": "https://github.com",
       "Linkedin": "https://www.linkedin.com/in/deepak-choudhary-1a8b62220"
     },
     {
-
       "Username": "aaseaman01@gmail.com",
       "Name": "Aman Agrawal",
       "POR":"",
@@ -432,7 +430,16 @@ export var alumniTeam = [
       "Photo": "https://drive.google.com/uc?id=1aEfGuV0qtRSE9z3JD9uPSIe94t2nMHIL",
       "Github": "https://github.com",
       "Linkedin": "https://www.linkedin.com/in/avish-mehta-085bba221"
-    }
+    },
+    {
+      "Username": "",
+      "Name": "Deepak Singh Kushwah",
+      "POR":"",
+      "Photo": "images/members/205121038 DEEPAK_SINGH_KUSHWAH_ARC.jpeg",
+      "Github": "https://github.com",
+      "Linkedin": "https://linkedin.com"
+    },
+
   ]
 export var publicTeam = [
     {
@@ -505,7 +512,6 @@ export var publicTeam = [
       "Linkedin": "www.linkedin.com/in/avishmittal7566"
     },
     {
-
       "Username": "nitansshujain@gmail.com",
       "Name": "Nitansshu Jain",
       "POR":"",
@@ -513,7 +519,24 @@ export var publicTeam = [
       "Photo": "https://drive.google.com/uc?id=18KfTbEa03_9NBtYLM3kOnfQ6MU7GAnCT",
       "Github": "https://github.com/nitansshujain",
       "Linkedin": "https://www.linkedin.com/in/nitansshujain"
-    }
+    },
+    {
+      "Username": "",
+      "Name": "Ashay Jain",
+      "POR":"",
+      "Photo": "images/members/205121028 Ashay Jain PRC &CCC.jpg",
+      "Github": "https://github.com",
+      "Linkedin": "https://linkedin.com"
+    },
+    {
+      "Username": "",
+      "Name": "Jaynendra Sharma",
+      "POR":"",
+      "Photo": "images/members/205121045-Jaynendra Sharma-PRC.jpg",
+      "Github": "https://github.com",
+      "Linkedin": "https://linkedin.com"
+    },
+
   ]
 export var hospitalityTeam = [
     {
@@ -673,7 +696,39 @@ export var hospitalityTeam = [
       "Photo": "images/members/pankaj.png",
       "Github": "https://github.com",
       "Linkedin": "https://www.linkedin.com/in/pankaj-sharma-a2b35a200"
-    }
+    },
+    {
+      "Username": "",
+      "Name": "Lishu gupta",
+      "POR":"",
+      "Photo": "images/members/205121052 lishu gupta hospitality.png",
+      "Github": "https://github.com",
+      "Linkedin": "https://linkedin.com"
+    },
+    {
+      "Username": "",
+      "Name": "shivam engla",
+      "POR":"",
+      "Photo": "images/members/205121086 Shivam Engla Hospitality.jpeg",
+      "Github": "https://github.com",
+      "Linkedin": "https://linkedin.com"
+    },
+    {
+      "Username": "",
+      "Name": "tarun soni",
+      "POR":"",
+      "Photo": "images/members/205121098 Tarun Soni Hospitality.jpg",
+      "Github": "https://github.com",
+      "Linkedin": "https://linkedin.com"
+    },
+    {
+      "Username": "",
+      "Name": "Yuvraj singh solanki",
+      "POR":"",
+      "Photo": "images/members/205121110 Yuvraj singh solanki HRC.jpg",
+      "Github": "https://github.com",
+      "Linkedin": "https://linkedin.com"
+    },
   ]
 export var printingTeam = [
   {
@@ -710,7 +765,7 @@ export var printingTeam = [
     "Username": "swati242000jinwal@gmail.com",
     "Name": "Swati Jinwal",
     "POR":"",
-    "Photo": "https://drive.google.com/uc?id=1x28p1d8SaW5gH45nINkqajWgZ0z-ovTw",
+    "Photo": "images/members/swati_jinwal_ppc.png",
     "Github": "https://github.com/096swatijinwal",
     "Linkedin": "linkedin.com/in/swati-jinwal-a8b819222"
   },
@@ -787,7 +842,7 @@ export var printingTeam = [
     "Username": "tarunmeena161999@gmail.com",
     "Name": "Tarun Meena",
     "POR":"",
-    "Photo": "https://drive.google.com/uc?id=1xVP8VhzgCBdxclPhLMwBY1X9NcF8Vd9z",
+    "Photo": "images/members/205121097 tarun meena PPC.jpg",
     "Github": "https://github.com/097tarun?tab=overview&from=2022-11-01&to=2022-11-30",
     "Linkedin": "https://www.linkedin.com/in/tarun-meena-357952221"
   },
@@ -803,8 +858,16 @@ export var printingTeam = [
     "Name": "Pradeep Vishwakarma",
     "POR":"",
     "Photo": "https://drive.google.com/uc?id=1QQBtkXpZQVUry08p9u9ocUyDMjcparfQ",
-    "Github": "",
+    "Github": "https://github.com/",
     "Linkedin": "https://www.linkedin.com/in/pradeep-vishwakarma-8251a4222"
+  },
+  {
+    "Username": "",
+    "Name": "Pushpak",
+    "POR":"",
+    "Photo": "images/members/205121076 -pushpak-publicity&marketing.png",
+    "Github": "https://github.com/",
+    "Linkedin": "https://www.linkedin.com/"
   }
 ]
 export var centralTeam = [
@@ -833,14 +896,14 @@ export var centralTeam = [
     "Github": "https://github.com/004-AbhilashSingh",
     "Linkedin": "https://www.linkedin.com/in/004-abhilashsingh/"
   },
-    {
-      "Username": "aaseaman01@gmail.com",
-      "Name": "Aman Agrawal",
-      "POR":"(Treasurer)",
-      "Photo": "https://drive.google.com/uc?id=1qZSubn3YeLMO64FkBpMEd0JmLXLymFTa",
-      "Github": "https://github.com",
-      "Linkedin": "https://linkedin.com"
-    },
+  {
+    "Username": "aaseaman01@gmail.com",
+    "Name": "Aman Agrawal",
+    "POR":"(Treasurer)",
+    "Photo": "https://drive.google.com/uc?id=1qZSubn3YeLMO64FkBpMEd0JmLXLymFTa",
+    "Github": "https://github.com",
+    "Linkedin": "https://linkedin.com"
+  },
     {
       "Username": "abdheeraj18@gmail.com",
       "Name": "Dheeraj Lakhotra",
@@ -880,6 +943,14 @@ export var centralTeam = [
     "Photo": "https://drive.google.com/uc?id=1jF1hneXq173jKYg3QaQNs_VkLXQV-GHt",
     "Github": "https://github.com/092somesh",
     "Linkedin": "https://www.linkedin.com/in/somesh-harsule-376902224/"
+  },
+  {
+    "Username": "",
+    "Name": "Ashay Jain",
+    "POR":"",
+    "Photo": "images/members/205121028 Ashay Jain PRC &CCC.jpg",
+    "Github": "https://github.com",
+    "Linkedin": "https://linkedin.com"
   },
     
   ]
