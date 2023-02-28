@@ -12,6 +12,7 @@ const emailTemplate = (userName,link) => {
                 font-size: .9rem;
                 padding: 10px;
                 height: 37px;
+                width: 150px;
             }
             a{
                 color: white;

@@ -1,7 +1,7 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
-
+const checkUserID = require('../controllers/functions/checkUserID.js');
 
 
 const {user}=require('../models')
@@ -11,9 +11,19 @@ const customFields = {
 };
 
 const verifyCallback = (userID, passIN, done) => {
-  
+    var column;
+    if (checkUserID.check(userID)) 
+    {
+        column = 'userID'
+        if(userID.length > 9)userID='12345678'
+    }
+    else column = 'email';
+    console.log(column);
+
+    let whereCondition = {};
+    whereCondition[column] = userID;
    
-    user.findOne({where:{userID:userID}})
+    user.findOne({where:whereCondition})
         .then((user) => {
 
             if (!user) { return done(null, false,{ message: 'Incorrect Registartion number.' }) }
@@ -45,11 +55,8 @@ passport.serializeUser((user, done) => {
 //just after that userID is retrieved from req.session.passport.user and user is set to req.user
 
 passport.deserializeUser((userID, done) => {
-    var column;
-    if (userID.length != 7) column = 'email';
-    else column = 'userID';
 
-    user.findOne({where:{[column]:userID}})
+    user.findOne({where:{userID:userID}})
         .then((user) => {
             const {userID,userName} = user;
 
