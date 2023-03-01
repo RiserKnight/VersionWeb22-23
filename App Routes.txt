@@ -161,7 +161,7 @@ json returns
     }
 ]
 
-******************************************************************************host/app/getEventData
+******************************************************************************host/app/getEventData(Get Request)
 {
 "app_key":"205121002"
 }
@@ -179,3 +179,51 @@ json returns
 ....
 ]
 
+******************************************************************************host/app/getUserRegisterData(Get Request)
+{
+"app_key":"205121002",
+"user_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIyMDIzMDEwIiwiaWF0IjoxNjc2ODczMTMyLCJleHAiOjE5MzYwNzMxMzJ9.f18ZvZac2UWrbdWuNFydptx4CRlHUHXU2zZaNC2quiA"
+}
+
+json returns
+{"success": "false","msg":"Unauthorized","code":"000"}
+{
+    "success": "true",
+    "data": {
+        "userID": 2023999,//If there is no data of the user this userID will be returned
+        "E101": false,
+        "E102": false,
+        "E103": false,
+        "E104": false,
+        "E105": false,
+        "E106": false,
+        "E107": false,
+        "E108": false,
+        "E109": false,
+        "E110": false,
+        "createdAt": "2023-02-24T20:49:56.310Z",
+        "updatedAt": "2023-02-24T21:44:16.286Z"
+    },
+    "code": "100"
+}
+{"success": "false","msg": "Invalid Token","code": "200"}
+{"success": "false","msg": "Unexpected Error","code": "400"}
+
+******************************************************************************host/app/userEventReg/E101    //Focus on eventID it should be exactly like this
+{
+"app_key":"205121002",
+"user_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIyMDIzMDEwIiwiaWF0IjoxNjc2ODczMTMyLCJleHAiOjE5MzYwNzMxMzJ9.f18ZvZac2UWrbdWuNFydptx4CRlHUHXU2zZaNC2quiA"
+}
+json returns
+{"success": "false","msg":"Unauthorized","code":"000"}
+{
+    "success": "true",
+    "msg": "User Registered Succesfully",
+    "code": "100"
+}
+{
+    "success": "false",
+    "msg": "Invalid Token",
+    "code": "200"
+}
+{"success": "false","msg": "Unexpected Error","code": "400"}

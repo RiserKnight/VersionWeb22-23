@@ -1,4 +1,4 @@
-const {user,userOTP,feedback,tempUser}=require('../models');
+const {user,userOTP,feedback,tempUser,eventRegistartion}=require('../models');
 const dbFunct = require("./functions/database.js");
 const emailFunct = require("./functions/welcomeMail.js");
 const emailFunct1 = require("./functions/otpMail.js");
@@ -103,7 +103,7 @@ module.exports.app_register = async (req, res) => {
     bcrypt.compare(passIn, pass.dataValues.pass, async(err, result)=> {
       const maxAge = 3 * 24 * 60 * 60*1000;
       if(result){
-        obj.data.token=jwt.sign({ userID }, 'Version23', {expiresIn: maxAge});
+        obj.data.token=jwt.sign({ userID }, process.env.JWT_SECRET, {expiresIn: maxAge});
         obj.data.userID=pass.dataValues.userID;
         obj.data.name=pass.dataValues.userName;
         obj.data.university=pass.dataValues.university;
@@ -371,3 +371,93 @@ module.exports.app_register = async (req, res) => {
       const eventData=eventsdata.eventsdata();
       res.send(eventData);
     }
+
+     /*********************************************User Register Data**********************************************/
+    //  process.env.JWT_SECRET
+    //  async function checkToken(userToken) {
+  //     const decode=await jwt.verify(userToken,'Version23',async()=>{
+  //       if(err)
+  //       {
+  //         console.log(err);
+  //       }
+  //     });
+  //     console.log(decode);
+  // }
+     module.exports.app_getUserEventData = async (req,res)=>{
+      var code="000",tokenInvalid=true,userID=null;
+      var obj={"userID":2023999,//If there is no data of the user this userID will be returned
+      "E101":false,"E102":false,"E103":false,"E104":false,"E105":false,"E106":false,"E107":false,"E108":false,"E109":false,"E110":false,"createdAt":"2023-02-24T20:49:56.310Z","updatedAt":"2023-02-24T21:44:16.286Z"};
+      try {
+        const app_key=req.body.app_key;
+        const userToken=req.body.user_token;
+
+      if(process.env.APP_KEY!=app_key) {
+        res.json({"success": "false","msg":"Unauthorized","code":code});
+        return 0;
+      }
+      if(userToken){
+          userID = jwt.verify(userToken, 'Version23').userID;
+          if(userID) tokenInvalid=false;
+          else code="200";
+      }
+      else code="200";
+      if(code!="200")
+      {
+        var userData=await eventRegistartion.findOne({where:{userID}});
+        if(userData)obj=userData.dataValues;
+        code="100";
+      }
+
+      } catch (error) {
+        code="400";
+        console.log(error);
+      }
+      finally{
+        if(tokenInvalid)code="200";
+      if(code=="100")res.json({"success": "true","data": obj,"code": code});
+      else if(code=="200")res.json({"success": "false","msg": "Invalid Token","code": code});
+      else res.json({"success": "false","msg": "Unexpected Error","code": code});
+
+      }
+     }
+
+     module.exports.app_postUserRegData = async (req,res)=>{
+      var code="000",tokenInvalid=true,userID=null;
+      try {
+        const app_key=req.body.app_key;
+        const userToken=req.body.user_token;
+        const eventID=req.params.eventID;
+
+      if(process.env.APP_KEY!=app_key) {
+        res.json({"success": "false","msg":"Unauthorized","code":code});
+        return 0;
+      }
+      if(userToken){
+          userID = jwt.verify(userToken, 'Version23').userID;
+          if(userID) tokenInvalid=false;
+          else code="200";
+      }
+      else code="200";
+      if(code!="200")
+      {
+        let updateValues = {};
+        updateValues[eventID] = true;
+        userNew = await eventRegistartion.findOne({where:{userID:userID}});
+
+        if(!userNew) await eventRegistartion.create({userID});
+        await eventRegistartion.update(updateValues,{where:{userID}});
+        code="100";
+      }
+
+      } catch (error) {
+        code="400";
+        console.log(error);
+      }
+      finally{
+        if(tokenInvalid)code="200";
+      if(code=="100")res.json({"success": "true","msg": "User Registered Succesfully","code": code});
+      else if(code=="200")res.json({"success": "false","msg": "Invalid Token","code": code});
+      else res.json({"success": "false","msg": "Unexpected Error","code": code});
+
+      }
+     }
