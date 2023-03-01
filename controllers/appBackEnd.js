@@ -396,7 +396,7 @@ module.exports.app_register = async (req, res) => {
         return 0;
       }
       if(userToken){
-          userID = jwt.verify(userToken, 'Version23').userID;
+          userID = jwt.verify(userToken, process.env.JWT_SECRET).userID;
           if(userID) tokenInvalid=false;
           else code="200";
       }
