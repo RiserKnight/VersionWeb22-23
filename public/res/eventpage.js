@@ -90,11 +90,19 @@ function createCard(teamMember,container,ids){
         cardCover.appendChild(document.createElement("hr"));
         cardCover.appendChild(datetime);
         container.appendChild(cardCover);
-        let action = document.getElementById(`"${teamMember.eventID}"`);
-    
-        action.addEventListener('click',function(e){
-            modalTrigger(teamMember.eventName,teamMember.eventDetails,teamMember.eventID);
-        });
+
+        let nonBlurEvents=['102','109'];
+        if(nonBlurEvents.includes(teamMember.eventID)){
+          let action = document.getElementById(`"${teamMember.eventID}"`);
+          action.addEventListener('click',function(e){
+              modalTrigger(teamMember.eventName,teamMember.eventDetails,teamMember.eventID);
+          });
+        }
+        else{
+          image.classList.add('closeEvent');
+          // datetime.classList.add('closeEvent');
+        }
+        
         image.loading = "lazy";
 }
 let eventsContainer = document.querySelector('.card-container');
