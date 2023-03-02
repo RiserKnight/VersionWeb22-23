@@ -161,7 +161,7 @@ json returns
     }
 ]
 
-******************************************************************************host/app/getEventData(Get Request)
+******************************************************************************host/app/getEventData
 {
 "app_key":"205121002"
 }
@@ -179,7 +179,7 @@ json returns
 ....
 ]
 
-******************************************************************************host/app/getUserRegisterData(Get Request)
+******************************************************************************host/app/getUserRegisterData
 {
 "app_key":"205121002",
 "user_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIyMDIzMDEwIiwiaWF0IjoxNjc2ODczMTMyLCJleHAiOjE5MzYwNzMxMzJ9.f18ZvZac2UWrbdWuNFydptx4CRlHUHXU2zZaNC2quiA"
@@ -214,6 +214,7 @@ json returns
 "app_key":"205121002",
 "user_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIyMDIzMDEwIiwiaWF0IjoxNjc2ODczMTMyLCJleHAiOjE5MzYwNzMxMzJ9.f18ZvZac2UWrbdWuNFydptx4CRlHUHXU2zZaNC2quiA"
 }
+
 json returns
 {"success": "false","msg":"Unauthorized","code":"000"}
 {
