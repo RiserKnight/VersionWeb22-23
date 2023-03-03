@@ -1,4 +1,7 @@
 import {eventsdata} from './eventsData.js'
+//import eventsdata1 from '../../controllers/functions/eventsData.js';
+//const eventData=eventsdata1.eventsdata();
+//console.log(eventData);
 
 // fetching registerData
 const registerData = document.getElementById("registerData").value;
@@ -131,7 +134,7 @@ registerBtn.addEventListener('click', async function(event) {
         // console.log(locals.registerData);
         const data = await res.json();
         if(data.msg=="Login") location.assign('/login');
-        if(data.code ==="100")
+        else if(data.code ==="100")
         {
           //triggering modal
           const eventIDInput = document.getElementById('eventID');
