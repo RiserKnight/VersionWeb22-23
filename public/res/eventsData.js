@@ -12,8 +12,8 @@ export var eventsdata = [
         eventID      :"102",
         posterImg    :"images/eventPosters/eliminator.jpeg",
         day          :"1",
-        time         :"11:30 AM - 1:00 PM",
-        date         :"MAR 18",
+        time         :"6:00 PM - 9:00 PM",
+        date         :"MAR 7",
         eventName    :"Eliminator",
         eventDetails :"This event will be played in a team of two. There will be two rounds in this event. In both the rounds, questions based on logical reasoning will be asked. In round one, participants will get points for every correct answer. After round one, Top 30(liable to change) teams will be selected for round 2. "
     },
@@ -21,7 +21,7 @@ export var eventsdata = [
         eventID      :"103",
         posterImg    :"images/eventPosters/hackerhive.jpeg",
         day          :"1",
-        time         :"3:30 PM - 6:30 PM",
+        time         :"2:30 PM - 6:30 PM",
         date         :"MAR 18",
         eventName    :"Hacker Hive",
         eventDetails :"This is a hackathon that will be organized as part of the Version. This will be a 7 days long hackathon. The problem statements for the hackathon will be released online a week before Version. Interested teams can register and develop the solution for any one problem. Problems will be from three domains – Web Development, App Development, Machine Learning. Participating teams will develop the solution and then present that solution offline in Version. "
@@ -48,7 +48,7 @@ export var eventsdata = [
         eventID      :"105",
         posterImg    :"images/eventPosters/crackandswap.jpeg",
         day          :"2",
-        time         :"2:30 AM - 3:30 PM",
+        time         :"2:30 PM - 3:30 PM",
         date         :"MAR 19",
         eventName    :"Crack & Swap",
         eventDetails :"This is a 1 hour long team coding challenge. In this challenge, participants have to form a team of two people. Each team will be given two problems to solve. Both the member of the team will start working on different problems. After 30 minutes, both of them will switch the problems and continue from where their teammate left. The platform for the event will be HackerEarth (liable to change)."
@@ -66,7 +66,7 @@ export var eventsdata = [
         eventID      :"107",
         posterImg    :"images/eventPosters/gamefista.jpeg",
         day          :"",
-        time         :"",
+        time         :"10:00 AM - 5:00 PM",
         date         :"MAR 18 - 19",
         eventName    :"GameFiesta",
         eventDetails :"This will be a two hour long LAN gaming event. The game will be played on solo mode. The game played during the event will be developed by the members of the Event Execution Committee. The best performer of the game will be declared as the winner."
@@ -75,8 +75,8 @@ export var eventsdata = [
         eventID      :"109",
         posterImg    :"images/eventPosters/managethedamage.jpeg",
         day          :"",
-        time         :"",
-        date         :"MAR 18 - 19",
+        time         :"9:30 PM -10:00 PM",
+        date         :"MAR 5",
         eventName    :"Manage the Damage",
         eventDetails :"It will be a 1 hour long debugging event. The participants will be given some erroneous code. They have to resolve all the errors and remove all the bugs that are present in the code. The code will be in one of the three programming languages – C++,Java or Python.This will be a solo event. Team participation is not allowed.This will be a solo event. Team participation is not allowed."
     },

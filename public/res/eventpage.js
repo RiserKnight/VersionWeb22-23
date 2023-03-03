@@ -1,4 +1,7 @@
 import {eventsdata} from './eventsData.js'
+//import eventsdata1 from '../../controllers/functions/eventsData.js';
+//const eventData=eventsdata1.eventsdata();
+//console.log(eventData);
 
 // fetching registerData
 const registerData = document.getElementById("registerData").value;
@@ -91,17 +94,17 @@ function createCard(teamMember,container,ids){
         cardCover.appendChild(datetime);
         container.appendChild(cardCover);
 
-        let nonBlurEvents=['102','109'];
-        if(nonBlurEvents.includes(teamMember.eventID)){
+        //let nonBlurEvents=['101','102','103','104','105','106','107','108','109','110'];
+       // if(nonBlurEvents.includes(teamMember.eventID)){
           let action = document.getElementById(`"${teamMember.eventID}"`);
           action.addEventListener('click',function(e){
               modalTrigger(teamMember.eventName,teamMember.eventDetails,teamMember.eventID);
           });
-        }
-        else{
-          image.classList.add('closeEvent');
+//}
+      //  else{
+        //  image.classList.add('closeEvent');
           // datetime.classList.add('closeEvent');
-        }
+//}
         
         image.loading = "lazy";
 }
@@ -131,7 +134,7 @@ registerBtn.addEventListener('click', async function(event) {
         // console.log(locals.registerData);
         const data = await res.json();
         if(data.msg=="Login") location.assign('/login');
-        if(data.code ==="100")
+        else if(data.code ==="100")
         {
           //triggering modal
           const eventIDInput = document.getElementById('eventID');
