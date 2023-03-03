@@ -96,7 +96,7 @@ h1 span{
     -webkit-animation: blink-1 0.6s 5s both;
     animation: blink-1 0.6s 5s both;
     text-shadow: 0.5px 0.5px 5px rgb(56, 54, 54),-0.5px -0.5px 5px rgb(56, 54, 54);
-    filter: blur(10px);
+   
 }
 .hide{
     display: none;
