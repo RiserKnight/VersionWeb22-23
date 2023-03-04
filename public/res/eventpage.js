@@ -87,7 +87,7 @@ function createCard(teamMember,container,ids){
         detdiv.appendChild(detdet);
         //console.log(teamMember.eventId)
         card.setAttribute("id",`"${teamMember.eventID}"`);
-        card.appendChild(detdiv);
+        // card.appendChild(detdiv);
         card.appendChild(image);
         cardCover.appendChild(card);
         cardCover.appendChild(document.createElement("hr"));
