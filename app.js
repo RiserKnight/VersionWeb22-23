@@ -6,7 +6,7 @@ const  bodyParser = require('body-parser');
 const passport = require('passport')
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const checkUserID = require('./controllers/functions/checkUserID.js');
+const dbFunct = require("./controllers/functions/database.js");
 
 require('./config/passport');
 require('./models/session');
@@ -60,6 +60,17 @@ app.use(routes);
       const value="2023000";
       await info.create({infoID,purpose,dataT,value})
     }
+    // var obj1={"userID":2023007,"E101":false,"E102":false,"E103":false,"E104":false,"E105":false,"E106":false,"E107":false,"E108":false,"E109":false,"E110":false};
+    // var obj2={"userID":2023008,"E101":false,"E102":false,"E103":false,"E104":false,"E105":false,"E106":false,"E107":false,"E108":false,"E109":false,"E110":false};
+    // var obj3={"userID":2023009,"E101":false,"E102":false,"E103":false,"E104":false,"E105":false,"E106":false,"E107":false,"E108":false,"E109":false,"E110":false};
+    // var obj4={"userID":2023011,"E101":false,"E102":false,"E103":false,"E104":false,"E105":false,"E106":false,"E107":false,"E108":false,"E109":false,"E110":false};
+    // await dbFunct.getListOfEvent("E101");
+    // await eventRegistartion.create(obj1);
+    // await eventRegistartion.create(obj2);
+    // await eventRegistartion.create(obj3);
+    // await eventRegistartion.create(obj4);
+    // const userList=await dbFunct.getListOfEvent("E101");
+    // console.log(userList);
     // console.log(checkUserID.check("205121002"));
     // console.log(checkUserID.check("a@b.com"));
     // console.log(checkUserID.check("2051 21002"));

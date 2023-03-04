@@ -256,3 +256,17 @@ exports.getUserOTPs=async(search)=>{
         console.log(err);
             }
 }
+/*****************************************************Admin Operations(Search)******************************************** */
+exports.getListOfEvent=async(eventID)=>{
+    let usersList=[];
+    try {
+        const users = await eventRegistartion.findAll({attributes: ['userID',`${eventID}`]});
+        users.forEach(user => {
+            if(user.dataValues[`${eventID}`]){
+            usersList.push(user.dataValues.userID);}
+        });
+        return usersList ;
+    } catch (error) {
+        console.log(error);
+    }
+}

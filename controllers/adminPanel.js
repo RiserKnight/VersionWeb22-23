@@ -252,6 +252,28 @@ if(adminCall==55)
   const users= await dbFunct.getAllUsersOTP();
   res.render("admin/tables",{users:users});
 }
+if (adminCall==61) 
+{
+  const eventID=req.body.userID;
+  const userList=await dbFunct.getListOfEvent(eventID);
+  var userDataList=[];
+  for (let index = 0; index < userList.length; index++) {
+    const element = userList[index];
+    console.log(element);
+   const userData = await user.findOne({where:{userID:element},attributes: ['userID','userName','email','contact','university','roll']});
+   if(userData){
+   const obj ={"Serial":index+1,"userID":userData.dataValues.userID,"userName":userData.dataValues.userName,
+   "email":userData.dataValues.email,"contact":userData.dataValues.contact,"university":userData.dataValues.university,
+   "roll":userData.dataValues.roll};
+   userDataList.push(obj);
+  }
+}
+   
+
+  console.log(userDataList);
+  res.render("admin/tables",{users:userDataList});
+  
+}
 } catch (error) {
   console.log(error);
 }
