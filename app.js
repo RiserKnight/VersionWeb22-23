@@ -8,6 +8,7 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const dbFunct = require("./controllers/functions/database.js");
 
+
 require('./config/passport');
 require('./models/session');
 require('dotenv').config();

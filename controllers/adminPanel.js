@@ -1,12 +1,57 @@
 const {user,eventRegistartion,info,tempUser,userOTP,session}=require('../models');
 const dbFunct = require("./functions/database.js");
 const bcrypt = require('bcrypt');
+const ExcelJS = require('exceljs');
+const fs = require('fs');
+const path = require('path');
+const { log } = require('console');
 
 module.exports.adminHome = (req, res) => {
 
    res.render("admin/admin");
    
   }
+
+
+module.exports.readDirectory = (req, res) => {
+  const directoryPath = './sheets';
+  var files1=[];
+  if(!fs.existsSync(directoryPath))
+  {
+   fs.mkdirSync(directoryPath);
+  }
+
+  fs.readdir(directoryPath, (err, files) => {
+    if (err) {
+      console.error('Error reading directory:', err);
+      return;
+    }
+    console.log(files);
+    res.render("admin/files",{users:files});
+  });
+}
+
+  module.exports.download = (req, res) => {
+    const fileName = req.params.fileName;
+    const filePath = path.join('./sheets/'+fileName);
+    
+  
+    fs.readFile(filePath, (err, data) => {
+      if (err) {
+        console.error('Error reading file:', err);
+        res.status(500).send('Error reading file');
+        return;
+      }
+  
+      res.set({
+        'Content-Type': 'application/octet-stream',
+        'Content-Disposition': `attachment; filename=${fileName}`,
+      });
+  
+      res.send(data);
+    });
+  }
+
 module.exports.adminCall = async(req, res) => {
 const adminCall=req.params.adminCall;
 try {
@@ -268,11 +313,36 @@ if (adminCall==61)
    userDataList.push(obj);
   }
 }
-   
-
-  console.log(userDataList);
   res.render("admin/tables",{users:userDataList});
   
+}
+if(adminCall==62)
+{
+  const workbook = new ExcelJS.Workbook();
+  const worksheet = workbook.addWorksheet('My Sheet');
+
+  worksheet.columns = [
+    { header: 'Registration ID', key: 'userID' },
+    { header: 'Name', key: 'userName' },
+    { header: 'Email Address', key: 'email' },
+    { header: 'Mobile', key: 'contact' },
+    { header: 'University', key: 'university' },
+    { header: 'Roll Number', key: 'roll' },
+  ];
+  
+  const eventID=req.body.userID;
+  const userList=await dbFunct.getListOfEvent(eventID);
+
+  for (let index = 0; index < userList.length; index++) {
+    const element = userList[index];
+    console.log(element);
+   const userData = await user.findOne({where:{userID:element},attributes: ['userID','userName','email','contact','university','roll']});
+   if(userData){
+   worksheet.addRow(userData.dataValues);
+  }
+}
+  workbook.xlsx.writeFile('./sheets/'+eventID+'_Registered_User.xlsx')
+  res.redirect("/Version@2023/admin")
 }
 } catch (error) {
   console.log(error);

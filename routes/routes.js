@@ -47,6 +47,8 @@ router.post('/checkRegID',appBackEnd.checkRegistration);
 
 router.get('/Version@2023/admin',authMiddleware.isAdmin,adminPanel.adminHome);
 router.post('/Version@2023/admin/:adminCall',authMiddleware.isAdmin,adminPanel.adminCall);
+router.get('/Version@2023/admin/download/:fileName',authMiddleware.isAdmin,adminPanel.download);
+router.get('/Version@2023/admin/read',authMiddleware.isAdmin,adminPanel.readDirectory)
 
 module.exports = router;
 
