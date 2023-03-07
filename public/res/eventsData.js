@@ -12,10 +12,10 @@ export var eventsdata = [
         eventID      :"102",
         posterImg    :"images/eventPosters/eliminator.jpeg",
         day          :"1",
-        time         :"6:00 PM - 9:00 PM",
+        time         :"6:00 PM - 6:00 PM(24 Hours)",
         date         :"MAR 7",
         eventName    :"Eliminator",
-        eventDetails :"This event will be played in a team of two. There will be two rounds in this event. In both the rounds, questions based on logical reasoning will be asked. In round one, participants will get points for every correct answer. After round one, Top 30(liable to change) teams will be selected for round 2. Link to this event will be displayed here at 5PM. "
+        eventDetails :"This event will be played in a team of two. There will be two rounds in this event. In both the rounds, questions based on logical reasoning will be asked. In round one, participants will get points for every correct answer. After round one, Top 30(liable to change) teams will be selected for round 2. Link :- http://eliminator.version23.in/ . "
     },
     {
         eventID      :"103",
