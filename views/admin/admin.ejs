@@ -231,6 +231,34 @@
         
 
     </div>
+    <h4>Create</h4>
+    <div>
+        <form action="/Version@2023/admin/41" method="post">
+            <label for="input1">userID</label>
+            <input class="admninInput" type="text" name="userID" placeholder="Enter here">
+
+            <label for="input1">Name</label>
+            <input class="admninInput" type="text" name="userName" placeholder="Enter here">
+
+            <label for="input1">Roll_No</label>
+            <input class="admninInput" type="text" name="roll" placeholder="Enter here">
+
+            <label for="input1">Email</label>
+            <input class="admninInput" type="email" name="email" placeholder="Enter here">
+
+            <br>
+
+            <label for="input1">Contact</label>
+            <input class="admninInput" type="tel" pattern="[0-9]{10}" name="contact" placeholder="Enter here">
+
+            <label for="input1">University</label>
+            <input class="admninInput" type="text" name="university" placeholder="Enter here">
+
+            <label for="input1">Password</label>
+            <input class="admninInput" type="numeric" name="pass" placeholder="Enter here">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
     <h4>Delete</h4>
     <div>
         <form action="/Version@2023/admin/51" method="post">
@@ -270,6 +298,12 @@
             <label for="input1">eventID</label>
             <input type="numeric" name="userID" placeholder="Enter here">
             <input type="submit" value="Print List">
+        </form>
+        <form action="/Version@2023/admin/63" method="post">
+            <input type="submit" value="Get User List">
+        </form>
+        <form action="/Version@2023/admin/64" method="post">
+            <input type="submit" value="Print User List">
         </form>
     </div>
     <h4>File Operations</h4>

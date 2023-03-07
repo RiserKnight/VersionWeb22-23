@@ -302,6 +302,14 @@ export var eventTeam = [
     },
   ]
 export var alumniTeam = [
+  {
+    "Username": "akave7@gmail.com",
+    "Name": "Akash Dave",
+    "POR":"",
+    "Photo": "https://drive.google.com/uc?id=1wU7WgWxHp43bvDXxDcdR4NeZdAos8VEz",
+    "Github": "https://github.com",
+    "Linkedin": "https://www.linkedin.com/in/dave-the-way-to-crack-code"
+  },
     {
 
       "Username": "nayangupta2215@gmail.com",

@@ -344,6 +344,52 @@ if(adminCall==62)
   workbook.xlsx.writeFile('./sheets/'+eventID+'_Registered_User.xlsx')
   res.redirect("/Version@2023/admin")
 }
+if(adminCall==63)
+{
+  let users=[];
+   const demo=await user.findAll({attributes: ['userID','userName','email','contact','university','roll']});
+   demo.forEach(user => {
+       users.push(user.dataValues);
+   });
+   res.render("admin/tables",{users:users});
+
+}
+if(adminCall==64)
+{
+  const workbook = new ExcelJS.Workbook();
+  const worksheet = workbook.addWorksheet('My Sheet');
+  worksheet.columns = [
+    { header: 'Registration ID', key: 'userID' },
+    { header: 'Name', key: 'userName' },
+    { header: 'Email Address', key: 'email' },
+    { header: 'Mobile', key: 'contact' },
+    { header: 'University', key: 'university' },
+    { header: 'Roll Number', key: 'roll' },
+  ];
+  const demo=await user.findAll({attributes: ['userID','userName','email','contact','university','roll']});
+   demo.forEach(user => {
+    worksheet.addRow(user.dataValues);
+   });
+   workbook.xlsx.writeFile('./sheets/Registered_User.xlsx')
+   res.redirect("/Version@2023/admin");
+
+}
+if(adminCall==41)
+{
+  const userID =req.body.userID;
+  const userName=req.body.userName;
+  const roll=req.body.roll;
+  const email=req.body.email;
+  const contact=req.body.contact;
+  const university=req.body.university;
+  var pass=req.body.pass;
+
+  const salt = await bcrypt.genSalt(10);
+  pass  = await bcrypt.hash(pass, salt);
+
+  await user.create({userID,userName,roll,email,contact,university,pass});
+  res.redirect("/Version@2023/admin");
+}
 } catch (error) {
   console.log(error);
 }

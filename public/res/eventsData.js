@@ -15,7 +15,7 @@ export var eventsdata = [
         time         :"6:00 PM - 9:00 PM",
         date         :"MAR 7",
         eventName    :"Eliminator",
-        eventDetails :"This event will be played in a team of two. There will be two rounds in this event. In both the rounds, questions based on logical reasoning will be asked. In round one, participants will get points for every correct answer. After round one, Top 30(liable to change) teams will be selected for round 2. "
+        eventDetails :"This event will be played in a team of two. There will be two rounds in this event. In both the rounds, questions based on logical reasoning will be asked. In round one, participants will get points for every correct answer. After round one, Top 30(liable to change) teams will be selected for round 2. Link to this event will be displayed here at 5PM. "
     },
     {
         eventID      :"103",
