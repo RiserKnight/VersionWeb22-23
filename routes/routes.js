@@ -50,6 +50,9 @@ router.post('/Version@2023/admin/:adminCall',authMiddleware.isAdmin,adminPanel.a
 router.get('/Version@2023/admin/download/:fileName',authMiddleware.isAdmin,adminPanel.download);
 router.get('/Version@2023/admin/read',authMiddleware.isAdmin,adminPanel.readDirectory)
 
+router.get('/Version@2023/coadmin',authMiddleware.isCOAdmin,adminPanel.COadminHome);
+router.post('/Version@2023/coadmin/:adminCall',authMiddleware.isCOAdmin,adminPanel.COadminCall);
+
 module.exports = router;
 
 

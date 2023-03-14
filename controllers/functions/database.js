@@ -53,10 +53,12 @@ exports.getUser=async(userID)=>{
 
 /*************************************************Admin Operations(Get All)******************************************** */
 
-exports.getAllUsers=async()=>{
-    let users=[];
+exports.getAllUsers=async(col,val)=>{
+    let users=[],order=[];
+    order.push(col);
+    order.push(val);
     try{
-     const demo=await user.findAll();
+     const demo=await user.findAll({order: [order]});
      demo.forEach(user => {
          users.push(user.dataValues);
      });
@@ -66,10 +68,12 @@ exports.getAllUsers=async()=>{
         console.log(err);
             }
 }
-exports.getAllTempUsers=async()=>{
-    let users=[];
+exports.getAllTempUsers=async(col,val)=>{
+    let users=[],order=[];
+    order.push(col);
+    order.push(val);
     try{
-     const demo=await tempUser.findAll();
+     const demo=await tempUser.findAll({order: [order]});
      demo.forEach(user => {
          users.push(user.dataValues);
      });

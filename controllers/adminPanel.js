@@ -1,17 +1,22 @@
 const {user,eventRegistartion,info,tempUser,userOTP,session}=require('../models');
+const otpFunct = require("./functions/genOTP.js");
+const verifyMailFunct = require("./functions/verifyMail.js");
 const dbFunct = require("./functions/database.js");
 const bcrypt = require('bcrypt');
 const ExcelJS = require('exceljs');
 const fs = require('fs');
 const path = require('path');
-const { log } = require('console');
 
 module.exports.adminHome = (req, res) => {
 
    res.render("admin/admin");
    
   }
+  module.exports.COadminHome = (req, res) => {
 
+    res.render("admin/COadmin");
+    
+   }
 
 module.exports.readDirectory = (req, res) => {
   const directoryPath = './sheets';
@@ -51,6 +56,51 @@ module.exports.readDirectory = (req, res) => {
       res.send(data);
     });
   }
+  module.exports.COadminCall = async(req, res) => {
+    const adminCall=req.params.adminCall;
+    try {
+      if(adminCall==1) {
+        const userName=req.body.userName;
+        const roll=req.body.roll;
+        const email=(req.body.email).toLowerCase();
+        console.log(email);
+        const contact=req.body.contact;
+        const university=req.body.university;
+        const pass=req.body.pass;
+        var userNew,code="000";
+
+      const emailN = await user.findOne({where:{email:email}});
+      if(!emailN){
+      const emailTN = await tempUser.findOne({where:{email:email}});
+      if(!emailTN)
+      {
+        const date = new Date();
+        const validTill = parseInt(date.getTime()+1770*60*1000);
+        const validOTP = otpFunct.validOTP();
+        const tempID=validOTP+validTill;
+        console.log(tempID);
+        const link=process.env.HOST+"/verifyAccount?temp="+tempID;
+        userNew= await tempUser.create({tempID,userName,roll,email,contact,university,pass,validTill});
+        const data ={userName: userNew.userName,link:link};
+        verifyMailFunct.mail(req,res,email,data);
+        code="100";
+      }
+      else code="300";
+      }
+      else code="200"
+
+      if(code=="100")res.json({"code":"100","msg":"Please check your email and verify your account. Also  check spam folder."});
+    else if(code=="200")res.json({"code":"200","msg":"User email already Exist"});
+    else if(code=="300")res.json({"code":"300","msg":"User already exist. Please check your email and verify your account."});
+    else res.json({"success": "false","msg": "Unexpected Error","code": code});
+
+      }
+      
+    } catch (error) {
+      console.log(error);
+    }
+    
+  }
 
 module.exports.adminCall = async(req, res) => {
 const adminCall=req.params.adminCall;
@@ -59,7 +109,9 @@ try {
 
 if(adminCall==1) 
 {
-  const users= await dbFunct.getAllUsers();
+  const col= req.body.inputOpt1
+  var val='ASC'
+  const users= await dbFunct.getAllUsers(col,val);
   res.render("admin/tables",{users:users});
 }
 if(adminCall==2) 
@@ -89,7 +141,9 @@ if(adminCall==6)
 }
 if(adminCall==7) 
 {
-  const users= await dbFunct.getAllTempUsers();
+  const col= req.body.inputOpt1
+  var val='ASC'
+  const users= await dbFunct.getAllTempUsers(col,val);
   res.render("admin/tables",{users:users});
 }
 

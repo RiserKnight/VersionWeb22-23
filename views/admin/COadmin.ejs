@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/styles/adminStyles.css">
+    <link rel="icon" href="/images/vlogo.png" type="image/icon type">
+</head>
+<body>
+    <h3>Co-Admin Panel Of TradeX</h3>
+    <a href="/"><button>Home</button></a>
+    <h4>Create</h4>
+    <div>
+        <form action="/Version@2023/coadmin/1" method="post">
+
+            <label for="input1">Name</label>
+            <input class="admninInput" type="text" name="userName" placeholder="Enter here">
+
+            <label for="input1">Roll_No</label>
+            <input class="admninInput" type="text" name="roll" placeholder="Enter here">
+
+            <label for="input1">Email</label>
+            <input class="admninInput" type="email" name="email" placeholder="Enter here">
+
+            <br>
+
+            <label for="input1">Contact</label>
+            <input class="admninInput" type="tel" pattern="[0-9]{10}" name="contact" placeholder="Enter here">
+
+            <label for="input1">University</label>
+            <input class="admninInput" type="text" name="university" placeholder="Enter here">
+
+            <label for="input1">Password</label>
+            <input class="admninInput" type="numeric" name="pass" placeholder="Enter here">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
