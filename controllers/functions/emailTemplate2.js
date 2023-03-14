@@ -9,15 +9,15 @@ const emailTemplate = (userName,link) => {
         <img src="http://version23.in/images/version.png" alt="Logo">
         <p><strong>Dear Participant,</strong></p>
         
-        <p>We are pleased to inform you that free accommodation and food will be provided for participants coming from colleges <strong> located outside </strong> the 60 KM range of NIT Trichy. To avail of this facility, please fill out the following Google Form by March 16, 2023.</p>
+        <p>We are pleased to inform you that free accommodation and food will be provided for participants coming from colleges located outside the 60 KM range of NIT Trichy. To avail of this facility, please fill out the following Google Form by March 16, 2023.</p>
 
         <a href="https://forms.gle/SwRBeKPxS8ig99Fj8"><strong>Click here to fill out the Google Form</strong></a>
         <br><br>
         
         <p><strong>Important points to note:</strong></p>
         <ul>
-            <li>Free accommodation and food is only for participants coming from colleges located outside the 60 KM range of NIT Trichy.</li>
-            <li>The deadline to fill out the Google Form is March 16, 2023(6:00 PM). If not done in time no accomodation or food will be provided.</li>
+            <li>Free accommodation and food is only for participants coming from colleges<strong> located outside</strong> the 60 KM range of NIT Trichy.</li>
+            <li>The deadline to fill out the Google Form is <strong>March 16, 2023(6:00 PM)</strong>. If not done in time no accomodation or food will be provided.</li>
             <li>From one particular college any number of teams can participate but accommodation and food will be <strong>provided to 5 members only.</strong></li>
         </ul>
         <br>
