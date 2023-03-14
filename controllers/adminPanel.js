@@ -109,8 +109,8 @@ try {
 
 if(adminCall==1) 
 {
-  const col= req.body.inputOpt1
-  var val='ASC'
+  const col= req.body.inputOpt1;
+  var val='ASC';
   const users= await dbFunct.getAllUsers(col,val);
   res.render("admin/tables",{users:users});
 }
@@ -354,6 +354,8 @@ if(adminCall==55)
 if (adminCall==61) 
 {
   const eventID=req.body.userID;
+  const col= req.body.inputOpt1;
+
   const userList=await dbFunct.getListOfEvent(eventID);
   var userDataList=[];
   for (let index = 0; index < userList.length; index++) {
@@ -367,6 +369,7 @@ if (adminCall==61)
    userDataList.push(obj);
   }
 }
+userDataList.sort((a, b) =>a[col] - b[col] );
   res.render("admin/tables",{users:userDataList});
   
 }
@@ -388,8 +391,8 @@ if(adminCall==62)
   const userList=await dbFunct.getListOfEvent(eventID);
 
   for (let index = 0; index < userList.length; index++) {
-    const element = userList[index];
-    console.log(element);
+   const element = userList[index];
+   console.log(element);
    const userData = await user.findOne({where:{userID:element},attributes: ['userID','userName','email','contact','university','roll']});
    if(userData){
    worksheet.addRow(userData.dataValues);
