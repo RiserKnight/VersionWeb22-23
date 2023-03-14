@@ -260,8 +260,8 @@ if(adminCall==33)
 if(adminCall==51) 
 {
   const userID=req.body.userID;
-  const user = await user.findOne({where:{userID:userID}});
-  user.destroy();
+  const userN = await user.findOne({where:{userID:userID}});
+  userN.destroy();
   const users= await dbFunct.getAllUsers();
   res.render("admin/tables",{users:users});
 }

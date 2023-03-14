@@ -5,7 +5,7 @@ const otpFunct = require("./functions/genOTP.js");
 const bcrypt = require('bcrypt');
 const emailFunct1 = require("./functions/otpMail.js");
 const verifyMailFunct = require("./functions/verifyMail.js");
-
+const emailAccomd = require("./functions/accomdMail.js");
 require('dotenv').config();
 
 
@@ -103,7 +103,7 @@ module.exports.verifyAccount = async(req,res)=>{
   try {
     console.log(temp);
     userTemp = await tempUser.findOne({where:{tempID:temp}});
-   // console.log(userNew.dataValues);
+    console.log(userTemp.dataValues);
     const userName = userTemp.dataValues.userName;
     const roll = userTemp.dataValues.roll;
     const email = userTemp.dataValues.email;
@@ -113,6 +113,7 @@ module.exports.verifyAccount = async(req,res)=>{
     userNew=await dbFunct.storeUser(userName,roll,email,contact,university,pass);
     const data ={userName: userNew.userName,reg: userNew.userID};
     emailFunct.mail(req,res,email,data);
+    emailAccomd.mail(req,res,email);
     code="100";
     await userTemp.destroy();
   } catch (error) {
