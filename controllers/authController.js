@@ -54,7 +54,8 @@ module.exports.home = (req, res) => {
    res.locals.user =req.user;
    const userName=req.body.userName;
    const roll=req.body.roll;
-   const email=req.body.email;
+   const email=(req.body.email).toLowerCase();
+   console.log(email);
    const contact=req.body.contact;
    const university=req.body.university;
    const pass=req.body.pass;
