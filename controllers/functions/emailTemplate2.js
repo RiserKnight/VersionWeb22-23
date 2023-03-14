@@ -17,7 +17,8 @@ const emailTemplate = (userName,link) => {
         <p><strong>Important points to note:</strong></p>
         <ul>
             <li>Free accommodation and food is only for participants coming from colleges located outside the 60 KM range of NIT Trichy.</li>
-            <li>The deadline to fill out the Google Form is March 16, 2023.</li>
+            <li>The deadline to fill out the Google Form is March 16, 2023(6:00 PM). If not done in time no accomodation or food will be provided.</li>
+            <li>From one particular college any number of teams can participate but accommodation and food will be <strong>provided to 5 members only.</strong></li>
         </ul>
         <br>
         
