@@ -19,12 +19,12 @@ export var eventsdata = [
     },
     {
         eventID      :"103",
-        posterImg    :"images/eventPosters/hackerhive.jpeg",
+        posterImg    :"images/eventPosters/paperHive.png",
         day          :"1",
         time         :"2:30 PM - 6:30 PM",
         date         :"MAR 18",
-        eventName    :"Hacker Hive",
-        eventDetails :"This is a hackathon that will be organized as part of the Version. This will be a 7 days long hackathon. The problem statements for the hackathon will be released online a week before Version. Interested teams can register and develop the solution for any one problem. Problems will be from three domains – Web Development, App Development, Machine Learning. Participating teams will develop the solution and then present that solution offline in Version. "
+        eventName    :"Paper Hive",
+        eventDetails :"India has taken a very big step by hosting the G20 summit in 2023. Version presents you an opportunity to present your views and research on several G20 agendas. We present to you hacker hive in which participating teams will have to present a paper on the given G20 agendas. The event will be 4 hours long. In the first two hours , participating teams will have to prepare their paper presentation and in the next 2 hours, they have to present it. "
     },
     {
         eventID      :"108",
@@ -48,7 +48,7 @@ export var eventsdata = [
         eventID      :"105",
         posterImg    :"images/eventPosters/crackandswap.jpeg",
         day          :"2",
-        time         :"2:30 PM - 3:30 PM",
+        time         :"2:00 PM - 3:00 PM",
         date         :"MAR 19",
         eventName    :"Crack & Swap",
         eventDetails :"This is a 1 hour long team coding challenge. In this challenge, participants have to form a team of two people. Each team will be given two problems to solve. Both the member of the team will start working on different problems. After 30 minutes, both of them will switch the problems and continue from where their teammate left. The platform for the event will be HackerEarth (liable to change)."

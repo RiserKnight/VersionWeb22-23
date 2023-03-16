@@ -1,6 +1,6 @@
 const express = require('express');
 const routes = require('./routes/routes');
-const {sequelize,info,eventRegistartion}=require('./models');
+const {sequelize,info}=require('./models');
 const cors = require('cors');
 const  bodyParser = require('body-parser');
 const passport = require('passport')

@@ -95,6 +95,22 @@ module.exports.readDirectory = (req, res) => {
     else res.json({"success": "false","msg": "Unexpected Error","code": code});
 
       }
+      if(adminCall==2)
+      {
+        search={};
+        const userID1=req.body.userID1;
+        const userID2=req.body.userID2;
+        const userID3=req.body.userID3;
+        const inputOpt1 =req.body.inputOpt1;
+        const inputOpt2 =req.body.inputOpt2;
+        const inputOpt3 =req.body.inputOpt3;
+        if(userID1)search[inputOpt1] = userID1;
+        if(userID2)search[inputOpt2] = userID2;
+        if(userID3)search[inputOpt3] = userID3;
+     
+       const users= await dbFunct.getUsers(search);
+       res.render("admin/cotables",{users:users});
+      }
       
     } catch (error) {
       console.log(error);
