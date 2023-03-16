@@ -2,6 +2,17 @@ import {eventsdata} from './eventsData.js'
 //import eventsdata1 from '../../controllers/functions/eventsData.js';
 //const eventData=eventsdata1.eventsdata();
 //console.log(eventData);
+function checkT(timeM)
+{
+  const d = new Date();
+d.setTime(timeM);
+console.log(d);
+console.log(timeM);
+const curr =new Date();
+if(curr.getTime()<d.getTime())return false;
+else return true;
+}
+
 
 // fetching registerData
 const registerData = document.getElementById("registerData").value;
@@ -15,7 +26,7 @@ const messageLine = document.getElementById("msg");
 span.onclick = function() {
   modal.style.display = "none";
 }
-export let modalTrigger=(eventName,eventDetails,eventID)=>{
+export let modalTrigger=(eventName,eventDetails,eventID,timeM)=>{
   const modal = document.getElementById("myModal");
         // <span> element that closes the modal
         const span = document.getElementsByClassName("close")[0];
@@ -34,15 +45,23 @@ export let modalTrigger=(eventName,eventDetails,eventID)=>{
         }
         evename.innerText=eventName;
         evedet.innerText=eventDetails;
+        const res= checkT(timeM);
         // console.log(registerData1['E'+eventID])
         if(registerData1['E'+eventID]){
           regBtn.innerText='Registered'
+          regBtn.setAttribute('disabled',true)
+        }
+        else if(res){
+          regBtn.innerText='Registration Closed'
           regBtn.setAttribute('disabled',true)
         }
         else{
           regBtn.innerText='Register'
           regBtn.removeAttribute('disabled')
         }
+       
+        
+        
         if(eventName=='Attention')
           regBtn.style.display = "none";
         modal.style.display="block";
@@ -98,7 +117,7 @@ function createCard(teamMember,container,ids){
        // if(nonBlurEvents.includes(teamMember.eventID)){
           let action = document.getElementById(`"${teamMember.eventID}"`);
           action.addEventListener('click',function(e){
-              modalTrigger(teamMember.eventName,teamMember.eventDetails,teamMember.eventID);
+              modalTrigger(teamMember.eventName,teamMember.eventDetails,teamMember.eventID,teamMember.timeM);
           });
 //}
       //  else{
