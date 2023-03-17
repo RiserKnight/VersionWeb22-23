@@ -77,7 +77,7 @@ export var eventsdata = [
         timeM         :"1679308200000",
         date         :"MAR 18 - 19",
         eventName    :"GameFiesta",
-        eventDetails :"This will be a two hour long LAN gaming event. The game will be played on solo mode. The game played during the event will be developed by the members of the Event Execution Committee. The best performer of the game will be declared as the winner."
+        eventDetails :"This will be a two days long LAN gaming event. The game will be played on solo mode. The game played during the event will be developed by the members of the Event Execution Committee. The best performer of the game will be declared as the winner."
     },
     {
         eventID      :"109",
