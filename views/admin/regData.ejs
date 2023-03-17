@@ -52,7 +52,8 @@
                                         <h5> <b><%=data%></b></h5>
                                     </td>
                                     <%})%>
-                                    <form action=`/unregister/event/${arr[0]}` method="post">
+                                    <form action="/unregister/event/<%=arr[0]%>" method="post">
+                                        <input style="display: none;" type="text" name="eventID" value="<%=eventID%>">
                                         <td>
                                             <input style="width: auto;
                                             background-color: #698ee5;
@@ -65,14 +66,20 @@
                                         </td>
                                     </form>
                                     
-                                </tr>
+                                </tr><
                              <%a++})%>
                             </tbody>
                         </table>
+                        
                         <%}else{%>
                             <h1>Empty</h1>
                         <%}%>
                     </div>
+                    <form action="/register/coadmin/<%=eventID%>" method="post">
+                        <label for="input1">userID</label>
+                        <input type="numeric" name="userID" placeholder="Enter here">
+                        <input type="submit" value="Register">
+                    </form>
                 </div>
             </div>
             </div>

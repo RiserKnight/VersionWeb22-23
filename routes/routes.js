@@ -52,6 +52,8 @@ router.get('/Version@2023/admin/read',authMiddleware.isAdmin,adminPanel.readDire
 
 router.get('/Version@2023/coadmin',authMiddleware.isCOAdmin,adminPanel.COadminHome);
 router.post('/Version@2023/coadmin/:adminCall',authMiddleware.isCOAdmin,adminPanel.COadminCall);
+router.post('/unregister/event/:userID',authMiddleware.isCOAdmin,adminPanel.unregisterEvent);
+router.post('/register/coadmin/:eventID',authMiddleware.isCOAdmin,adminPanel.registerEvent);
 
 module.exports = router;
 

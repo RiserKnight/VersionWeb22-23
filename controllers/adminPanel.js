@@ -7,6 +7,24 @@ const ExcelJS = require('exceljs');
 const fs = require('fs');
 const path = require('path');
 
+async function getUserList(eventID,col){
+  const userList=await dbFunct.getListOfEvent(eventID);
+  var userDataList=[];
+  for (let index = 0; index < userList.length; index++) {
+    const element = userList[index];
+    console.log(element);
+   const userData = await user.findOne({where:{userID:element},attributes: ['userID','userName','email','contact','university','roll']});
+   if(userData){
+   const obj ={"userID":userData.dataValues.userID,"userName":userData.dataValues.userName,
+   "email":userData.dataValues.email,"contact":userData.dataValues.contact,"university":userData.dataValues.university,
+   "roll":userData.dataValues.roll};
+   userDataList.push(obj);
+  }
+}
+userDataList.sort((a, b) =>a[col] - b[col] );
+return userDataList;
+}
+
 module.exports.adminHome = (req, res) => {
 
    res.render("admin/admin");
@@ -115,23 +133,36 @@ module.exports.readDirectory = (req, res) => {
       {
         const eventID=req.body.userID;
         const col= req.body.inputOpt1;
-      
-        const userList=await dbFunct.getListOfEvent(eventID);
-        var userDataList=[];
-        for (let index = 0; index < userList.length; index++) {
-          const element = userList[index];
-          console.log(element);
-         const userData = await user.findOne({where:{userID:element},attributes: ['userID','userName','email','contact','university','roll']});
-         if(userData){
-         const obj ={"userID":userData.dataValues.userID,"userName":userData.dataValues.userName,
-         "email":userData.dataValues.email,"contact":userData.dataValues.contact,"university":userData.dataValues.university,
-         "roll":userData.dataValues.roll};
-         userDataList.push(obj);
-        }
-      }
-      userDataList.sort((a, b) =>a[col] - b[col] );
-        res.render("admin/regData",{users:userDataList});
+        const userDataList = await getUserList(eventID,col);
+        res.render("admin/regData",{users:userDataList,eventID:eventID});
 
+      }
+      if(adminCall==4)
+      {
+        const userID=req.body.userID;
+        var userName=req.body.userName;
+        var roll=req.body.roll;
+        var email=req.body.email;
+        var contact=req.body.contact;
+        var university=req.body.university;
+        var pass=req.body.pass;
+      
+        const existUser = await user.findOne({where:{userID}});
+        if(!userName)userName=existUser.dataValues.userName;
+        if(!roll)roll=existUser.dataValues.roll;
+        if(!email)email=existUser.dataValues.email;
+        if(!contact)contact=existUser.dataValues.contact;
+        if(!university)university=existUser.dataValues.university;
+        if(!pass)pass=existUser.dataValues.pass;
+        else{
+          const salt = await bcrypt.genSalt(10);
+              pass  = await bcrypt.hash(pass, salt);
+        }
+      
+        await user.update({userName,roll,email,contact,university,pass},{where:{userID}});
+      
+        const users= await dbFunct.getUser(userID);
+        res.render("admin/cotables",{users:users});
       }
       
     } catch (error) {
@@ -139,6 +170,71 @@ module.exports.readDirectory = (req, res) => {
     }
     
   }
+module.exports.unregisterEvent =async(req,res) =>{
+const userID = req.params.userID;
+const eventID = req.body.eventID;
+
+var code = "000";
+    try {
+
+      console.log(eventID);
+
+      let updateValues = {};
+      updateValues[eventID] = false;
+      
+      userNew = await eventRegistartion.findOne({where:{userID:userID}});
+
+      if(!userNew) await eventRegistartion.create({userID});
+      
+      await eventRegistartion.update(updateValues,{where:{userID}});
+      code="100";
+
+    } catch (error) {
+      code="400";
+      console.log(error);
+    }
+    finally{
+
+      if(code=="100"){
+        const userDataList = await getUserList(eventID,"userID");
+        res.render("admin/regData",{users:userDataList,eventID:eventID});
+      }
+      else res.json({"success": "false","msg": "Unexpected Error","code": code});
+    }
+
+}
+
+module.exports.registerEvent =async(req,res) =>{
+  const userID = req.body.userID;
+const eventID = req.params.eventID;
+var code = "000";
+    try {
+      console.log(eventID);
+
+      let updateValues = {};
+      updateValues[eventID] = true;
+      
+      userNew = await eventRegistartion.findOne({where:{userID:userID}});
+
+      if(!userNew) await eventRegistartion.create({userID});
+      
+      await eventRegistartion.update(updateValues,{where:{userID}});
+      code="100";
+
+    } catch (error) {
+      code="400";
+      console.log(error);
+    }
+    finally{
+
+      if(code=="100"){
+        const userDataList = await getUserList(eventID,"userID");
+        res.render("admin/regData",{users:userDataList,eventID:eventID});
+      }
+      else res.json({"success": "false","msg": "Unexpected Error","code": code});
+    }
+}
+
 
 module.exports.adminCall = async(req, res) => {
 const adminCall=req.params.adminCall;
