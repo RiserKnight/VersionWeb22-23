@@ -13,6 +13,7 @@
         cursor: pointer;
     }
 
+
     input[type=submit]:hover {
         background-color: #698ee5;
     }

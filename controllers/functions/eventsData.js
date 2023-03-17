@@ -40,9 +40,9 @@ exports.eventsdata=()=>{
             StartTime: "02:30 PM",
             EndTime: "06:30 PM",
             time: "02:30 PM",
-            title: "Hacker Hive",
+            title: "Paper Hive",
             venue: "A3",
-            desc: "This is a hackathon that will be organized as part of the Version. This will be a 7 days long hackathon. The problem statements for the hackathon will be released online a week before Version. Interested teams can register and develop the solution for any one problem. Problems will be from three domains – Web Development, App Development, Machine Learning. Participating teams will develop the solution and then present that solution offline in Version. "
+            desc: "India has taken a very big step by hosting the G20 summit in 2023. Version presents you an opportunity to present your views and research on several G20 agendas. We present to you Paper Hive in which participating teams will have to present a paper on the given G20 agendas. The event will be 4 hours long. After one hour, participants have to submit the abstract of their paper.In the first two hours , participating teams will have to prepare their paper presentation and in the next 2 hours, they have to present it."
         }, {
             eventID: "108",
             id: "4",
@@ -112,23 +112,9 @@ exports.eventsdata=()=>{
             image: "https://drive.google.com/uc?export=view&id=1swE9mKSCOTQXz31faM3gR9Pm47mAipPq",
             title: "GameFiesta",
             desc: "This will be a two hour long LAN gaming event. The game will be played on solo mode. The game played during the event will be developed by the members of the Event Execution Committee. The best performer of the game will be declared as the winner."
-        }, {
-            eventID: "109",
-            id: "9",
-            StartDate: "19-03-2023",
-            EndDate: "19-03-2023",
-            StartTime: "06:00 PM",
-            EndTime: "08:00 PM",
-            time: "6:00 PM",
-            time1: "04:00 PM - 06:00 PM",
-            day: "1",
-            image: "https://drive.google.com/uc?export=view&id=1ZoJwzxn0wmueGdf4da2w8xxGxhYYuJDK",
-            title: "Manage the Damage",
-            venue: "N/A",
-            desc: "It will be a 1 hour long debugging event. The participants will be given some erroneous code. They have to resolve all the errors and remove all the bugs that are present in the code. The code will be in one of the three programming languages – C++,Java or Python.This will be a solo event. Team participation is not allowed.This will be a solo event. Team participation is not allowed."
-        }, {
+        },  {
             eventID: "110",
-            id: "10",
+            id: "9",
             StartDate: "18-03-2023",
             EndDate: "19-03-2023",
             StartTime: "Entire Day",
@@ -140,7 +126,7 @@ exports.eventsdata=()=>{
             title: "Shot vs Shot",
             venue: "N/A",
             desc: "In this events, the participants have to shoot a video of less than 2 minutes showing NIT Trichy. They have to explore NIT Trichy and shoot as many good things as they can. They have to show their editing and videography skills. This will be a solo event."
-    
+
         }
     ]
     

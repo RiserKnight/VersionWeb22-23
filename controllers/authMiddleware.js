@@ -18,7 +18,7 @@ module.exports.isAdmin = (req, res, next) => {
 }
 
 module.exports.isCOAdmin = (req, res, next) => {
-    if (req.isAuthenticated() && (req.user.userID==process.env.COADMIN1||req.user.userID==process.env.COADMIN2||req.user.userID==process.env.COADMIN3||req.user.userID==process.env.COADMIN4)) {
+    if (req.isAuthenticated() && (req.user.userID==process.env.COADMIN1||req.user.userID==process.env.COADMIN2||req.user.userID==process.env.COADMIN3||req.user.userID==process.env.COADMIN4||req.user.userID==process.env.COADMIN5)) {
         next();
     } else {
        res.status(401).json({ msg: 'You are not authorized to view this resource because you are not an co admin.' });

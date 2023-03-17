@@ -111,6 +111,28 @@ module.exports.readDirectory = (req, res) => {
        const users= await dbFunct.getUsers(search);
        res.render("admin/cotables",{users:users});
       }
+      if(adminCall==3)
+      {
+        const eventID=req.body.userID;
+        const col= req.body.inputOpt1;
+      
+        const userList=await dbFunct.getListOfEvent(eventID);
+        var userDataList=[];
+        for (let index = 0; index < userList.length; index++) {
+          const element = userList[index];
+          console.log(element);
+         const userData = await user.findOne({where:{userID:element},attributes: ['userID','userName','email','contact','university','roll']});
+         if(userData){
+         const obj ={"userID":userData.dataValues.userID,"userName":userData.dataValues.userName,
+         "email":userData.dataValues.email,"contact":userData.dataValues.contact,"university":userData.dataValues.university,
+         "roll":userData.dataValues.roll};
+         userDataList.push(obj);
+        }
+      }
+      userDataList.sort((a, b) =>a[col] - b[col] );
+        res.render("admin/regData",{users:userDataList});
+
+      }
       
     } catch (error) {
       console.log(error);
@@ -379,7 +401,7 @@ if (adminCall==61)
     console.log(element);
    const userData = await user.findOne({where:{userID:element},attributes: ['userID','userName','email','contact','university','roll']});
    if(userData){
-   const obj ={"Serial":index+1,"userID":userData.dataValues.userID,"userName":userData.dataValues.userName,
+   const obj ={"userID":userData.dataValues.userID,"userName":userData.dataValues.userName,
    "email":userData.dataValues.email,"contact":userData.dataValues.contact,"university":userData.dataValues.university,
    "roll":userData.dataValues.roll};
    userDataList.push(obj);

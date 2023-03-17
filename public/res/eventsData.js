@@ -27,7 +27,7 @@ export var eventsdata = [
         timeM         :"1679130000000",
         date         :"MAR 18",
         eventName    :"Paper Hive",
-        eventDetails :"India has taken a very big step by hosting the G20 summit in 2023. Version presents you an opportunity to present your views and research on several G20 agendas. We present to you hacker hive in which participating teams will have to present a paper on the given G20 agendas. The event will be 4 hours long. In the first two hours , participating teams will have to prepare their paper presentation and in the next 2 hours, they have to present it. "
+        eventDetails :"India has taken a very big step by hosting the G20 summit in 2023. Version presents you an opportunity to present your views and research on several G20 agendas. We present to you paper hive in which participating teams will have to present a paper on the given G20 agendas. The event will be 4 hours long. In the first two hours , participating teams will have to prepare their paper presentation and in the next 2 hours, they have to present it. "
     },
     {
         eventID      :"108",
